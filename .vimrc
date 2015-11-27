@@ -1,37 +1,32 @@
-set nocompatible
-filetype off
+call plug#begin('~/.vim/plugged') 
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'https://github.com/kien/ctrlp.vim' 
+Plug 'wookiehangover/jshint.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'groenewege/vim-less'
+call plug#end()
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" numbers settings
+let g:numbers_exclude = ['nerdtree']
 
-" Let vundle manage vundle (required)
-Plugin 'gmarik/Vundle.vim'
+" vim settings
+colorscheme summerfruit256
+set nowrap
+set cursorline
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
-" Nerdtree plugin from github
-Plugin 'scrooloose/nerdtree'
+" Custom shortcuts
+inoremap <C-p> CtrlP
 
-" Scrooloose plugin from github
-Plugin 'scrooloose/syntastic'
+" CtrlP Setting
+let g:ctrl_p_custom_ignore = {
+	\ 'dir': 'node_modules\|tmp\|bower_components\|\.git'
+	\ }
 
-" Tern for vim (javascript)
-Plugin 'marijnh/tern_for_vim'
-
-call vundle#end()
-
-filetype plugin indent on
-
-" Change tabs settings
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set smarttab
-set expandtab
-
-" Custom keyboard shortcuts
-map <C-S-r> <Esc>:TernRename<CR>
-map <C-A-Left> <Esc>:wincmd h<CR>
-map <C-A-Right> <Esc>:wincmd l<CR>
-
-" Activate plugins
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" Zorg dat nerdtree wordt gestart
+:NERDTreeToggle
