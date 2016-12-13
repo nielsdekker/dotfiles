@@ -14,6 +14,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'rking/ag.vim'
+Plug 'othree/yajs.vim'
 call plug#end()

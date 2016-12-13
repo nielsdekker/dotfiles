@@ -5,6 +5,8 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " normal
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :NERDTreeFind<CR>
+" removes all trailing whitespace
+nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <F9> :set list!<CR>
 
 " leader commands
