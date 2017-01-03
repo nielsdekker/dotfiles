@@ -16,5 +16,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Easymotion
 let g:EasyMotion_do_mapping = 0
 
+" Editorconfig
+let g:Editorconfig_exclude_patters = ['fugitive://.*']
+
 " Zorg dat nerdtree wordt gestart
 :NERDTreeToggle

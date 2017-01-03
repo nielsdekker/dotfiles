@@ -16,4 +16,5 @@ Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'rking/ag.vim'
 Plug 'othree/yajs.vim'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
