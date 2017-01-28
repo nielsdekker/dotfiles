@@ -1,3 +1,4 @@
+
 " CtrlP Setting
 let g:ctrlp_custom_ignore = 'node_modules\|tmp\|bower_components\|\.git'
 
@@ -20,4 +21,6 @@ let g:EasyMotion_do_mapping = 0
 let g:Editorconfig_exclude_patters = ['fugitive://.*']
 
 " Zorg dat nerdtree wordt gestart
-:NERDTreeToggle
+if exists(':NERDTree')
+  :NERDTreeToggle
+endif
