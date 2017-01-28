@@ -14,6 +14,6 @@ set showcmd
 " Colors and stuff
 syntax enable
 set background=light
-colorscheme solarized
+" colorscheme solarized
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
