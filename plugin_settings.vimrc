@@ -21,3 +21,4 @@ let g:EasyMotion_do_mapping = 0
 let g:Editorconfig_exclude_patters = ['fugitive://.*']
 
 " Zorg dat nerdtree wordt gestart
+:NERDTreeToggle
