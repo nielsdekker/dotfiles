@@ -17,4 +17,5 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'rking/ag.vim'
 Plug 'othree/yajs.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'maksimr/vim-jsbeautify'
 call plug#end()
