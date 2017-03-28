@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'https://github.com/kien/ctrlp.vim'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'flazz/vim-colorschemes'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'groenewege/vim-less'
@@ -13,9 +13,10 @@ Plug 'kshenoy/vim-signature'
 Plug 'altercation/vim-colors-solarized'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe'
 Plug 'rking/ag.vim'
 Plug 'othree/yajs.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 call plug#end()
