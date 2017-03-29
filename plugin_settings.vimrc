@@ -8,11 +8,9 @@ let g:ale_linters = {
 let g:ale_open_list = 1
 let g:ale_javascript_eslint_use_global = 1
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
-" deoplete tern
-let g:tern_request_timeout = 1
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Easymotion
 let g:EasyMotion_do_mapping = 0

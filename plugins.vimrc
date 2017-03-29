@@ -17,6 +17,5 @@ Plug 'rking/ag.vim'
 Plug 'othree/yajs.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer'}
 call plug#end()
