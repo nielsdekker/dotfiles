@@ -17,4 +17,9 @@ syntax enable
 set background=dark
 colorscheme gruvbox
 
+" Swap file locations
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
 autocmd BufNewFile,BufRead *.json set ft=javascript

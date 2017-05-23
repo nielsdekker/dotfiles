@@ -7,6 +7,7 @@ let g:ale_linters = {
 \}
 let g:ale_open_list = 1
 let g:ale_javascript_eslint_use_global = 1
+let g:ale_lint_on_text_changed = 'normal'
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 0
