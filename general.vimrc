@@ -7,15 +7,15 @@ set softtabstop=4
 set relativenumber
 set number
 set updatetime=250
-set cc=80
+set cc=120
 let mapleader=" "
 set showcmd
-set termguicolors
 
 " Colors and stuff
 syntax enable
-set background=dark
-colorscheme gruvbox
+colorscheme seoul256
+hi Normal ctermbg=none
+hi LineNr ctermbg=none
 
 " Swap file locations
 set backupdir=~/.vim/backup//

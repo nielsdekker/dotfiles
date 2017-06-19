@@ -18,4 +18,6 @@ Plug 'othree/yajs.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer'}
+Plug 'morhetz/gruvbox'
+Plug 'KeitaNakamura/neodark.vim'
 call plug#end()

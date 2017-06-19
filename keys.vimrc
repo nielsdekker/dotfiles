@@ -14,6 +14,8 @@ nmap <Leader>gw :Gwrite<CR>
 nmap <Leader>gs :ToggleGStatus<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gp :Gpush<CR>
+nmap <Leader>gn :GitGutterNextHunk<CR>
+nmap <Leader>gN :GitGutterPrevHunk<CR>
 
 nmap <Leader>s <Plug>(easymotion-s)
 nmap <Leader>j <Plug>(easymotion-j)
