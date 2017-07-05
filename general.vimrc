@@ -1,6 +1,5 @@
 " vim settings
 set nowrap
-set cursorline
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -13,9 +12,7 @@ set showcmd
 
 " Colors and stuff
 syntax enable
-colorscheme seoul256
-hi Normal ctermbg=none
-hi LineNr ctermbg=none
+colorscheme wal
 
 " Swap file locations
 set backupdir=~/.vim/backup//

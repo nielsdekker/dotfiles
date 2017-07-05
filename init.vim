@@ -3,3 +3,4 @@ source ~/.config/nvim/general.vimrc
 source ~/.config/nvim/keys.vimrc
 source ~/.config/nvim/plugin_settings.vimrc
 source ~/.config/nvim/functions.vimrc
+source ~/.config/nvim/colors.vimrc
