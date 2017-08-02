@@ -7,14 +7,10 @@ Plug 'groenewege/vim-less'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
-Plug 'airblade/vim-gitgutter'
-Plug 'kshenoy/vim-signature'
-Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
-Plug 'othree/yajs.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer'}
-Plug 'dylanaraps/wal'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/goyo.vim'
 call plug#end()

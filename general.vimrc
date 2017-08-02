@@ -3,16 +3,17 @@ set nowrap
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set relativenumber
 set number
-set updatetime=250
+set updatetime=1000
 set cc=120
 let mapleader=" "
 set showcmd
+set lazyredraw
 
 " Colors and stuff
 syntax enable
-colorscheme wal
+set background=dark
+colorscheme gruvbox
 
 " Swap file locations
 set backupdir=~/.vim/backup//

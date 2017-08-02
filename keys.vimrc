@@ -10,6 +10,7 @@ nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <F9> :set list!<CR>
 
 " leader commands
+" git/fugitive
 nmap <Leader>gw :Gwrite<CR>
 nmap <Leader>gs :ToggleGStatus<CR>
 nmap <Leader>gc :Gcommit<CR>
@@ -17,11 +18,13 @@ nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gn :GitGutterNextHunk<CR>
 nmap <Leader>gN :GitGutterPrevHunk<CR>
 
+" motion/easymotion
 nmap <Leader>s <Plug>(easymotion-s)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
-nmap <Leader>yc :YcmCompleter RefactorRename
-nmap <Leader>yd :YcmCompleter GetDoc<CR>
-nmap <Leader>yo :YcmCompleter GoToDefinition<CR>
-nmap <Leader>yr :YcmCompleter GoToReferences<CR>
+" errors, warnings/ale
+nmap <Leader>aj :ALENext<CR>
+nmap <Leader>ak :ALEPrevious<CR>
+
+nmap <Leader>z :Goyo<CR>
