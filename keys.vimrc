@@ -1,13 +1,9 @@
-" input
-inoremap <C-p> CtrlP
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 " normal
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :NERDTreeFind<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 " removes all trailing whitespace
-nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <F9> :set list!<CR>
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " leader commands
 " git/fugitive
@@ -27,4 +23,15 @@ nmap <Leader>k <Plug>(easymotion-k)
 nmap <Leader>aj :ALENext<CR>
 nmap <Leader>ak :ALEPrevious<CR>
 
-nmap <Leader>z :Goyo<CR>
+" terminal
+nmap <Leader>t :sp<CR>:terminal fish<CR>
+
+" Disable arrow keys
+inoremap <Up> <nop>
+nnoremap <Up> <nop>
+inoremap <Down> <nop>
+nnoremap <Down> <nop>
+inoremap <Left> <nop>
+nnoremap <Left> <nop>
+inoremap <Right> <nop>
+nnoremap <Right> <nop>

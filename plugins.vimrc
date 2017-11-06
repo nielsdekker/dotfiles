@@ -12,5 +12,7 @@ Plug 'rking/ag.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/goyo.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'dracula/vim'
+Plug 'ap/vim-css-color'
 call plug#end()

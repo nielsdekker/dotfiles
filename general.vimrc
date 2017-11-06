@@ -7,13 +7,12 @@ set number
 set updatetime=1000
 set cc=120
 let mapleader=" "
-set showcmd
 set lazyredraw
 
 " Colors and stuff
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme dracula
 
 " Swap file locations
 set backupdir=~/.vim/backup//
@@ -21,3 +20,4 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufEnter * :syn sync maxlines=300
