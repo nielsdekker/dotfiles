@@ -1,11 +1,15 @@
 " normal
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
-" removes all trailing whitespace
 nnoremap <F9> :set list!<CR>
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " leader commands
+" nerdtree
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+
+" tags
+nnoremap <Leader>t :TagbarToggle<CR>
+
 " git/fugitive
 nmap <Leader>gw :Gwrite<CR>
 nmap <Leader>gs :ToggleGStatus<CR>
@@ -22,9 +26,6 @@ nmap <Leader>k <Plug>(easymotion-k)
 " errors, warnings/ale
 nmap <Leader>aj :ALENext<CR>
 nmap <Leader>ak :ALEPrevious<CR>
-
-" terminal
-nmap <Leader>t :sp<CR>:terminal fish<CR>
 
 " Disable arrow keys
 inoremap <Up> <nop>
