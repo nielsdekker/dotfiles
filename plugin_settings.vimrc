@@ -30,6 +30,7 @@ let g:Editorconfig_exclude_patters = ['fugitive://.*']
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
 
 " Syntax
 let g:javascript_plugin_jsdoc = 1

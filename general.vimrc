@@ -5,7 +5,7 @@ set shiftwidth=4
 set softtabstop=4
 set number
 set updatetime=1000
-set cc=120
+let &colorcolumn="80,".join(range(120,999),",")
 let mapleader=" "
 set lazyredraw
 
