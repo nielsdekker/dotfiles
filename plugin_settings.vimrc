@@ -31,6 +31,15 @@ let g:Editorconfig_exclude_patters = ['fugitive://.*']
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 1
+" Deoplete/ternjs
+let g:deoplete#sources#ternjs#timeout = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 0
+let g:deoplete#sources#ternjs#guess = 0
+let g:deoplete#ternjs#filetypes = [
+	\ 'json',
+	\ 'js'
+	\ ]
 
 " Syntax
 let g:javascript_plugin_jsdoc = 1
