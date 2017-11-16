@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'https://github.com/kien/ctrlp.vim'
 Plug 'w0rp/ale'
@@ -9,9 +10,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'dracula/vim'

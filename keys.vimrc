@@ -1,14 +1,15 @@
 " normal
 nnoremap <F9> :set list!<CR>
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " leader commands
 " nerdtree
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>nf :NERDTreeFind<CR>
 
-" tags
-nnoremap <Leader>t :TagbarToggle<CR>
+" Ycm
+nmap <Leader>yd :YcmCompleter GetDoc<CR>
+nmap <Leader>ys :YcmCompleter GoToDefinition<CR>
 
 " git/fugitive
 nmap <Leader>gw :Gwrite<CR>
