@@ -1,6 +1,5 @@
 :set fillchars+=vert:\
 
-hi ColorColumn		ctermbg=61 ctermfg=white
 hi VertSplit		ctermbg=234 ctermfg=234
 hi Visual			ctermbg=60 ctermfg=white
 hi CursorLine		ctermbg=234 ctermfg=white
