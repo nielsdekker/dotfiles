@@ -7,10 +7,6 @@ nnoremap <F9> :set list!<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>nf :NERDTreeFind<CR>
 
-" Ycm
-nmap <Leader>yd :YcmCompleter GetDoc<CR>
-nmap <Leader>ys :YcmCompleter GoToDefinition<CR>
-
 " git/fugitive
 nmap <Leader>gw :Gwrite<CR>
 nmap <Leader>gs :ToggleGStatus<CR>
