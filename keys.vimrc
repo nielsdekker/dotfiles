@@ -1,6 +1,6 @@
 " normal
 nnoremap <F9> :set list!<CR>
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " leader commands
 " nerdtree
