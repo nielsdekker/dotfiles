@@ -1,11 +1,21 @@
-" normal
-nnoremap <F9> :set list!<CR>
+" input
+nnoremap <Leader>p :CtrlP<CR>
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
+
+" terminal
+tnoremap <Esc> <C-\><C-n>
 
 " leader commands
-" nerdtree
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
+" ctrl p
+nnoremap <Leader>p :CtrlP<CR>
+
+" terminal
+if has("win32")
+	nnoremap <Leader>t :terminal<CR>
+else
+	nnoremap <Leader>t :terminal fish<CR>
+endif
 
 " git/fugitive
 nmap <Leader>gw :Gwrite<CR>
@@ -14,6 +24,10 @@ nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gn :GitGutterNextHunk<CR>
 nmap <Leader>gN :GitGutterPrevHunk<CR>
+
+" nerdtree
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 
 " motion/easymotion
 nmap <Leader>s <Plug>(easymotion-s)
