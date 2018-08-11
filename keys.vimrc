@@ -10,12 +10,10 @@ tnoremap <Esc> <C-\><C-n>
 " ctrl p
 nnoremap <Leader>p :CtrlP<CR>
 
-" terminal
-if has("win32")
-	nnoremap <Leader>t :terminal<CR>
-else
-	nnoremap <Leader>t :terminal fish<CR>
-endif
+nmap <Leader>tt :tabnew
+nmap <Leader>th :tabprevious<CR>
+nmap <Leader>tl :tabnext<CR>
+nmap <Leader>tr :tabrename
 
 " git/fugitive
 nmap <Leader>gw :Gwrite<CR>

@@ -10,13 +10,8 @@ set showcmd
 
 " Colors and stuff
 syntax enable
+set background=light
 set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
-
-" Swap file locations
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+colorscheme PaperColor
 
 autocmd BufNewFile,BufRead *.json set ft=javascript

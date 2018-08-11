@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'reedes/vim-colors-pencil'
 
 " Files / navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
