@@ -1,17 +1,25 @@
 " vim settings
-set nowrap
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set nocompatible
+syntax enable
 set number
+set relativenumber
+set showcmd
+set noshowmode
+
+" Tabs/spaces
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
 let &colorcolumn="80,".join(range(120,999),",")
 let mapleader=" "
-set showcmd
 
-" Colors and stuff
-syntax enable
-set background=light
+" Theming
 set termguicolors
-colorscheme PaperColor
+set background=dark
+colorscheme palenight
 
+" Autocommands
 autocmd BufNewFile,BufRead *.json set ft=javascript

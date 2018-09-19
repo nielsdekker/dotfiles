@@ -1,23 +1,18 @@
 call plug#begin('~/.vim/plugged')
 
-" Theming
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'reedes/vim-colors-pencil'
-
-" Files / navigation
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Files/navigation
+Plug 'tpope/vim-vinegar'
 Plug 'easymotion/vim-easymotion'
-Plug 'rking/ag.vim'
 Plug 'https://github.com/kien/ctrlp.vim'
 
-" Dev
-Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
+" Dev tools
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'pangloss/vim-javascript'
+
+" Theming
+Plug 'itchyny/lightline.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'yarisgutierrez/ayu-lightline'
 
 call plug#end()

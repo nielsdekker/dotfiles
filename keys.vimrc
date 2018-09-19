@@ -1,5 +1,4 @@
 " input
-nnoremap <Leader>p :CtrlP<CR>
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
 
@@ -7,25 +6,18 @@ inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
 tnoremap <Esc> <C-\><C-n>
 
 " leader commands
-" ctrl p
-nnoremap <Leader>p :CtrlP<CR>
-
 nmap <Leader>tt :tabnew
 nmap <Leader>th :tabprevious<CR>
 nmap <Leader>tl :tabnext<CR>
 nmap <Leader>tr :tabrename
 
-" git/fugitive
-nmap <Leader>gw :Gwrite<CR>
-nmap <Leader>gs :ToggleGStatus<CR>
-nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gp :Gpush<CR>
-nmap <Leader>gn :GitGutterNextHunk<CR>
-nmap <Leader>gN :GitGutterPrevHunk<CR>
+nmap <Leader>wl <C-w>l
+nmap <Leader>wk <C-w>k
+nmap <Leader>wj <C-w>j
+nmap <Leader>wh <C-w>h
 
-" nerdtree
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
+" ctrl p
+nnoremap <Leader>p :CtrlP<CR>
 
 " motion/easymotion
 nmap <Leader>s <Plug>(easymotion-s)
