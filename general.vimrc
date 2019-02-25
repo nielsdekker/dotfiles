@@ -19,9 +19,6 @@ let mapleader=" "
 
 " Theming
 set termguicolors
-set background=light
-let ayucolor="light"
-colorscheme ayu
 
 " Autocommands
 autocmd BufNewFile,BufRead *.json set ft=javascript

@@ -30,7 +30,8 @@ let g:javascript_plugin_jsdoc = 1
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
-" lightline
+" Lightline
 let g:lightline = {
-\ 'colorscheme': 'PaperColor'
-\}
+      \ 'colorscheme': 'PaperColor'
+      \ }
+
