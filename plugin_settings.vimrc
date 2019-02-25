@@ -1,16 +1,15 @@
-" airline Settings
-" let g:airline_powerline_fonts = 0
-" let g:airline#extensions#whitespace#mixed_indent_algo = 1
-" let g:airline_extensions = ['whitespace', 'ctrlp', 'ale']
-" let g:airline#extensions#tabline#enabled = 0
-" let g:airline_theme = 'papercolor'
-
 " CtrlP Setting
-" let g:ctrlp_custom_ignore = 'node_modules\|tmp\|bower_components\|\.git'
+let g:ctrlp_custom_ignore = 'node_modules\|tmp\|bower_components\|\.git\|target'
 
 if has("win32")
 	let g:python3_host_prog = 'C:\Python36\python.exe'
 endif
+
+" FZF
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" This piece of magic code makes sure :Ag only searches file contents and not
+" file names
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " Ale
 let g:ale_linters = {
@@ -33,5 +32,5 @@ let g:deoplete#enable_at_startup = 1
 
 " lightline
 let g:lightline = {
-\ 'colorscheme': 'palenight'
+\ 'colorscheme': 'PaperColor'
 \}

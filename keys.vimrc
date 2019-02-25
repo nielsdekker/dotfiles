@@ -17,7 +17,8 @@ nmap <Leader>wj <C-w>j
 nmap <Leader>wh <C-w>h
 
 " ctrl p
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>p :FZF<CR>
+nnoremap <Leader>f :Ag<CR>
 
 " motion/easymotion
 nmap <Leader>s <Plug>(easymotion-s)
