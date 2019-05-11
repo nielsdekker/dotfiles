@@ -1,0 +1,30 @@
+// Place your key bindings in this file to override the defaults
+[{
+    "key": "h",
+    "command": "breadcrumbs.focusPrevious",
+    "when": "breadcrumbsActive && breadcrumbsVisible && !listFocus"
+}, {
+    "key": "l",
+    "command": "breadcrumbs.focusNext",
+    "when": "breadcrumbsActive && breadcrumbsVisible && !listFocus"
+}, {
+    "key": "j",
+    "command": "breadcrumbs.selectFocused",
+    "when": "breadcrumbsActive && breadcrumbsVisible && !listFocus"
+}, {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "breadcrumbsActive && breadcrumbsVisible && listFocus"
+}, {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "breadcrumbsActive && breadcrumbsVisible && listFocus"
+}, {
+    "key": "l",
+    "command": "list.expand",
+    "when": "breadcrumbsActive && breadcrumbsVisible && listFocus"
+}, {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "breadcrumbsActive && breadcrumbsVisible && listFocus"
+}]

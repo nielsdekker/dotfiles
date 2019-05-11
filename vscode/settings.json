@@ -1,0 +1,76 @@
+{
+    ////
+    // WINDOW
+    ////
+    "window.menuBarVisibility": "toggle",
+    "breadcrumbs.enabled": true,
+
+    ////
+    // WORKBENCH
+    ////
+    "workbench.settings.editor": "json",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.colorTheme": "Dracula",
+    "workbench.editor.showTabs": false,
+
+    ////
+    // EDITOR
+    ////
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.lineNumbers": "relative",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.fontWeight": "600",
+
+    ////
+    // NPM
+    ////
+    "npm.autoDetect": "on",
+    "npm.enableScriptExplorer": true,
+
+    ////
+    // VIM
+    ////
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Opening new stuff
+        {
+            "before": ["<leader>", "p"],
+            "commands": ["workbench.action.quickOpen"]
+        }, {
+            "before": ["<leader>", "b"],
+            "commands": ["workbench.action.showAllEditors"]
+        }, {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.terminal.toggleTerminal"]
+        }, 
+         
+        // Navigation
+        {
+            "before": ["<leader>",  "w", "h"],
+            "commands": ["workbench.action.navigateLeft"]
+        }, {
+            "before": ["<leader>",  "w", "j"],
+            "commands": ["workbench.action.navigateDown"]
+        }, {
+            "before": ["<leader>",  "w", "k"],
+            "commands": ["workbench.action.navigateUp"]
+        }, {
+            "before": ["<leader>",  "w", "l"],
+            "commands": ["workbench.action.navigateRight"]
+        }, 
+        
+        // Replacements
+        {
+            "before": ["-"],
+            "commands": ["breadcrumbs.focus"]
+        }
+    ],
+
+    ////
+    // KEYS
+    ////
+}
