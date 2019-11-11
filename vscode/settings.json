@@ -1,11 +1,30 @@
+/*
+Custom (vim) keyboard shortcuts. The <leader> is mapped to the spacebar
+
+# Editor
+<leader> <leader> - Open quick open
+<leader> t - open _T_ask menu
+<leader> q - _Q_uit all files in the pane
+<leader> w (hjkl) - switch _W_indow to the pane left, down, up and right
+
+# Git
+<leader> gc - Commits all
+<leader> gp - Pushes the commits to the origin
+<leader> gm - Opens the merge menu
+
+# Breadcrumbs
+_ - open breadcrumbs. hjlk work in this view (is defined in keyboard mapping)
+*/
 {
     ////
     // WINDOW
     ////
     "breadcrumbs.enabled": true,
     "debug.toolBarLocation": "docked",
+    "debug.openDebug": "neverOpen",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "telemetry.enableTelemetry": false,
 
     ////
     // WORKBENCH
@@ -14,9 +33,17 @@
     "workbench.editor.showTabs": false,
     "workbench.list.automaticKeyboardNavigation": false,
     "search.collapseResults": "alwaysCollapse",
+    "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.scrollback": 5000,
-    "workbench.colorTheme": "One Dark Pro",
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontWeight": "600",
+    "terminal.integrated.shell.osx": "/bin/bash",
+    "workbench.colorTheme": "Default Light+",
     "workbench.tree.renderIndentGuides": "always",
+    "workbench.editor.enablePreview": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "task.problemMatchers.neverPrompt": true,
 
     ////
     // EDITING
@@ -33,36 +60,53 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 13,
     "editor.tabSize": 2,
+    "editor.lineHeight": 0,
     "editor.fontWeight": "600",
     "files.trimTrailingWhitespace": true,
     "javascript.updateImportsOnFileMove.enabled": "prompt",
-
+    "editor.suggest.showWords": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    ////
+    // GIT
+    ////
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
     ////
     // NPM
     ////
     "npm.autoDetect": "on",
-    "npm.enableScriptExplorer": true,
+    "npm.enableScriptExplorer": false,
     "npm.packageManager": "yarn",
-
+    "npm.exclude": [
+        "**/plugins/certified/*/**",
+        "**/plugins/packages/**"
+    ],
+    "eslint.packageManager": "yarn",
+    
     ////
     // VIM
     ////
     "vim.leader": "<space>",
     "vim.hlsearch": true,
-    "vim.searchHighlightColor": "#44475A",
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(189, 121, 198, 0.5)",
-    "vim.highlightedyank.duration": 300,
+    "vim.highlightedyank.duration": 500,
     "vim.normalModeKeyBindingsNonRecursive": [
         // Opening new stuff
         {
             "before": [
                 "<leader>",
-                "p"
+                "<leader>"
             ],
             "commands": [
                 "workbench.action.quickOpen"
             ]
+
         },
         {
             "before": [
@@ -70,7 +114,16 @@
                 "t"
             ],
             "commands": [
-                "workbench.action.terminal.toggleTerminal"
+                "workbench.action.tasks.runTask"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsInGroup"
             ]
         },
         // Navigation
@@ -114,23 +167,35 @@
                 "workbench.action.navigateRight"
             ]
         },
-        // Marks
+        // Git
         {
             "before": [
                 "<leader>",
-                "m"
+                "g",
+                "c"
             ],
             "commands": [
-                "bookmarks.toggle"
+                "git.commitAll"
             ]
         },
         {
             "before": [
                 "<leader>",
-                "b"
+                "g",
+                "p"
             ],
             "commands": [
-                "bookmarks.list"
+                "git.push"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "m"
+            ],
+            "commands": [
+                "git.merge"
             ]
         },
         // Replacements
@@ -142,5 +207,8 @@
                 "breadcrumbs.focus"
             ]
         }
-    ]
+    ],
+    "window.zoomLevel": 0,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
