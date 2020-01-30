@@ -1,6 +1,3 @@
-" CtrlP Setting
-" let g:ctrlp_custom_ignore = 'node_modules\|tmp\|bower_components\|\.git\|target'
-
 if has("win32")
 	let g:python3_host_prog = 'C:\Python38\python.exe'
 endif
@@ -16,4 +13,8 @@ let g:EasyMotion_do_mapping = 0
 
 " Javascript / vim-javascript
 let g:javascript_plugin_jsdoc = 1
+
+let g:lightline = {
+ \ 'colorscheme': 'nord',
+ \ }
 
