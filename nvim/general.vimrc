@@ -19,7 +19,9 @@ let mapleader=" "
 
 " Theming
 set termguicolors
+colorscheme nord
 
 " Autocommands
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.csst set ft=css
+

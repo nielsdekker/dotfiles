@@ -1,0 +1,6 @@
+{
+  "coc.source.around.enable": false,
+  "suggest.enablePreview": true,
+  "coc.preferences.jumpCommand": "edit"
+}
+
