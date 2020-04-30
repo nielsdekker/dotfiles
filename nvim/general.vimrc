@@ -6,6 +6,7 @@ set relativenumber
 set showcmd
 set noshowmode
 set ignorecase
+set signcolumn=yes
 
 " Tabs/spaces
 set nowrap
@@ -19,9 +20,10 @@ let mapleader=" "
 
 " Theming
 set termguicolors
+set background=dark
+let ayucolor="mirage" " only used by the ayu colorscheme
 colorscheme nord
 
 " Autocommands
-autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.csst set ft=css
 

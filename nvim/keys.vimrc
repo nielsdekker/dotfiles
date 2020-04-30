@@ -19,13 +19,12 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " terminal
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc><Esc> <C-\><C-n>
 
 " leader commands
-nmap <Leader>tt :tabnew
+nmap <Leader>tt :tabnew<CR>
 nmap <Leader>th :tabprevious<CR>
 nmap <Leader>tl :tabnext<CR>
-nmap <Leader>tr :tabrename
 
 nmap <Leader>wl <C-w>l
 nmap <Leader>wk <C-w>k
