@@ -20,9 +20,9 @@ let mapleader=" "
 
 " Theming
 set termguicolors
-set background=dark
-let ayucolor="mirage" " only used by the ayu colorscheme
-colorscheme nord
+set background=light
+let ayucolor="light" " only used by the ayu colorscheme
+colorscheme ayu
 
 " Autocommands
 autocmd BufNewFile,BufRead *.csst set ft=css

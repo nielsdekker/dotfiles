@@ -19,6 +19,3 @@ let g:lightline = {
  \ 'colorscheme': 'ayu',
  \ }
 
-" Add all default coc extensions
-let g:coc_global_extensions = [ "coc-tsserver", "coc-json", "coc-prettier", "coc-eslint" ]
-

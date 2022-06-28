@@ -1,8 +1,6 @@
 {
   "suggest.enablePreview": true,
-  "eslint.run": "onSave",
-  "eslint.autoFixOnSave": true,
-  "prettier.requireConfig": true,
+  "prettier.requireConfig": false,
   "prettier.onlyUseLocalVersion": true,
   "coc.preferences.jumpCommand": "edit",
   "coc.preferences.formatOnSaveFiletypes": [
