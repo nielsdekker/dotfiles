@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/niels/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/niels/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/niels/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/niels/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/niels/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/work/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/work/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/work/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/work/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/work/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,87 +71,87 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-vsnip"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\nÑ\3\0\0\4\0\14\0\0236\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\0016\0\0\0009\0\3\0'\2\5\0B\0\2\0016\0\6\0'\2\a\0B\0\2\0029\0\b\0005\2\t\0005\3\n\0=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\30space_char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\24char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\1\0\2\tchar\5#show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequireAhighlight IndentBlanklineIndent2 guibg=#1a1b26 gui=nocombineAhighlight IndentBlanklineIndent1 guibg=#24283b gui=nocombine\bcmd\18termguicolors\bopt\bvim\0" },
+    config = { "\27LJ\2\nÑ\3\0\0\4\0\14\0\0236\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\0016\0\0\0009\0\3\0'\2\5\0B\0\2\0016\0\6\0'\2\a\0B\0\2\0029\0\b\0005\2\t\0005\3\n\0=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\30space_char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\24char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\1\0\2#show_trailing_blankline_indent\1\tchar\5\nsetup\21indent_blankline\frequireAhighlight IndentBlanklineIndent2 guibg=#1a1b26 gui=nocombineAhighlight IndentBlanklineIndent1 guibg=#24283b gui=nocombine\bcmd\18termguicolors\bopt\bvim\0" },
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
-    config = { "\27LJ\2\n\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\thint\b[H]\nerror\b[E]\16information\b[I]\fwarning\b[W]\1\0\3\14fold_open\6v\nicons\1\16fold_closed\6>\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\2\n³\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\16information\b[I]\fwarning\b[W]\nerror\b[E]\thint\b[H]\1\0\4\25use_diagnostic_signs\1\16fold_closed\6>\14fold_open\6v\nicons\1\nsetup\ftrouble\frequire\0" },
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-easymotion"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/vim-easymotion",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/vim-easymotion",
     url = "https://github.com/easymotion/vim-easymotion"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-vinegar"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/vim-vinegar",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/vim-vinegar",
     url = "https://github.com/tpope/vim-vinegar"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/niels/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    path = "/home/work/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\thint\b[H]\nerror\b[E]\16information\b[I]\fwarning\b[W]\1\0\3\14fold_open\6v\nicons\1\16fold_closed\6>\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\nÑ\3\0\0\4\0\14\0\0236\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\0016\0\0\0009\0\3\0'\2\5\0B\0\2\0016\0\6\0'\2\a\0B\0\2\0029\0\b\0005\2\t\0005\3\n\0=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\30space_char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\24char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\1\0\2\tchar\5#show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequireAhighlight IndentBlanklineIndent2 guibg=#1a1b26 gui=nocombineAhighlight IndentBlanklineIndent1 guibg=#24283b gui=nocombine\bcmd\18termguicolors\bopt\bvim\0", "config", "indent-blankline.nvim")
+try_loadstring("\27LJ\2\nÑ\3\0\0\4\0\14\0\0236\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\2\4\0B\0\2\0016\0\0\0009\0\3\0'\2\5\0B\0\2\0016\0\6\0'\2\a\0B\0\2\0029\0\b\0005\2\t\0005\3\n\0=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\30space_char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\24char_highlight_list\1\3\0\0\27IndentBlanklineIndent1\27IndentBlanklineIndent2\1\0\2#show_trailing_blankline_indent\1\tchar\5\nsetup\21indent_blankline\frequireAhighlight IndentBlanklineIndent2 guibg=#1a1b26 gui=nocombineAhighlight IndentBlanklineIndent1 guibg=#24283b gui=nocombine\bcmd\18termguicolors\bopt\bvim\0", "config", "indent-blankline.nvim")
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n³\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\16information\b[I]\fwarning\b[W]\nerror\b[E]\thint\b[H]\1\0\4\25use_diagnostic_signs\1\16fold_closed\6>\14fold_open\6v\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

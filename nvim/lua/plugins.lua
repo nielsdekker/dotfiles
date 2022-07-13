@@ -4,6 +4,7 @@ return require("packer").startup(function()
 
     -- Files and navigation
     use "tpope/vim-vinegar"
+    use "/usr/local/opt/fzf"
     use "junegunn/fzf.vim"
     use "easymotion/vim-easymotion"
 
@@ -37,12 +38,13 @@ return require("packer").startup(function()
 
     -- Theming
     use "folke/tokyonight.nvim"
+    use "ayu-theme/ayu-vim"
     use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             vim.opt.termguicolors = true
-            vim.cmd [[highlight IndentBlanklineIndent1 guibg=#24283b gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1b26 gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent1 guibg=#fafafa gui=nocombine]]
+            vim.cmd [[highlight IndentBlanklineIndent2 guibg=#f3f3f3 gui=nocombine]]
 
             require("indent_blankline").setup {
                 char = "",

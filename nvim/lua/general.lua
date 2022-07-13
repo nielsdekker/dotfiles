@@ -11,9 +11,12 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 
 -- Theming
-vim.o.background = "dark"
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_comments = true
-vim.cmd[[colorscheme tokyonight]]
+vim.o.background = "light"
+-- vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_italic_functions = true
+-- vim.g.tokyonight_italic_comments = true
+vim.g.ayucolor="light"
+vim.cmd[[colorscheme ayu]]
+
+vim.api.nvim_command('let &colorcolumn=join(range(80,999), ",")')
 

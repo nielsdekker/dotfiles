@@ -1,8 +1,10 @@
 require("nvim-lsp-installer").setup {}
 
 -- Setup language servers
+require("lspconfig").kotlin_language_server.setup {}
 require("lspconfig").tsserver.setup {}
 require("lspconfig").yamlls.setup{}
+require("lspconfig").bashls.setup{}
 require("lspconfig").sumneko_lua.setup {
     settings = {
         Lua = {
