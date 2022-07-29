@@ -4,12 +4,16 @@ return require("packer").startup(function()
 
     -- Files and navigation
     use "tpope/vim-vinegar"
-    use "/usr/local/opt/fzf"
-    use "junegunn/fzf.vim"
     use "easymotion/vim-easymotion"
+    use {
+      "nvim-telescope/telescope.nvim", tag = "0.1.x",
+      requires = { {"nvim-lua/plenary.nvim"} }
+    }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Developer tools
     use "tpope/vim-fugitive"
+    use "dense-analysis/ale"
     use {
         "folke/trouble.nvim",
         config = function()
