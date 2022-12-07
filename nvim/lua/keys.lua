@@ -15,6 +15,8 @@ map("n", "<leader>wj", "<C-w>j", options)
 map("n", "<leader>wk", "<C-w>k", options)
 map("n", "<leader>wl", "<C-w>l", options)
 
+map("t", "<leader><Esc>", "<C-\\><C-n>", options)
+
 -- File searching
 map("n", "<leader>p", "<cmd>Telescope find_files <cr>", options)
 map("n", "<leader>f", "<cmd>Telescope live_grep <cr>", options)
@@ -34,3 +36,4 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 
 -- Trouble
 map("n", "<leader>x", "<cmd>TroubleToggle<cr>", options)
+

@@ -32,36 +32,18 @@ return require("packer").startup(function()
         end
     }
 
-    -- Language server stuff
+    -- Language server/syntax stuff
+    use "sheerun/vim-polyglot"
     use "neovim/nvim-lspconfig"
     use "williamboman/nvim-lsp-installer"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-vsnip"
     use "hrsh7th/vim-vsnip"
+    use "hrsh7th/cmp-path"
 
     -- Theming
     use "folke/tokyonight.nvim"
     use "ayu-theme/ayu-vim"
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            vim.opt.termguicolors = true
-            vim.cmd [[highlight IndentBlanklineIndent1 guibg=#fafafa gui=nocombine]]
-            vim.cmd [[highlight IndentBlanklineIndent2 guibg=#f3f3f3 gui=nocombine]]
-
-            require("indent_blankline").setup {
-                char = "",
-                char_highlight_list = {
-                    "IndentBlanklineIndent1",
-                    "IndentBlanklineIndent2",
-                },
-                space_char_highlight_list = {
-                    "IndentBlanklineIndent1",
-                    "IndentBlanklineIndent2",
-                },
-                show_trailing_blankline_indent = false,
-            }
-        end
-    }
+    use "EdenEast/nightfox.nvim"
 end)
