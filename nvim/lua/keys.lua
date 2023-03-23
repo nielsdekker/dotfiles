@@ -21,11 +21,10 @@ map("t", "<leader><Esc>", "<C-\\><C-n>", options)
 map("n", "<leader>p", "<cmd>Telescope find_files <cr>", options)
 map("n", "<leader>f", "<cmd>Telescope live_grep <cr>", options)
 map("n", "<leader>b", "<cmd>Telescope buffers <cr>", options)
+map("n", "<leader>k", "<cmd>Telescope commands <cr>", options)
 
 -- Easy motion
 map("n", "<leader>s", "<Plug>(easymotion-s)", options)
-map("n", "<leader>j", "<Plug>(easymotion-j)", options)
-map("n", "<leader>k", "<Plug>(easymotion-k)", options)
 
 -- Language server keybinds, nvim-cmp specific ones are set in lsp
 local bufopts = { noremap = true, silent = true, buffer = bufnr }

@@ -12,10 +12,7 @@ vim.o.expandtab = true
 
 -- Theming
 vim.o.background = "dark"
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_comments = true
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme dawnfox")
 vim.api.nvim_command('let &colorcolumn=join(range(80,999), ",")')
 
 -- Ale settings
@@ -26,8 +23,11 @@ vim.g.ale_fixers = {
   javascriptreact = { 'prettier' },
   typescript = { 'prettier' },
   typescriptreact = { 'prettier' },
-  css = { 'prettier' }
+  json = { 'prettier' },
+  css = { 'prettier' },
+  svg = { 'prettier' }
 }
+vim.o.signcolumn = "yes"
 
 vim.g.shell="/bin/zsh"
 vim.o.shell="/bin/zsh"
