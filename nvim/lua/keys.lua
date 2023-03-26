@@ -35,6 +35,3 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 
 -- Trouble
 map("n", "<leader>x", "<cmd>TroubleToggle<cr>", options)
-
--- Copilot
-map("i", "<C-a>", "copilot#Accept('<CR>')", { silent = true, expr = true })
