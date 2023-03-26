@@ -33,5 +33,16 @@ map("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions() <cr>", b
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 
+-- Debugging
+map("n", "<F5>", "<cmd>lua require('dap').continue() <cr>", bufopts)
+map("n", "<F10>", "<cmd>lua require('dap').step_over() <cr>", bufopts)
+map("n", "<F11>", "<cmd>lua require('dap').step_into() <cr>", bufopts)
+map("n", "<F12>", "<cmd>lua require('dap').step_out() <cr>", bufopts)
+map("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint() <cr>", bufopts)
+map("n", "<leader>dlb", "<cmd>Telescope dap list_breakpoints <cr>", bufopts)
+
 -- Trouble
 map("n", "<leader>x", "<cmd>TroubleToggle<cr>", options)
+
+-- "copilot"
+map("i", "<Right>", "copilot#Accept('<CR>')", { silent = true, expr = true })

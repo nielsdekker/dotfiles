@@ -24,9 +24,14 @@ require("packer").startup(function()
   use "github/copilot.vim"
 
   -- Debugging
-  use { "mfussenegger/nvim-dap" }
-  use { "rcarriga/nvim-dap-ui" }
-  use { "nvim-telescope/telescope-dap.nvim" }
+  use {
+    "mfussenegger/nvim-dap",
+    requires = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-telescope/telescope-dap.nvim"
+    }
+  }
 
   -- Files and navigation
   use "tpope/vim-vinegar"
