@@ -20,6 +20,9 @@ require("packer").startup(function()
   use "hrsh7th/vim-vsnip"
   use "jose-elias-alvarez/null-ls.nvim"
 
+  -- Copilot
+  use "github/copilot.vim"
+
   -- Debugging
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui" }

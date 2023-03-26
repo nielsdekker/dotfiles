@@ -12,7 +12,7 @@ vim.o.expandtab = true
 
 -- Theming
 vim.o.background = "dark"
-vim.cmd("colorscheme dawnfox")
+vim.cmd("colorscheme duskfox")
 vim.api.nvim_command('let &colorcolumn=join(range(80,999), ",")')
 
 -- Ale settings
@@ -29,6 +29,5 @@ vim.g.ale_fixers = {
 }
 vim.o.signcolumn = "yes"
 
-vim.g.shell="/bin/zsh"
-vim.o.shell="/bin/zsh"
-
+vim.g.shell = "/bin/zsh"
+vim.o.shell = "/bin/zsh"
