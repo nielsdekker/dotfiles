@@ -1,10 +1,4 @@
 -- Init
+require("keys")
 require("plugins")
 require("general")
-require("keys")
-require("plugins.treesitter")
-require("plugins.mason")
-require("plugins.cmp")
-require("plugins.null_ls")
-require("plugins.copilot")
-require("plugins.dap")
