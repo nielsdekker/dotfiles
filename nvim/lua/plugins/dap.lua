@@ -8,6 +8,11 @@ dap.adapters.javascript = {
   args = { mason_path .. "/packages/node-debug2-adapter/out/src/nodeDebug.js" },
 }
 
+dap.adapters.kotlin = {
+  type = "executable",
+  command = mason_path .. "/packages/kotlin-debug-adapter/adapter/bin/kotlin-debug-adapter",
+}
+
 dap.configurations.javascript = {
   {
     type = "javascript",
@@ -17,7 +22,6 @@ dap.configurations.javascript = {
     cwd = vim.fn.getcwd(),
     sourceMaps = true,
     protocol = "inspector",
-    console = "integratedTerminal",
   },
 }
 

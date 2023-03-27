@@ -31,3 +31,5 @@ vim.o.signcolumn = "yes"
 
 vim.g.shell = "/bin/zsh"
 vim.o.shell = "/bin/zsh"
+
+vim.o.exrc = true

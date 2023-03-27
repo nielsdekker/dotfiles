@@ -40,6 +40,7 @@ map("n", "<F11>", "<cmd>lua require('dap').step_into() <cr>", bufopts)
 map("n", "<F12>", "<cmd>lua require('dap').step_out() <cr>", bufopts)
 map("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint() <cr>", bufopts)
 map("n", "<leader>dlb", "<cmd>Telescope dap list_breakpoints <cr>", bufopts)
+map("n", "<leader>dt", "<cmd>lua require('dapui').toggle() <cr>", bufopts)
 
 -- Trouble
 map("n", "<leader>x", "<cmd>TroubleToggle<cr>", options)
