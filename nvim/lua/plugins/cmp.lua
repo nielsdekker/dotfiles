@@ -19,27 +19,18 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<Tab>"] = cmp.mapping(function(fallback)
           local copilot_keys = vim.fn["copilot#Accept"]()
 
-          if cmp.visible() then
-            cmp.select_next_item()
-            return
-          elseif copilot_keys ~= "" then
+          if copilot_keys ~= "" then
             vim.fn.feedkeys(copilot_keys, "n")
             return
           else
             fallback()
           end
         end),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-            return
-          else
-            fallback()
-          end
-        end)
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },

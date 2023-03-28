@@ -13,6 +13,10 @@ vim.o.expandtab = true
 -- Theming
 vim.o.background = "dark"
 vim.cmd("colorscheme duskfox")
+
+-- Custom font changes
+local currentCommentHL = vim.api.nvim_get_hl_by_name("Comment", true)
+vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = currentCommentHL.foreground })
 vim.api.nvim_command('let &colorcolumn=join(range(80,999), ",")')
 
 -- Ale settings
