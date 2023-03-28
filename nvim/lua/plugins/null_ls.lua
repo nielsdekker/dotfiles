@@ -5,8 +5,12 @@ return {
     local null_ls = require("null-ls")
 
     null_ls.setup({
-      null_ls.builtins.completion.spell,
-      null_ls.builtins.formatting.prettier,
+      sources = {
+        null_ls.builtins.formatting.prettier.with({
+          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "markdown",
+            "html", "css", "scss", "less", "lua" }
+        })
+      },
       on_attach = _util.formatIfSupported
     })
   end

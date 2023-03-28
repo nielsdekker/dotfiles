@@ -22,6 +22,7 @@ map("n", "<leader>p", "<cmd>Telescope find_files <cr>", options)
 map("n", "<leader>f", "<cmd>Telescope live_grep <cr>", options)
 map("n", "<leader>b", "<cmd>Telescope buffers <cr>", options)
 map("n", "<leader>k", "<cmd>Telescope commands <cr>", options)
+map("n", "<leader>m", "<cmd>Telescope marks <cr>", options)
 
 -- Easy motion
 map("n", "<leader>s", "<Plug>(easymotion-s)", options)
