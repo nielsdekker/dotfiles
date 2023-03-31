@@ -1,50 +1,45 @@
-local map = vim.api.nvim_set_keymap
-
--- Default options
-local options = { noremap = true }
+local map = vim.keymap.set
 
 vim.g.mapleader = " "
 
 -- Window navigation
-map("n", "<leader>tt", ":tabnew<CR>", options)
-map("n", "<leader>th", ":tabprevious<CR>", options)
-map("n", "<leader>tl", ":tabnext<CR>", options)
+map("n", "<leader>tt", function() vim.cmd("tabnew") end)
+map("n", "<leader>th", function() vim.cmd("tabprevious") end)
+map("n", "<leader>tl", function() vim.cmd("tabnext") end)
 
-map("n", "<leader>wh", "<C-w>h", options)
-map("n", "<leader>wj", "<C-w>j", options)
-map("n", "<leader>wk", "<C-w>k", options)
-map("n", "<leader>wl", "<C-w>l", options)
+map("n", "<leader>wh", "<C-w>h")
+map("n", "<leader>wj", "<C-w>j")
+map("n", "<leader>wk", "<C-w>k")
+map("n", "<leader>wl", "<C-w>l")
 
-map("t", "<leader><Esc>", "<C-\\><C-n>", options)
+-- Command to exit insert mode in terminal
+map("t", "<leader><Esc>", "<C-\\><C-n>")
 
--- File searching
-map("n", "<leader>p", "<cmd>Telescope find_files <cr>", options)
-map("n", "<leader>f", "<cmd>Telescope live_grep <cr>", options)
-map("n", "<leader>b", "<cmd>Telescope buffers <cr>", options)
-map("n", "<leader>k", "<cmd>Telescope commands <cr>", options)
-map("n", "<leader>m", "<cmd>Telescope marks <cr>", options)
+-- Searching
+map("n", "<leader>p", function() vim.cmd("Telescope find_files") end)
+map("n", "<leader>f", function() vim.cmd("Telescope live_grep") end)
+map("n", "<leader>b", function() vim.cmd("Telescope buffers") end)
+map("n", "<leader>k", function() vim.cmd("Telescope commands") end)
+map("n", "<leader>m", function() vim.cmd("Telescope marks") end)
 
 -- Easy motion
-map("n", "<leader>s", "<Plug>(easymotion-s)", options)
+map("n", "<leader>s", "<Plug>(easymotion-s)")
 
 -- Language server keybinds, nvim-cmp specific ones are set in lsp
-local bufopts = { noremap = true, silent = true, buffer = bufnr }
-map("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references() <cr>", bufopts)
-map("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions() <cr>", bufopts)
-
-vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+local bufopts = { noremap = true, silent = true }
+map("n", "K", vim.lsp.buf.hover, bufopts)
+map("n", "gr", function() require('telescope.builtin').lsp_references() end, bufopts)
+map("n", "gd", function() require('telescope.builtin').lsp_definitions() end, bufopts)
+map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 -- Debugging
-map("n", "<F5>", "<cmd>lua require('dap').continue() <cr>", bufopts)
-map("n", "<F10>", "<cmd>lua require('dap').step_over() <cr>", bufopts)
-map("n", "<F11>", "<cmd>lua require('dap').step_into() <cr>", bufopts)
-map("n", "<F12>", "<cmd>lua require('dap').step_out() <cr>", bufopts)
-map("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint() <cr>", bufopts)
+map("n", "<F5>", function() require("dap").continue() end, bufopts)
+map("n", "<F10>", function() require("dap").step_over() end, bufopts)
+map("n", "<F11>", function() require("dap").step_into() end, bufopts)
+map("n", "<F12>", function() require("dap").step_out() end, bufopts)
+map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, bufopts)
 map("n", "<leader>dlb", "<cmd>Telescope dap list_breakpoints <cr>", bufopts)
-map("n", "<leader>dt", "<cmd>lua require('dapui').toggle() <cr>", bufopts)
+map("n", "<leader>dt", function() require('dapui').toggle() end, bufopts)
 
 -- Trouble
-map("n", "<leader>x", "<cmd>TroubleToggle<cr>", options)
-
--- "copilot"
-map("i", "<Right>", "copilot#Accept('<CR>')", { silent = true, expr = true })
+map("n", "<leader>x", function() vim.cmd("TroubleToggle") end)
