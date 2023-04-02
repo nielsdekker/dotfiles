@@ -16,9 +16,9 @@ return {
       args = { mason_path .. "/packages/node-debug2-adapter/out/src/nodeDebug.js" },
     }
 
-    dap.adapters.kotlin = {
+    dap.adapters.rust_lldb = {
       type = "executable",
-      command = mason_path .. "/packages/kotlin-debug-adapter/adapter/bin/kotlin-debug-adapter",
+      command = "/usr/bin/lldb-vscode",
     }
 
     dap.configurations.javascript = {
@@ -30,6 +30,18 @@ return {
         cwd = vim.fn.getcwd(),
         sourceMaps = true,
         protocol = "inspector",
+      },
+    }
+
+    dap.configurations.rust = {
+      {
+        type = "rust_lldb",
+        request = "launch: ",
+        name = "Launch",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        args = {}
       },
     }
 
