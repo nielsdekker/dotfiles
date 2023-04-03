@@ -8,6 +8,7 @@ return {
   config = function()
     local dap = require("dap")
     local dap_ui = require("dapui")
+    local dap_virtual_text = require("nvim-dap-virtual-text")
 
     local mason_path = vim.fn.stdpath("data") .. "/mason"
     dap.adapters.javascript = {
@@ -19,6 +20,11 @@ return {
     dap.adapters.rust_lldb = {
       type = "executable",
       command = "/usr/bin/lldb-vscode",
+    }
+
+    dap.adapters.firefox = {
+      type = "executable",
+      command = mason_path .. "/packages/firefox-debug-adapter/firefox-debug-adapter",
     }
 
     dap.configurations.javascript = {
@@ -46,7 +52,32 @@ return {
     }
 
     -- Setup dap UI and auto open/close
-    dap_ui.setup()
+    dap_ui.setup({
+      layouts = { {
+        elements = { {
+          id = "scopes",
+          size = 0.25
+        }, {
+          id = "breakpoints",
+          size = 0.25
+        }, {
+          id = "stacks",
+          size = 0.25
+        }, {
+          id = "watches",
+          size = 0.25
+        } },
+        position = "left",
+        size = 40
+      }, {
+        elements = { {
+          id = "repl",
+          size = 1
+        } },
+        position = "bottom",
+        size = 10
+      } }
+    })
     dap.listeners.after.event_initialized["dapui_config"] = function()
       dap_ui.open()
     end
@@ -56,5 +87,7 @@ return {
     dap.listeners.after.event_exited["dapui_config"] = function()
       dap_ui.close()
     end
+
+    dap_virtual_text.setup()
   end
 }

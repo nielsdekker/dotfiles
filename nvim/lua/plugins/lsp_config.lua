@@ -38,6 +38,16 @@ return {
           }
         }
       end,
+      ["yamlls"] = function()
+        lsp_config.yamlls.setup {
+          on_attach = _util.formatIfSupported,
+          settings = {
+            yaml = {
+              keyOrdering = false,
+            }
+          }
+        }
+      end,
       ["tsserver"] = function()
         require("lspconfig").tsserver.setup {
           on_attach = function(client)
