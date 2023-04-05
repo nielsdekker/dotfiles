@@ -30,6 +30,7 @@ local bufopts = { noremap = true, silent = true }
 map("n", "K", vim.lsp.buf.hover, bufopts)
 map("n", "gr", function() require('telescope.builtin').lsp_references() end, bufopts)
 map("n", "gd", function() require('telescope.builtin').lsp_definitions() end, bufopts)
+map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 -- Debugging

@@ -7,12 +7,13 @@ vim.o.ignorecase = true
 vim.wo.wrap = false
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
 vim.o.expandtab = true
+vim.o.smarttab = true
 
 -- Theming
 vim.o.background = "dark"
 vim.cmd("colorscheme kanagawa")
+vim.o.laststatus = 3
 
 -- Custom font changes
 local currentCommentHL = vim.api.nvim_get_hl_by_name("Comment", true)
@@ -37,3 +38,12 @@ vim.g.shell = "/bin/zsh"
 vim.o.shell = "/bin/zsh"
 
 vim.o.exrc = true
+
+-- Overrides for specific filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "kotlin", "java" },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+  end
+})
