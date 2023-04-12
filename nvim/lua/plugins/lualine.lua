@@ -9,7 +9,7 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { "buffers" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = {
           {
@@ -18,8 +18,7 @@ return {
             path = 1
           }
         },
-        lualine_x = { "encoding", "filetype" },
-        lualine_y = { "progress" },
+        lualine_y = { "encoding", "filetype" },
         lualine_z = { "location" },
       },
     })
