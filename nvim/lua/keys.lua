@@ -38,9 +38,14 @@ map("n", "<F5>", function() require("dap").continue() end, bufopts)
 map("n", "<F10>", function() require("dap").step_over() end, bufopts)
 map("n", "<F11>", function() require("dap").step_into() end, bufopts)
 map("n", "<F12>", function() require("dap").step_out() end, bufopts)
-map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, bufopts)
-map("n", "<leader>dlb", "<cmd>Telescope dap list_breakpoints <cr>", bufopts)
-map("n", "<leader>dt", function() require('dapui').toggle() end, bufopts)
+map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, bufopts)
+map("n", "<leader>db", "<cmd>Telescope dap list_breakpoints <cr>", bufopts)
+map("n", "<leader>du", function() require('dapui').toggle() end, bufopts)
+
+-- Calling it twice means we auto jump into the eval window
+map("n", "<leader>di", function()
+  require("dapui").eval(nil, { enter = true });
+end, bufopts)
 
 -- Trouble
 map("n", "<leader>x", function() vim.cmd("TroubleToggle") end)

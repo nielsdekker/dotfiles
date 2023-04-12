@@ -2,16 +2,17 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
-    "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim"
   },
   config = function()
     local dap = require("dap")
     local dap_ui = require("dapui")
-    local dap_virtual_text = require("nvim-dap-virtual-text")
 
     local mason_path = vim.fn.stdpath("data") .. "/mason"
-    dap.adapters.javascript = {
+
+    -- Basic adapter config. Project specific configs should be set up in a
+    -- projects .nvim.lua file.
+    dap.adapters.node = {
       type = "executable",
       command = "node",
       args = { mason_path .. "/packages/node-debug2-adapter/out/src/nodeDebug.js" },
@@ -22,14 +23,9 @@ return {
       command = "/usr/bin/lldb-vscode",
     }
 
-    dap.adapters.firefox = {
-      type = "executable",
-      command = mason_path .. "/packages/firefox-debug-adapter/firefox-debug-adapter",
-    }
-
     dap.configurations.javascript = {
       {
-        type = "javascript",
+        type = "node",
         request = "launch",
         name = "Launch JS file",
         program = "${file}",
@@ -51,43 +47,42 @@ return {
       },
     }
 
-    -- Setup dap UI and auto open/close
+    -- Setup UI
+    vim.fn.sign_define("DapBreakpoint", { text = "" })
+    vim.fn.sign_define("DapStopped", { text = "" })
+    vim.fn.sign_define("DapBreakpointRejected", { text = "" })
+    vim.fn.sign_define("DapLogPoint", { text = "" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "" })
+
     dap_ui.setup({
+      icons = {
+        collapsed = "",
+        expanded = ""
+      },
       layouts = { {
         elements = { {
-          id = "scopes",
-          size = 0.25
-        }, {
-          id = "breakpoints",
-          size = 0.25
-        }, {
           id = "stacks",
-          size = 0.25
+          size = 0.4
         }, {
           id = "watches",
-          size = 0.25
+          size = 0.3
+        }, {
+          id = "scopes",
+          size = 0.3
         } },
         position = "left",
-        size = 40
+        size = 60
       }, {
         elements = { {
           id = "repl",
           size = 1
         } },
         position = "bottom",
-        size = 10
+        size = 20
       } }
     })
     dap.listeners.after.event_initialized["dapui_config"] = function()
       dap_ui.open()
     end
-    dap.listeners.after.event_terminated["dapui_config"] = function()
-      dap_ui.close()
-    end
-    dap.listeners.after.event_exited["dapui_config"] = function()
-      dap_ui.close()
-    end
-
-    dap_virtual_text.setup()
   end
 }
