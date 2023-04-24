@@ -10,9 +10,6 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smarttab = true
 
--- Theming
-vim.o.laststatus = 3
-
 -- Ale settings
 vim.g.ale_linters_explicit = 1
 vim.g.ale_fix_on_save = 1

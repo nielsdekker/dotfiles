@@ -9,9 +9,8 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { "buffers" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = {
+        lualine_a = { "branch", "diff", "diagnostics" },
+        lualine_b = {
           {
             "filename",
             file_status = true,
@@ -22,5 +21,7 @@ return {
         lualine_z = { "location" },
       },
     })
+
+    vim.o.laststatus = 3
   end
 }
