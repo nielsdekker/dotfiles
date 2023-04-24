@@ -37,3 +37,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.tabstop = 4
   end
 })
+
+-- Auto hover diagnostics
+vim.o.updatetime = 100
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
+})

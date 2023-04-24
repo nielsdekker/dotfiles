@@ -2,11 +2,6 @@ local map = vim.keymap.set
 
 vim.g.mapleader = " "
 
--- Window navigation
-map("n", "<leader>tt", function() vim.cmd("tabnew") end)
-map("n", "<leader>th", function() vim.cmd("tabprevious") end)
-map("n", "<leader>tl", function() vim.cmd("tabnext") end)
-
 map("n", "<leader>wh", "<C-w>h")
 map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
@@ -24,6 +19,10 @@ map("n", "<leader>m", function() vim.cmd("Telescope marks") end)
 
 -- Easy motion
 map("n", "<leader>s", "<Plug>(easymotion-s)")
+
+-- Terminal
+map("n", "<leader>t", function() vim.cmd("ToggleTerm direction=float") end)
+map("t", "<esc>", "<C-\\><C-n>")
 
 -- Language server keybinds, nvim-cmp specific ones are set in lsp
 local bufopts = { noremap = true, silent = true }
