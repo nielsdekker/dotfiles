@@ -1,6 +1,5 @@
 return {
   -- Files and navigation
-  "tpope/vim-vinegar",
   "easymotion/vim-easymotion",
 
   -- Developer tools

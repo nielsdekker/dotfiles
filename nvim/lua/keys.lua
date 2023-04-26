@@ -7,6 +7,13 @@ map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
 
+map("n", "-", function()
+  require("nvim-tree.api").tree.open({
+    path = vim.fn.getcwd(),
+    find_file = true
+  })
+end)
+
 -- Command to exit insert mode in terminal
 map("t", "<leader><Esc>", "<C-\\><C-n>")
 
