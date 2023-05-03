@@ -1,6 +1,12 @@
 return {
-  "rebelot/kanagawa.nvim",
+  "catppuccin/nvim",
   config = function()
-    vim.cmd("colorscheme kanagawa")
+    require("catppuccin").setup({
+      flavour = "frappe",
+      dim_inactive = {
+        enabled = true
+      }
+    })
+    vim.cmd("colorscheme catppuccin")
   end
 }
