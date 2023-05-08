@@ -3,9 +3,10 @@ local wezterm = require("wezterm");
 local config = {
   color_scheme = "Catppuccin Frappe",
   font = wezterm.font {
-    family = "CaskaydiaCove Nerd Font Mono",
+    family = "Cascadia Code",
     harfbuzz_features = { "calt=1", "ss01=1" },
   },
+  font_size = 13.0,
   use_fancy_tab_bar = false,
 }
 
