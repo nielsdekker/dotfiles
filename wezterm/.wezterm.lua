@@ -8,6 +8,9 @@ local config = {
   },
   font_size = 13.0,
   use_fancy_tab_bar = false,
+  enable_wayland = true,
+  front_end = "WebGpu",
+  window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 }
 
 wezterm.on(
