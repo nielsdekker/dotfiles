@@ -44,6 +44,9 @@ return {
           settings = {
             yaml = {
               keyOrdering = false,
+              schemas = {
+                kubernetes = { "**/k8s/**/templates/*.yaml" }
+              }
             }
           }
         }
