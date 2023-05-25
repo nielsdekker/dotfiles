@@ -2,7 +2,7 @@ return {
   "catppuccin/nvim",
   config = function()
     require("catppuccin").setup({
-      flavour = "frappe",
+      flavour = "latte",
       dim_inactive = {
         enabled = true
       }

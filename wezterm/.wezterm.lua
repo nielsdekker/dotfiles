@@ -1,10 +1,11 @@
 local wezterm = require("wezterm");
 
 local config = {
-  color_scheme = "Catppuccin Frappe",
+  color_scheme = "Catppuccin Latte",
   font = wezterm.font {
     family = "Cascadia Code",
     harfbuzz_features = { "calt=1", "ss01=1" },
+    weight = "Bold",
   },
   font_size = 13.0,
   use_fancy_tab_bar = false,
