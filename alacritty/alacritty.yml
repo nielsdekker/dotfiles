@@ -1,0 +1,20 @@
+import:
+  - ~/.config/alacritty/themes/catppuccin-latte.yml
+
+font:
+  normal:
+    family: Cascadia Code
+    style: Regular
+  italic:
+    family: Cascadia Code
+    style: Italic
+
+  size: 11
+
+live_config_reload: true
+
+shell:
+  program: /bin/tmux
+  args:
+    - -f
+    - ~/dotfiles/tmux/.tmux.conf
