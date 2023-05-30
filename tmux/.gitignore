@@ -1,0 +1,3 @@
+# Contains the tmux plugins
+# These can be installed via `leader-I` in tmux
+plugins/**

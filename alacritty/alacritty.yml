@@ -15,6 +15,3 @@ live_config_reload: true
 
 shell:
   program: /bin/tmux
-  args:
-    - -f
-    - ~/dotfiles/tmux/.tmux.conf
