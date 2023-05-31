@@ -3,15 +3,15 @@ import:
 
 font:
   normal:
-    family: Cascadia Code
+    family: CaskaydiaCove Nerd Font Mono
     style: Regular
   italic:
     family: Cascadia Code
     style: Italic
 
-  size: 11
+  size: 13
 
 live_config_reload: true
 
 shell:
-  program: /bin/tmux
+  program: /usr/local/bin/tmux
