@@ -2,7 +2,6 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
-    "nvim-telescope/telescope-dap.nvim"
   },
   config = function()
     local dap = require("dap")
@@ -21,6 +20,11 @@ return {
     dap.adapters.rust_lldb = {
       type = "executable",
       command = "/usr/bin/lldb-vscode",
+    }
+
+    dap.adapters.zig = {
+      type = "executable",
+      command = "/usr/bin/lldb-vscode"
     }
 
     dap.configurations.javascript = {
@@ -45,6 +49,46 @@ return {
         end,
         args = {}
       },
+    }
+
+    dap.configurations.zig = {
+      {
+        type = "zig",
+        request = "Launch",
+        name = "Launch",
+        program = function()
+          -- Runs the zig build command and outputs the bin folder
+          local handle = io.popen("zig build && find zig-out/bin/*")
+          if handle == nil then
+            return nil
+          end
+
+          -- Only interested in the first line
+          local firstFile = handle:read("*l")
+          handle:close()
+          return vim.fn.getcwd() .. "/" .. firstFile
+        end,
+        args = {}
+      },
+      {
+        type = "zig",
+        request = "launch",
+        name = "Debug test",
+        program = function()
+          local fullPath = vim.api.nvim_buf_get_name(0)
+          local basename = vim.fs.basename(fullPath)
+
+          local handle = io.popen("zig test " .. fullPath .. " -femit-bin=zig-out/test_" .. basename)
+          if handle == nil then
+            return nil
+          end
+          handle:read("*a")
+          handle:close()
+
+          return vim.fn.getcwd() .. "/zig-out/test_" .. basename
+        end,
+        args = {}
+      }
     }
 
     -- Setup UI
