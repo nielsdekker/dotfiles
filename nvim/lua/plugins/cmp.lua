@@ -18,10 +18,9 @@ return {
       },
       mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping.select_next_item(),
-        ["<Shift-Tab>"] = cmp.mapping.select_prev_item(),
-        ["<C-CR>"] = cmp.mapping(function(fallback)
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+        ["<C-Space>"] = cmp.mapping(function(fallback)
           local copilot_keys = vim.fn["copilot#Accept"]()
 
           if copilot_keys ~= "" then
