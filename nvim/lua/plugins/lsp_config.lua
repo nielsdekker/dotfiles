@@ -4,6 +4,9 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
+  opts = {
+    inlay_hints = { enabled = true }
+  },
   config = function()
     local _util = require("_util")
     local lsp_config = require("lspconfig")

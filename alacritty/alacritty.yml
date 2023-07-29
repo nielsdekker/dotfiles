@@ -10,7 +10,7 @@ font:
     style: Italic
   offset:
     y: 2
-  size: 11
+  size: 12
 
 live_config_reload: true
 

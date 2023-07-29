@@ -22,6 +22,11 @@ return {
       command = "/usr/bin/lldb-vscode",
     }
 
+    dap.adapters.kotlin = {
+      type = "executable",
+      command = mason_path .. "/bin/kotlin-debug-adapter"
+    }
+
     dap.adapters.zig = {
       type = "executable",
       command = "/usr/bin/lldb-vscode"

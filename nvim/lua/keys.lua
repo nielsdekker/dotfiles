@@ -8,7 +8,7 @@ map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
 
 -- Command to exit insert mode in terminal
-map("t", "<leader><Esc>", "<C-\\><C-n>")
+map("t", "<esc>", "<C-\\><C-n>")
 
 -- Searching
 map("n", "<leader>p", function() vim.cmd("Telescope find_files") end)
@@ -20,10 +20,6 @@ map("n", "<leader>m", function() vim.cmd("Telescope marks") end)
 -- Easy motion
 map("n", "<leader>s", "<Plug>(easymotion-s)")
 
--- Terminal
-map("n", "<leader>t", function() vim.cmd("ToggleTerm direction=float") end)
-map("t", "<esc>", "<C-\\><C-n>")
-
 -- Language server keybinds, nvim-cmp specific ones are set in lsp
 local bufopts = { noremap = true, silent = true }
 map("n", "K", vim.lsp.buf.hover, bufopts)
@@ -31,6 +27,8 @@ map("n", "gr", function() require('telescope.builtin').lsp_references() end, buf
 map("n", "gd", function() require('telescope.builtin').lsp_definitions() end, bufopts)
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
+map("n", "<leader>cd", vim.diagnostic.open_float)
+map("n", "<leader>cq", vim.diagnostic.setloclist)
 
 -- Debugging
 map("n", "<F1>", function() require("dap").continue() end, bufopts)
