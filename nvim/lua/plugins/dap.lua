@@ -27,7 +27,7 @@ return {
       command = mason_path .. "/bin/kotlin-debug-adapter"
     }
 
-    dap.adapters.zig = {
+    dap.adapters.zig_lldb = {
       type = "executable",
       command = "/usr/bin/lldb-vscode"
     }
@@ -57,28 +57,32 @@ return {
     }
 
     dap.configurations.zig = {
-      {
-        type = "zig",
-        request = "Launch",
-        name = "Launch",
-        program = function()
-          -- Runs the zig build command and outputs the bin folder
-          local handle = io.popen("zig build && find zig-out/bin/*")
-          if handle == nil then
-            return nil
+      setmetatable(
+        {
+          type = "zig_lldb",
+          request = "launch",
+          name = "Debug",
+          program = vim.fn.getcwd() .. "/zig-out/bin/debug",
+          args = {}
+        },
+        {
+          __call = function(config)
+            local output = vim.fn.system(
+              "zig build-exe " .. vim.fn.getcwd() .. "/src/main.zig " ..
+              "-femit-bin=" .. vim.fn.getcwd() .. "/zig-out/bin/debug"
+            )
+            if (output:len() > 0) then
+              error(output)
+              return nil
+            end
+            return config
           end
-
-          -- Only interested in the first line
-          local firstFile = handle:read("*l")
-          handle:close()
-          return vim.fn.getcwd() .. "/" .. firstFile
-        end,
-        args = {}
-      },
+        }
+      ),
       {
-        type = "zig",
+        type = "zig_lldb",
         request = "launch",
-        name = "Debug test",
+        name = "Debug tests current file",
         program = function()
           local fullPath = vim.api.nvim_buf_get_name(0)
           local basename = vim.fs.basename(fullPath)
