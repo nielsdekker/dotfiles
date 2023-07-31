@@ -21,14 +21,7 @@ return {
         ["<Tab>"] = cmp.mapping.select_next_item(),
         ["<S-Tab>"] = cmp.mapping.select_prev_item(),
         ["<C-Space>"] = cmp.mapping(function(fallback)
-          local copilot_keys = vim.fn["copilot#Accept"]()
-
-          if copilot_keys ~= "" then
-            vim.fn.feedkeys(copilot_keys, "n")
-            return
-          else
-            fallback()
-          end
+          fallback()
         end),
       }),
       sources = cmp.config.sources({
