@@ -3,14 +3,14 @@ import:
 
 font:
   normal:
-    family: CaskaydiaCove Nerd Font Mono
+    family: Cascadia Code
     style: Regular
   italic:
     family: Cascadia Code
     style: Italic
   offset:
     y: 2
-  size: 12
+  size: 13
 
 live_config_reload: true
 

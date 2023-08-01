@@ -5,9 +5,10 @@ return {
   },
   config = function()
     local oil = require("oil")
+
     oil.setup({
       colums = {
-        "icon"
+        "icon",
       },
       view_options = {
         show_hidden = true
