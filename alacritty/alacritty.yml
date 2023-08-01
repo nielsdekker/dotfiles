@@ -1,16 +1,16 @@
 import:
-  - ~/.config/alacritty/themes/catppuccin-latte.yml
+  - ~/.config/alacritty/themes/duskfox.yml
 
 font:
   normal:
-    family: Cascadia Code
+    family: Hack Nerd Font
     style: Regular
   italic:
-    family: Cascadia Code
+    family: Hack Nerd Font
     style: Italic
   offset:
     y: 2
-  size: 13
+  size: 12
 
 live_config_reload: true
 
