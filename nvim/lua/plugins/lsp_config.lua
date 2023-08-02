@@ -15,7 +15,15 @@ return {
 
     mason.setup {}
     mason_lsp.setup {
-      ensure_installed = { "tsserver", "yamlls", "bashls", "terraformls", "lua_ls" }
+      ensure_installed = {
+        "bashls",
+        "eslint",
+        "lemminx",
+        "lua_ls",
+        "terraformls",
+        "yamlls",
+        "tsserver",
+      }
     }
 
     -- Format on save

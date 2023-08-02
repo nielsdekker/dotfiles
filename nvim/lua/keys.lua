@@ -7,6 +7,9 @@ map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
 
+-- Allows yanking to the clipboard
+map("v", "<leader>y", [["*y]])
+
 -- Command to exit insert mode in terminal
 map("t", "<esc>", "<C-\\><C-n>")
 

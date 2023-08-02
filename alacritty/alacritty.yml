@@ -17,7 +17,7 @@ live_config_reload: true
 window:
   opacity: 0.93
   padding:
-    x: 0
+    x: 8
     y: 8
 
 shell:

@@ -10,18 +10,6 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smarttab = true
 
--- Ale settings
-vim.g.ale_linters_explicit = 1
-vim.g.ale_fix_on_save = 1
-vim.g.ale_fixers = {
-  javascript = { 'prettier' },
-  javascriptreact = { 'prettier' },
-  typescript = { 'prettier' },
-  typescriptreact = { 'prettier' },
-  json = { 'prettier' },
-  css = { 'prettier' },
-  svg = { 'prettier' }
-}
 vim.o.signcolumn = "yes"
 
 vim.g.shell = "/bin/zsh"
