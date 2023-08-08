@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/themes/duskfox.yml
+  - ~/.config/alacritty/themes/dawnfox.yml
 
 font:
   normal:
@@ -15,7 +15,7 @@ font:
 live_config_reload: true
 
 window:
-  opacity: 0.93
+  opacity: 1
   padding:
     x: 8
     y: 8

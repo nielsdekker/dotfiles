@@ -11,6 +11,7 @@ return {
         json = f.json.prettier,
         javascript = f.javascript.prettier,
         javascriptreact = f.javascriptreact.prettier,
+        yaml = f.yaml.prettier
       }
     }
 
