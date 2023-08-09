@@ -1,7 +1,8 @@
 -- window
+vim.o.termguicolors = true
+vim.o.ignorecase = true
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.o.ignorecase = true
 
 -- Tabs and spaces
 vim.wo.wrap = false
@@ -14,8 +15,11 @@ vim.o.signcolumn = "yes"
 
 vim.g.shell = "/bin/zsh"
 vim.o.shell = "/bin/zsh"
-
 vim.o.exrc = true
+
+-- Color column
+vim.o.textwidth = 80
+vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ',+')
 
 -- Overrides for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {

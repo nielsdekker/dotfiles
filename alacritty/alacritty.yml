@@ -22,3 +22,6 @@ window:
 
 shell:
   program: /usr/local/bin/tmux
+
+env:
+  TERM: xterm-256color
