@@ -16,9 +16,10 @@ map("t", "<esc>", "<C-\\><C-n>")
 -- Searching
 map("n", "<leader>p", function() vim.cmd("Telescope find_files") end)
 map("n", "<leader>f", function() vim.cmd("Telescope live_grep") end)
-map("n", "<leader>b", function() vim.cmd("Telescope buffers") end)
-map("n", "<leader>k", function() vim.cmd("Telescope commands") end)
-map("n", "<leader>m", function() vim.cmd("Telescope marks") end)
+map("n", "<leader>tb", function() vim.cmd("Telescope buffers") end)
+map("n", "<leader>tk", function() vim.cmd("Telescope commands") end)
+map("n", "<leader>tm", function() vim.cmd("Telescope marks") end)
+map("n", "<leader>ts", function() vim.cmd("Telescope lsp_document_symbols") end)
 
 -- Easy motion
 map("n", "<leader>s", "<Plug>(easymotion-s)")
