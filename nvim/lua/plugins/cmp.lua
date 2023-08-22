@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
+    "hrsh7th/cmp-nvim-lua",
   },
   config = function()
     local cmp = require("cmp")
@@ -24,6 +25,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "nvim_lua" },
         { name = "path" }
       }),
     })

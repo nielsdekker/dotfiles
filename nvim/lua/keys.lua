@@ -27,12 +27,10 @@ map("n", "<leader>s", "<Plug>(easymotion-s)")
 -- Language server keybinds, nvim-cmp specific ones are set in lsp
 local bufopts = { noremap = true, silent = true }
 map("n", "K", vim.lsp.buf.hover, bufopts)
-map("n", "gr", function() require('telescope.builtin').lsp_references() end, bufopts)
 map("n", "gd", function() require('telescope.builtin').lsp_definitions() end, bufopts)
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
-map("n", "<leader>cd", vim.diagnostic.open_float)
-map("n", "<leader>cq", vim.diagnostic.setloclist)
+map("n", "<leader>cq", function() vim.diagnostic.setloclist() end, bufopts)
 
 -- Debugging
 map("n", "<F1>", function() require("dap").continue() end, bufopts)
