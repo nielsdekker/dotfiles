@@ -31,6 +31,10 @@ map("n", "gd", function() require('telescope.builtin').lsp_definitions() end, bu
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>cq", function() vim.diagnostic.setloclist() end, bufopts)
+map("n", "gr", function()
+  vim.cmd("normal! m'")
+  vim.lsp.buf.references()
+end, bufopts)
 
 -- Debugging
 map("n", "<F1>", function() require("dap").continue() end, bufopts)

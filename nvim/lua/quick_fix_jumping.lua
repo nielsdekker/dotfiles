@@ -4,12 +4,6 @@
 
 local map = vim.keymap.set
 
-local reference_jumped_from = {
-  window = 0,
-  buffer = 0,
-  cursor = {},
-}
-
 local jumping = false
 local was_in_quickfix = false
 
@@ -26,18 +20,6 @@ local function qf_command(command)
   jumping = false
 end
 
-local function mark_for_jump_list()
-  vim.cmd("normal! m'")
-end
-
-map("n", "gr", function()
-  reference_jumped_from.window = vim.api.nvim_get_current_win()
-  reference_jumped_from.buffer = vim.api.nvim_get_current_buf()
-  reference_jumped_from.cursor = vim.api.nvim_win_get_cursor(0)
-  mark_for_jump_list()
-  vim.lsp.buf.references()
-end, { noremap = true, silent = true })
-
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(opts)
     if is_quickfix_window() then
@@ -51,9 +33,6 @@ vim.api.nvim_create_autocmd("FileType", {
       end, buffer_opts)
 
       map("n", "q", function()
-        vim.api.nvim_set_current_win(reference_jumped_from.window)
-        vim.api.nvim_set_current_buf(reference_jumped_from.buffer)
-        vim.api.nvim_win_set_cursor(0, reference_jumped_from.cursor)
         pcall(vim.cmd, "cexpr []")
         pcall(vim.cmd, "cclose")
       end, buffer_opts)
@@ -67,7 +46,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
       was_in_quickfix = true
     elseif was_in_quickfix and jumping == false then
       was_in_quickfix = false
-      mark_for_jump_list()
+      vim.cmd("normal! m'")
     end
   end
 })
