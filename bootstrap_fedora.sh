@@ -29,4 +29,5 @@ touch ~/.zshrc
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Add custom fonts
+mkdir -f ~/.local/share/fonts/
 cp ~/dotfiles/resources/hack-font/HackNerdFont-* ~/.local/share/fonts/
