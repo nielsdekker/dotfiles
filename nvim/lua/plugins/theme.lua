@@ -3,7 +3,7 @@ return {
   config = function()
     require("nightfox").setup({
       options = {
-        transparent = false
+        transparent = true
       }
     })
     vim.cmd("colorscheme duskfox")
