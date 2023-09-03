@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/themes/dawnfox.yml
+  - ~/.config/alacritty/themes/duskfox.yml
 
 font:
   normal:
@@ -21,7 +21,7 @@ window:
     y: 8
 
 shell:
-  program: /usr/local/bin/tmux
+  program: /usr/bin/tmux
 
 env:
   TERM: xterm-256color

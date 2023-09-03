@@ -6,6 +6,6 @@ return {
         transparent = false
       }
     })
-    vim.cmd("colorscheme dawnfox")
+    vim.cmd("colorscheme duskfox")
   end
 }
