@@ -13,3 +13,8 @@ sudo dnf install -y \
 ln -s ./nvim ~/.config/
 ln -s ./alacritty ~/.config/
 ln -a ./tmux/tmux.conf ~/.tmux.conf
+
+# Add starship (no fedora package)
+curl -sS https://starship.rs/install.sh | sh
+
+echo >> 'eval "$(starship init zsh)"' ~/.zshrc
