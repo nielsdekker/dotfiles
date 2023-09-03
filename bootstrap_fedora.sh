@@ -7,14 +7,26 @@ sudo dnf update -y;
 sudo dnf install -y \
   neovim \
   tmux \
-  alacritty;
+  alacritty \
+  zsh \
+  util-linux-user;
 
 # Symlink the dotfiles
-ln -s ./nvim ~/.config/
-ln -s ./alacritty ~/.config/
-ln -a ./tmux/tmux.conf ~/.tmux.conf
+cd ~/.config/ 
+ln -s ~/dotfiles/nvim ./
+ln -s ~/dotfiles/alacritty ./
+
+cd ~
+ln -s ./dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 # Add starship (no fedora package)
 curl -sS https://starship.rs/install.sh | sh
 
-echo >> 'eval "$(starship init zsh)"' ~/.zshrc
+# Setup zsh
+chsh -s $(which zsh)
+
+touch ~/.zshrc
+echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+
+# Add custom fonts
+cp ~/dotfiles/resources/hack-font/HackNerdFont-* ~/.local/share/fonts/
