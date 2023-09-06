@@ -1,0 +1,16 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = '''
+$directory$gcloud$kubernetes$git_branch$git_status$cmd_duration
+$character
+'''
+
+[gcloud]
+format = '[$symbol $project]($style)'
+
+[kubernetes]
+disabled = false
+
+[cmd_duration]
+format = '[last command took [$duration]($style)](italic)'
+style = 'bold italic yellow'
