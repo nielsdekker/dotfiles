@@ -15,13 +15,13 @@ font:
 live_config_reload: true
 
 window:
-  opacity: 0.96 
+  opacity: 0.96
   padding:
     x: 8
     y: 8
 
 shell:
-  program: /usr/bin/tmux
+  program: /usr/local/bin/tmux
 
 env:
   TERM: xterm-256color
