@@ -6,7 +6,7 @@ $character
 '''
 
 [gcloud]
-format = '[$symbol $project]($style)'
+format = '[$symbol$project]($style)'
 
 [kubernetes]
 disabled = false
