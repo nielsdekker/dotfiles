@@ -1,11 +1,10 @@
 return {
-  "EdenEast/nightfox.nvim",
+  "catppuccin/nvim",
   config = function()
-    require("nightfox").setup({
-      options = {
-        transparent = true
-      }
+    require("catppuccin").setup({
+      flavour = "latte",
+      transparent_background = true
     })
-    vim.cmd("colorscheme duskfox")
+    vim.cmd("colorscheme catppuccin")
   end
 }
