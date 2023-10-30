@@ -1,15 +1,20 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = '''
-$directory$gcloud$kubernetes$git_branch$git_status$cmd_duration
+$gcloud | $kubernetes
+$directory$git_branch$git_status$cmd_duration
 $character
 '''
+
+[directory]
+truncate_to_repo = false
 
 [gcloud]
 format = '[$symbol$project]($style)'
 
 [kubernetes]
 disabled = false
+format = '[$symbol$context]($style)'
 
 [cmd_duration]
 format = '[last command took [$duration]($style)](italic)'

@@ -3,20 +3,18 @@ import:
 
 font:
   normal:
-    family: Hack Nerd Font Mono
+    family: CommitMono
     style: Regular
   italic:
-    family: Hack Nerd Font Mono
+    family: CommitMono
     style: Italic
   offset:
-    y: 1
+    y: 2
   size: 12
 
 live_config_reload: true
 
 window:
-  # decorations: none
-  decorations_theme_variant: Dark
   opacity: 0.94
   padding:
     x: 8
