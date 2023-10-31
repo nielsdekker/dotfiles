@@ -5,6 +5,7 @@ return {
       icons = false,
       fold_open = "v",
       fold_closed = ">",
+      mode = "document_diagnostics",
       signs = {
         error = "[E]",
         warning = "[W]",
