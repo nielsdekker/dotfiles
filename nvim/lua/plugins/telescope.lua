@@ -9,6 +9,7 @@ return {
     local telescope = require("telescope")
     telescope.setup {
       defaults = {
+        path_display = { truncate = 8 },
         file_ignore_patterns = { "node_modules", "dist", "build", "target", "vendor", ".git" },
       }
     }

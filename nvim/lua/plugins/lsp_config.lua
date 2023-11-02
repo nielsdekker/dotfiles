@@ -34,6 +34,13 @@ return {
           on_attach = _util.formatIfSupported
         }
       end,
+      ["kotlin_language_server"] = function()
+        lsp_config.kotlin_language_server.setup {
+          cmd_env = {
+            JAVA_OPTS = "-Xmx8g"
+          }
+        }
+      end,
       ["lua_ls"] = function()
         lsp_config.lua_ls.setup {
           on_attach = _util.formatIfSupported,
