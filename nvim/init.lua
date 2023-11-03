@@ -1,5 +1,4 @@
--- Init
-require("keys")
-require("plugins")
+-- Init everything
 require("general")
--- require("quick_fix_jumping")
+require("keybinds")
+require("lazy_bootstrap")

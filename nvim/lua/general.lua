@@ -21,10 +21,3 @@ vim.o.cursorline = true
 -- Color column
 vim.o.textwidth = 80
 vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ',+')
-
--- Update the loclist with diagnostics automatically
-vim.api.nvim_create_autocmd("DiagnosticChanged", {
-  callback = function()
-    vim.diagnostic.setloclist({ open = false })
-  end
-})
