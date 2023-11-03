@@ -49,6 +49,14 @@ return {
       end,
 
       -- Custom settings for specific LSP's
+      ["kotlin_language_server"] = function()
+        lsp_config.kotlin_language_server.setup {
+          cmd_env = {
+            JAVA_OPTS = "-Xmx8g"
+          }
+        }
+      end,
+
       ["lua_ls"] = function()
         lsp_config.lua_ls.setup {
           on_attach = formatIfSupported,
