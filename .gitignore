@@ -2,3 +2,5 @@
 .netrwhist
 
 *.bak
+
+nvim/lazy-lock.json

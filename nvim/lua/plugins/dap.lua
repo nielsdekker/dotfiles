@@ -9,6 +9,9 @@ return {
 
     local mason_path = vim.fn.stdpath("data") .. "/mason"
 
+    -- Set defaults for DAP
+    dap.defaults.fallback.exception_breakpoints = {}
+
     -- Basic adapter config. Project specific configs should be set up in a
     -- projects .nvim.lua file.
     dap.adapters.node = {
@@ -120,8 +123,11 @@ return {
           id = "watches",
           size = 0.3
         }, {
+          id = "breakpoints",
+          size = 0.2
+        }, {
           id = "scopes",
-          size = 0.3
+          size = 0.2
         } },
         position = "left",
         size = 60
