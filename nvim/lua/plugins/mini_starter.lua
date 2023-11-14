@@ -4,6 +4,8 @@ return {
     "echasnovski/mini.extra",
   },
   config = function()
-    require("mini.starter").setup({})
+    local starter = require("mini.starter");
+
+    starter.setup({})
   end
 }

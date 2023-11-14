@@ -29,6 +29,18 @@ map("n", "<leader>m", function() require("mini.extra").pickers.marks() end)
 -- Mini files
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
 
+-- Mini completion
+map("i", "<Tab>", function()
+    return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+  end,
+  { silent = true, expr = true }
+)
+map("i", "<S-Tab>", function()
+    return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
+  end,
+  { silent = true, expr = true }
+)
+
 -- Mason/lsp
 map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
 map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
