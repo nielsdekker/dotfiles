@@ -28,9 +28,9 @@ local act = wezterm.action
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
   -- Spawning tabs
-  { key = "%",  mods = "LEADER|SHIFT", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
-  { key = "\"", mods = "LEADER|SHIFT", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
-  { key = "c",  mods = "LEADER",       action = act.SpawnTab("CurrentPaneDomain") },
+  { key = "%",  mods = "LEADER|SHIFT", action = act.SplitHorizontal { domain = "CurrentPaneDomain", cwd = wezterm.home_dir } },
+  { key = "\"", mods = "LEADER|SHIFT", action = act.SplitVertical { domain = "CurrentPaneDomain", cwd = wezterm.home_dir } },
+  { key = "c",  mods = "LEADER",       action = act.SpawnCommandInNewTab { domain = "CurrentPaneDomain", cwd = wezterm.home_dir } },
 
   -- Navigation
   { key = "h",  mods = "LEADER",       action = act.ActivatePaneDirection("Left") },

@@ -22,7 +22,7 @@ map("n", "K", vim.lsp.buf.hover, { silent = true })
 
 -- Mini pick
 map("n", "<leader>p", function() require("mini.pick").builtin.files({ tool = "rg" }) end)
-map("n", "<leader>f", function() require("mini.pick").builtin.grep({ tool = "rg" }) end)
+map("n", "<leader>f", function() require("mini.pick").builtin.grep_live({ tool = "rg" }) end)
 map("n", "<leader>b", function() require("mini.pick").builtin.buffers() end)
 map("n", "<leader>m", function() require("mini.extra").pickers.marks() end)
 

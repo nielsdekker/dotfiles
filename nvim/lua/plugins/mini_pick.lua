@@ -5,6 +5,12 @@ return {
     "echasnovski/mini.nvim",
   },
   config = function()
-    require("mini.pick").setup()
+    require("mini.pick").setup({
+      window = {
+        config = {
+          border = "rounded"
+        }
+      }
+    })
   end
 }
