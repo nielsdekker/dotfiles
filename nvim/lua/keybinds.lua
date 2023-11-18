@@ -13,9 +13,11 @@ map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
 map("v", "<leader>y", "\"+y") -- Yanks to the clipboard
 
+-- Goto
 map("n", "g[", function() vim.cmd("cnext") end)
 map("n", "g]", function() vim.cmd("cprev") end)
-
+map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
+map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
 
 -- Diagnostics
 map("n", "K", vim.lsp.buf.hover, { silent = true })
@@ -29,8 +31,6 @@ map("n", "<leader>p", function() require("mini.pick").builtin.files({ tool = "rg
 map("n", "<leader>f", function() require("mini.pick").builtin.grep_live({ tool = "rg" }) end)
 map("n", "<leader>b", function() require("mini.pick").builtin.buffers() end)
 map("n", "<leader>m", function() require("mini.extra").pickers.marks() end)
-
--- Mini files
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
 
 -- Mini completion
@@ -45,15 +45,13 @@ map("i", "<S-Tab>", function()
   { silent = true, expr = true }
 )
 
--- Mason/lsp
-map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
-map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
-map("n", "cs", function() require("mini.extra").pickers.lsp({ scope = "document_symbols" }) end, { silent = true })
-map("n", "cd", function() require("mini.extra").pickers.diagnostic({ scope = "current" }) end, { silent = true })
+-- Code actions
+map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "document_symbol" }) end, { silent = true })
+map("n", "<leader>cd", function() require("mini.extra").pickers.diagnostic({ scope = "current" }) end, { silent = true })
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 
--- Dap
+-- Debugging
 map("n", "<F1>", function() require("dap").continue() end, { silent = true })
 map("n", "<F2>", function() require("dap").step_over() end, { silent = true })
 map("n", "<F3>", function() require("dap").step_into() end, { silent = true })
