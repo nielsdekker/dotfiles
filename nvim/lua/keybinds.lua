@@ -11,7 +11,11 @@ map("n", "<leader>wh", "<C-w>h")
 map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
-map("v", "<leader>y", [["*y]]) -- Yanks to the clipboard
+map("v", "<leader>y", "\"+y") -- Yanks to the clipboard
+
+map("n", "g[", function() vim.cmd("cnext") end)
+map("n", "g]", function() vim.cmd("cprev") end)
+
 
 -- Diagnostics
 map("n", "K", vim.lsp.buf.hover, { silent = true })
