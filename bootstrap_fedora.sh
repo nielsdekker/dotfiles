@@ -6,19 +6,21 @@ sudo dnf update -y;
 # Add standard tools
 sudo dnf install -y \
   neovim \
-  kitty \
   zsh \
   util-linux-user;
+
+# Setup flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install  \
+  org.gnome.firefox \
+  org.wezfurlong.wezterm \
+  io.missioncenter.MissionCenter;
 
 # Symlink the dotfiles
 cd ~/.config/ 
 ln -s ~/dotfiles/nvim ./
-ln -s ~/dotfiles/alacritty ./
-ln -s ~/dotfiles/kitty ./
+ln -s ~/dotfiles/wezterm ./
 ln -s ~/dotfiles/zsh ./
-
-cd ~
-ln -s ./dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 # Setup zsh
 chsh -s $(which zsh)
