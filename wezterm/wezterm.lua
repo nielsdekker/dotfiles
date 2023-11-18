@@ -18,7 +18,6 @@ config.font = wezterm.font("JetbrainsMono Nerd Font")
 ----------
 config.colors = rose_pine_dawn_theme.colors()
 config.window_frame = rose_pine_dawn_theme.window_frame()
-config.window_background_opacity = 0.93
 config.window_decorations = "INTEGRATED_BUTTONS"
 
 -----------
