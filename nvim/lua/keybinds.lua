@@ -14,8 +14,8 @@ map("n", "<leader>wl", "<C-w>l")
 map("v", "<leader>y", "\"+y") -- Yanks to the clipboard
 
 -- Goto
-map("n", "g[", function() vim.cmd("cnext") end)
-map("n", "g]", function() vim.cmd("cprev") end)
+map("n", "g]", function() vim.cmd("cnext") end)
+map("n", "g[", function() vim.cmd("cprev") end)
 map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
 map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
 
@@ -28,9 +28,10 @@ map("n", "K", vim.lsp.buf.hover, { silent = true })
 
 -- Mini pick
 map("n", "<leader>p", function() require("mini.pick").builtin.files({ tool = "rg" }) end)
-map("n", "<leader>f", function() require("mini.pick").builtin.grep_live({ tool = "rg" }) end)
+map("n", "<leader>f", function() require("mini.pick").builtin.grep({ tool = "rg" }) end)
 map("n", "<leader>b", function() require("mini.pick").builtin.buffers() end)
 map("n", "<leader>m", function() require("mini.extra").pickers.marks() end)
+map("n", "<leader>k", function() require("mini.extra").pickers.commands() end)
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
 
 -- Mini completion
@@ -47,7 +48,7 @@ map("i", "<S-Tab>", function()
 
 -- Code actions
 map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "document_symbol" }) end, { silent = true })
-map("n", "<leader>cd", function() require("mini.extra").pickers.diagnostic({ scope = "current" }) end, { silent = true })
+map("n", "<leader>cd", function() require("trouble").toggle("document_diagnostics") end, { silent = true })
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 

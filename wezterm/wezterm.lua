@@ -11,7 +11,10 @@ end
 -------------
 -- Font stuff
 -------------
-config.font = wezterm.font("JetbrainsMono Nerd Font")
+config.font = wezterm.font({
+  family = "JetbrainsMono Nerd Font",
+  harfbuzz_features = { "clig=1" }
+})
 
 ----------
 -- Theming
