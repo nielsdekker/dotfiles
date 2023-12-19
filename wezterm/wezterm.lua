@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local rose_pine_dawn_theme = require("themes/rose_pine_dawn")
 
 local config = {}
 
@@ -19,8 +18,7 @@ config.font = wezterm.font({
 ----------
 -- Theming
 ----------
-config.colors = rose_pine_dawn_theme.colors()
-config.window_frame = rose_pine_dawn_theme.window_frame()
+config.color_scheme = "tokyonight-day"
 config.window_decorations = "INTEGRATED_BUTTONS"
 
 -----------
