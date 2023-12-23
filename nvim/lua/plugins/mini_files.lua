@@ -11,7 +11,9 @@ return {
         width_preview = 50,
       },
       mappings = {
-        close = "<ESC>"
+        close = "<ESC>",
+        go_in = "L",
+        go_in_plus = "l"
       }
     })
   end
