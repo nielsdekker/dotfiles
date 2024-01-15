@@ -51,8 +51,9 @@ return {
       -- Custom settings for specific LSP's
       ["kotlin_language_server"] = function()
         lsp_config.kotlin_language_server.setup {
-          cmd_env = {
-            JAVA_OPTS = "-Xmx8g"
+          root_dir = lsp_config.util.find_git_ancestor,
+          init_options = {
+            storagePath = lsp_config.util.find_git_ancestor,
           }
         }
       end,

@@ -30,6 +30,11 @@ return {
       command = "/usr/bin/lldb-vscode"
     }
 
+    dap.adapters.kotlin = {
+      type = "executable",
+      command = mason_path .. "/bin/kotlin-debug-adapter"
+    }
+
     dap.configurations.javascript = {
       {
         type = "node",
