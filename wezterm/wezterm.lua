@@ -10,6 +10,7 @@ end
 -------------
 -- Font stuff
 -------------
+config.font_size = 13
 config.font = wezterm.font({
   family = "JetbrainsMono Nerd Font",
   harfbuzz_features = { "clig=1" }
