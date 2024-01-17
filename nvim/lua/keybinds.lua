@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 
 ---------------------
 -- Vim standard stuff
----------------------
+--------------------
 
 -- Navigation
 map("n", "<leader>wh", "<C-w>h")
@@ -58,5 +58,8 @@ map("n", "<F2>", function() require("dap").step_over() end, { silent = true })
 map("n", "<F3>", function() require("dap").step_into() end, { silent = true })
 map("n", "<F4>", function() require("dap").step_out() end, { silent = true })
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true })
-map("n", "<leader>db", "<cmd>Telescope dap list_breakpoints <cr>", { silent = true })
+map("n", "<leader>db", function()
+  require("dap").list_breakpoints();
+  vim.cmd("copen")
+end, { silent = true })
 map("n", "<leader>du", function() require('dapui').toggle() end, { silent = true })

@@ -51,16 +51,6 @@ return {
         }
       end,
 
-      -- Custom settings for specific LSP's
-      ["kotlin_language_server"] = function()
-        lsp_config.kotlin_language_server.setup {
-          root_dir = lsp_config.util.find_git_ancestor,
-          init_options = {
-            storagePath = lsp_config.util.find_git_ancestor,
-          }
-        }
-      end,
-
       ["lua_ls"] = function()
         lsp_config.lua_ls.setup {
           on_attach = formatIfSupported,
