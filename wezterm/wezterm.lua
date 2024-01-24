@@ -10,11 +10,24 @@ end
 -------------
 -- Font stuff
 -------------
-config.font_size = 13
+config.font_size = 14
+config.line_height = 1.15
 config.font = wezterm.font({
-  family = "JetbrainsMono Nerd Font",
-  harfbuzz_features = { "clig=1" }
+  family = "Monaspace Neon",
+  line_height = 1.2,
+  weight = 500,
+  harfbuzz_features = { "ss01", "ss02", "ss03" }
 })
+config.font_rules = {
+  {
+    italic = true,
+    font = wezterm.font({
+      family = "Monaspace Radon",
+      weight = 700,
+      harfbuzz_features = { "ss01", "ss02", "ss03" }
+    })
+  }
+}
 
 ----------
 -- Theming

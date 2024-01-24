@@ -118,9 +118,12 @@ return {
       layouts = { {
         elements = { {
           id = "repl",
-          size = 0.75
+          size = 0.5
         }, {
           id = "stacks",
+          size = 0.25
+        }, {
+          id = "scopes",
           size = 0.25
         } },
         position = "bottom",
