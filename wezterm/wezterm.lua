@@ -23,7 +23,7 @@ config.font_rules = {
     font = wezterm.font({
       family = "Monaspace Radon",
       weight = 700,
-      harfbuzz_features = { "ss01", "ss02", "ss03" }
+      harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03" }
     })
   }
 }
