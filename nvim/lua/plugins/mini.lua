@@ -36,6 +36,8 @@ local function setup_mini_pick()
   local pick = require("mini.pick")
   pick.setup({
     mappings = {
+      move_down = "<C-j>",
+      move_up = "<C-k>",
       to_quick_fix = {
         char = "<C-q>",
         func = function()
@@ -69,6 +71,14 @@ local function setup_mini_surround()
   require("mini.surround").setup({})
 end
 
+local function setup_mini_visits()
+  require("mini.visits").setup({
+    track = {
+      event = ""
+    }
+  })
+end
+
 return {
   "echasnovski/mini.nvim",
   dependencies = {
@@ -81,5 +91,6 @@ return {
     setup_mini_starter()
     setup_mini_statusline()
     setup_mini_surround()
+    setup_mini_visits()
   end
 }

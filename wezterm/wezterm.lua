@@ -14,7 +14,7 @@ config.font_size = 14
 config.line_height = 1.2
 config.font = wezterm.font({
   family = "Monaspace Neon",
-  weight = 500,
+  weight = 600,
   harfbuzz_features = { "ss01", "ss02", "ss03" }
 })
 config.font_rules = {

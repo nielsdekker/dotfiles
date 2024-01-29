@@ -30,8 +30,9 @@ map("n", "K", vim.lsp.buf.hover, { silent = true })
 map("n", "<leader>p", function() require("mini.pick").builtin.files({ tool = "git" }) end)
 map("n", "<leader>f", function() require("mini.pick").builtin.grep_live({ tool = "git" }) end)
 map("n", "<leader>b", function() require("mini.pick").builtin.buffers() end)
-map("n", "<leader>m", function() require("mini.extra").pickers.marks() end)
+map("n", "<leader>m", function() require("mini.visits").register_visit() end)
 map("n", "<leader>k", function() require("mini.extra").pickers.commands() end)
+map("n", "<leader>h", function() require("mini.extra").pickers.visit_paths() end)
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
 
 -- Mini completion
