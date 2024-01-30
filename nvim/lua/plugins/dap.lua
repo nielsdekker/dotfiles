@@ -14,94 +14,25 @@ return {
 
     -- Basic adapter config. Project specific configs should be set up in a
     -- projects .nvim.lua file.
-    dap.adapters.node = {
-      type = "executable",
-      command = "node",
-      args = { mason_path .. "/packages/node-debug2-adapter/out/src/nodeDebug.js" },
-    }
-
-    dap.adapters.rust_lldb = {
-      type = "executable",
-      command = "/usr/bin/lldb-vscode",
-    }
-
-    dap.adapters.zig_lldb = {
-      type = "executable",
-      command = "/usr/bin/lldb-vscode"
-    }
-
-    dap.adapters.kotlin = {
-      type = "executable",
-      command = mason_path .. "/bin/kotlin-debug-adapter"
-    }
-
-    dap.configurations.javascript = {
-      {
-        type = "node",
-        request = "launch",
-        name = "Launch JS file",
-        program = "${file}",
-        cwd = vim.fn.getcwd(),
-        sourceMaps = true,
-        protocol = "inspector",
-      },
-    }
-
-    dap.configurations.rust = {
-      {
-        type = "rust_lldb",
-        request = "launch: ",
-        name = "Launch",
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        args = {}
-      },
-    }
-
-    dap.configurations.zig = {
-      setmetatable(
-        {
-          type = "zig_lldb",
-          request = "launch",
-          name = "Debug",
-          program = vim.fn.getcwd() .. "/zig-out/bin/debug",
-          args = {}
-        },
-        {
-          __call = function(config)
-            local output = vim.fn.system(
-              "zig build-exe " .. vim.fn.getcwd() .. "/src/main.zig " ..
-              "-femit-bin=" .. vim.fn.getcwd() .. "/zig-out/bin/debug"
-            )
-            if (output:len() > 0) then
-              error(output)
-              return nil
-            end
-            return config
-          end
-        }
-      ),
-      {
-        type = "zig_lldb",
-        request = "launch",
-        name = "Debug tests current file",
-        program = function()
-          local fullPath = vim.api.nvim_buf_get_name(0)
-          local basename = vim.fs.basename(fullPath)
-
-          local handle = io.popen("zig test " .. fullPath .. " -femit-bin=zig-out/test_" .. basename)
-          if handle == nil then
-            return nil
-          end
-          handle:read("*a")
-          handle:close()
-
-          return vim.fn.getcwd() .. "/zig-out/test_" .. basename
-        end,
-        args = {}
+    dap.adapters.go = {
+      type = "server",
+      port = 7543,
+      executable = {
+        command = mason_path .. "/bin/dlv",
+        args = { "dap", "-l", "127.0.0.1:7543" }
       }
     }
+
+    --[[ Example go configuration
+    dap.configurations.go = {
+      {
+        type = "go",
+        request = "launch",
+        name = "Debug current file",
+        program = "${file}",
+      }
+    }
+    ]]
 
     -- Setup UI
     vim.fn.sign_define("DapBreakpoint", { text = "" })
