@@ -27,9 +27,6 @@ return {
     local mason = require("mason")
     local mason_lsp = require("mason-lspconfig")
 
-    -- Disable the lsp log
-    vim.lsp.set_log_level("off")
-
     mason.setup {}
     mason_lsp.setup {
       ensure_installed = {
