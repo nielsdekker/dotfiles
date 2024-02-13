@@ -10,5 +10,7 @@ dynamic_padding = true
 [font]
 size = 12
 normal.family = "Monaspace Neon"
+bold.family = "Monaspace Neon"
 italic.family = "Monaspace Radon"
 bold_italic.family = "Monaspace Radon"
+offset.y = 3

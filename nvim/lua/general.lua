@@ -20,4 +20,3 @@ vim.o.cursorline = true
 
 -- Color column
 vim.o.textwidth = 80
-vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ',+')
