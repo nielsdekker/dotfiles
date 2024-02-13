@@ -1,18 +1,3 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-local function formatIfSupported(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr })
-      end,
-    })
-  end
-end
-
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -27,33 +12,22 @@ return {
     local mason = require("mason")
     local mason_lsp = require("mason-lspconfig")
 
-    -- Disable the lsp log
-    vim.lsp.set_log_level("off")
-
     mason.setup {}
     mason_lsp.setup {
       ensure_installed = {
-        "bashls",
-        "eslint",
-        "lemminx",
-        "lua_ls",
-        "terraformls",
-        "yamlls",
         "tsserver",
+        "gopls",
       }
     }
 
     mason_lsp.setup_handlers {
       -- Default config for all langauge servers
       function(server_name)
-        require("lspconfig")[server_name].setup {
-          on_attach = formatIfSupported
-        }
+        require("lspconfig")[server_name].setup {}
       end,
 
       ["lua_ls"] = function()
         lsp_config.lua_ls.setup {
-          on_attach = formatIfSupported,
           settings = {
             Lua = {
               runtime = {
@@ -69,7 +43,6 @@ return {
 
       ["yamlls"] = function()
         lsp_config.yamlls.setup {
-          on_attach = formatIfSupported,
           settings = {
             yaml = {
               keyOrdering = false,
