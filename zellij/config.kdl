@@ -15,7 +15,7 @@ keybinds clear-defaults=true {
     bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
     bind "n" { GoToNextTab; SwitchToMode "Normal"; }
     bind "x" { CloseFocus; SwitchToMode "Normal"; }
-    bind "/" { SwitchToMode "Search"; }
+    bind "/" { EditScrollback; }
 
     // bind "[" { SwitchToMode "Scroll"; }
     // bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }

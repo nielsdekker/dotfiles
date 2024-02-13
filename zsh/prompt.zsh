@@ -8,4 +8,4 @@ RPROMPT="%F{white}%*"
 zstyle ':vcs_info:git:*' formats '[%b]'
 
 # Swag
-neofetch
+PF_ASCII="Catppuccin" PF_INFO="palette ascii os kernel uptime memory" ~/.config/zsh/pfetch
