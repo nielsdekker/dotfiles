@@ -16,10 +16,10 @@ return {
     -- projects .nvim.lua file.
     dap.adapters.go = {
       type = "server",
-      port = 7543,
+      port = 8001,
       executable = {
         command = mason_path .. "/bin/dlv",
-        args = { "dap", "-l", "127.0.0.1:7543" }
+        args = { "dap", "-l", "127.0.0.1:8001" }
       }
     }
 

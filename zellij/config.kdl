@@ -1,0 +1,87 @@
+// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+keybinds clear-defaults=true {
+  normal {
+    bind "Ctrl a" { SwitchToMode "tmux"; }
+  }
+  tmux {
+    bind "Esc" { SwitchToMode "Normal"; }
+    bind "c" { NewTab; SwitchToMode "Normal"; }
+    bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
+    bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
+    bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+    bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+    bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+    bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+    bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
+    bind "n" { GoToNextTab; SwitchToMode "Normal"; }
+    bind "x" { CloseFocus; SwitchToMode "Normal"; }
+    bind "/" { SwitchToMode "Search"; }
+
+    // bind "[" { SwitchToMode "Scroll"; }
+    // bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
+    // bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+    // bind "c" { NewTab; SwitchToMode "Normal"; }
+    // bind "," { SwitchToMode "RenameTab"; }
+    // bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
+    // bind "n" { GoToNextTab; SwitchToMode "Normal"; }
+    // bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
+    // bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
+    // bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
+    // bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
+    // bind "o" { FocusNextPane; }
+    // bind "d" { Detach; }
+    // bind "Space" { NextSwapLayout; }
+  }
+}
+
+ui {
+  pane_frames {
+    hide_session_name true
+  }
+}
+
+// Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
+on_force_close "quit"
+
+//  Send a request for a simplified ui (without arrow fonts) to plugins
+simplified_ui true
+
+// Togle between having pane frames around the pane
+pane_frames false
+
+// Choose the theme that is specified in the themes section.
+theme "catppuccin-latte"
+
+// The name of the default layout to load on startup
+default_layout "compact"
+
+// Toggle enabling the mouse mode.
+mouse_mode true
+
+// Configure the scroll back buffer size
+scroll_buffer_size 10000
+
+// Provide a command to execute when copying text. The text will be piped to
+// the stdin of the program to perform the copy. This can be used with
+// terminal emulators which do not support the OSC 52 ANSI control sequence
+// that will be used by default if this option is not set.
+// Examples:
+//
+// copy_command "xclip -selection clipboard" // x11
+// copy_command "wl-copy"                    // wayland
+// copy_command "pbcopy"                     // osx
+
+// Choose the destination for copied text
+// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
+// Does not apply when using copy_command.
+// Options:
+//   - system (default)
+//   - primary
+//
+// copy_clipboard "primary"
+
+// Enable or disable automatic copy (and clear) of selection when releasing mouse
+copy_on_select true
+
+// Path to the default editor to use to edit pane scrollbuffer
+scrollback_editor "nvim"

@@ -1,7 +1,13 @@
 return {
-  "folke/tokyonight.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
+  priority = 1000,
   config = function()
-    vim.cmd("colorscheme tokyonight-day")
+    require("catppuccin").setup({
+      flavour = "latte"
+    })
+
+    vim.cmd("colorscheme catppuccin")
   end
 }
 --[[
@@ -13,6 +19,12 @@ return {
       disable_background = true
     })
     vim.cmd("colorscheme rose-pine")
+  end
+}
+return {
+  "folke/tokyonight.nvim",
+  config = function()
+    vim.cmd("colorscheme tokyonight-day")
   end
 }
 ]]

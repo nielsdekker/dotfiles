@@ -1,0 +1,14 @@
+import = ["~/.config/alacritty/themes/catppuccin-latte.toml"]
+
+[shell]
+program = "/bin/zsh"
+args = ["-c", "zellij"]
+
+[window]
+padding = { x = 8, y = 8 }
+dynamic_padding = true
+
+[font]
+size = 12
+normal.family = "Monaspace Neon"
+italic.family = "Monaspace Radon"
