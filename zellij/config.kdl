@@ -12,8 +12,8 @@ keybinds clear-defaults=true {
     bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
     bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
     bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
-    bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
-    bind "n" { GoToNextTab; SwitchToMode "Normal"; }
+    bind "[" { GoToPreviousTab; SwitchToMode "Normal"; }
+    bind "]" { GoToNextTab; SwitchToMode "Normal"; }
     bind "x" { CloseFocus; SwitchToMode "Normal"; }
     bind "/" { EditScrollback; }
 

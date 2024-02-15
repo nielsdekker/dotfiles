@@ -8,9 +8,9 @@ padding = { x = 8, y = 8 }
 dynamic_padding = true
 
 [font]
-size = 12
-normal.family = "Monaspace Neon"
-bold.family = "Monaspace Neon"
-italic.family = "Monaspace Radon"
-bold_italic.family = "Monaspace Radon"
-offset.y = 3
+size = 14
+normal = { family = "Monaspace Neon" }
+bold = { family = "Monaspace Neon" }
+italic = { family = "Monaspace Radon", style = "Bold" }
+bold_italic= { family = "Monaspace Radon" }
+offset.y = 2

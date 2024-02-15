@@ -2,6 +2,10 @@ local function setup_mini_completion()
   local completion = require("mini.completion")
 
   completion.setup({
+    window = {
+      info = { height = 25, width = 80, border = "rounded" },
+      signature = { height = 25, width = 80, border = "rounded" }
+    },
     -- Fallback to files
     fallback_action = "<C-x><C-f>",
     lsp_completion = {
@@ -16,16 +20,6 @@ local function setup_mini_completion()
         table.sort(result, function(a, b)
           return (a.sortText or a.label) < (b.sortText or b.label)
         end)
-
-        -- Fix for specific issue with typescript completion adding extra dots
-        -- for some reason.
-        -- https://github.com/echasnovski/mini.nvim/issues/306
-        for _, item in ipairs(result) do
-          local new_text = (item.textEdit or {}).newText
-          if type(new_text) == 'string' then
-            item.textEdit.newText = new_text:gsub("^%.+", '')
-          end
-        end
 
         return completion.default_process_items(result, base)
       end
