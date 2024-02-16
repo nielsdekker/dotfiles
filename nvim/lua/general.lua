@@ -3,6 +3,7 @@ vim.o.termguicolors = true
 vim.o.ignorecase = true
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.o.cmdheight = 0
 
 -- Tabs and spaces
 vim.wo.wrap = false
