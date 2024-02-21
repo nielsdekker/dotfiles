@@ -45,16 +45,32 @@ return {
     ]]
 
     -- Setup UI
-    vim.fn.sign_define("DapBreakpoint", { text = "" })
-    vim.fn.sign_define("DapStopped", { text = "" })
-    vim.fn.sign_define("DapBreakpointRejected", { text = "" })
-    vim.fn.sign_define("DapLogPoint", { text = "" })
-    vim.fn.sign_define("DapBreakpointCondition", { text = "" })
+    vim.fn.sign_define("DapBreakpoint", { text = "|>", texthl = "Comment" })
+    vim.fn.sign_define("DapStopped", { text = "|>", texthl = "Bold" })
+    vim.fn.sign_define("DapBreakpointRejected", { text = "!<", texthl = "Error" })
+    vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "Comment" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "~>", texthl = "Comment" })
 
     dap_ui.setup({
+      controls = {
+        element = "repl",
+        enabled = "true",
+        icons = {
+          disconnect = "~",
+          pause = "≥",
+          play = ">",
+          run_last = "↺",
+          step_back = "←",
+          step_into = "⬎",
+          step_out = "⬏",
+          step_over = "↪",
+          terminate = "◊",
+        }
+      },
       icons = {
-        collapsed = "",
-        expanded = ""
+        collapsed = "▶",
+        current_frame = "▶",
+        expanded = "▼",
       },
       layouts = { {
         elements = { {

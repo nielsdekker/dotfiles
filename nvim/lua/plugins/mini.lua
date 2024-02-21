@@ -37,7 +37,8 @@ local function setup_mini_files()
       close = "<ESC>",
       go_in = "L",
       go_in_plus = "l"
-    }
+    },
+    content = { prefix = function() end }
   })
 end
 
@@ -99,7 +100,9 @@ local function setup_mini_starter()
 end
 
 local function setup_mini_statusline()
-  require("mini.statusline").setup({})
+  require("mini.statusline").setup({
+    use_icons = false
+  })
 end
 
 local function setup_mini_surround()
@@ -116,9 +119,6 @@ end
 
 return {
   "echasnovski/mini.nvim",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons"
-  },
   config = function()
     setup_mini_completion()
     setup_mini_files()
