@@ -47,6 +47,9 @@ local function setup_mini_pick()
   local visits = require("mini.visits")
 
   pick.setup({
+    source = {
+      show = pick.default_show
+    },
     mappings = {
       move_down = "<C-j>",
       move_up = "<C-k>",
