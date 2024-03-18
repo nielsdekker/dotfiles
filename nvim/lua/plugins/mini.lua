@@ -44,9 +44,11 @@ end
 
 local function setup_mini_pick()
   local pick = require("mini.pick")
-  local visits = require("mini.visits")
 
   pick.setup({
+    source = {
+      show = pick.default_show
+    },
     mappings = {
       move_down = "<C-j>",
       move_up = "<C-k>",
@@ -69,8 +71,7 @@ local function setup_mini_pick()
       },
 
       -- This custom thingy allows you to press C-d to delete the currently
-      -- highlighted item from the matches view. When this is the "visits"
-      -- picker it will also remove the item from the visits list.
+      -- highlighted item from the matches view.
       mini_pick_delete = {
         char = '<C-d>',
         func = function()
@@ -78,13 +79,7 @@ local function setup_mini_pick()
             return;
           end
 
-          local opts_source = pick.get_picker_opts().source
           local matches = pick.get_picker_matches()
-
-          -- For the visits picker we also remove the match from the state
-          if (string.find(opts_source.name, "Visit") == 1) then
-            visits.remove_path(matches.current, opts_source.cwd)
-          end
 
           -- Update the active picker
           table.remove(matches.all, matches.current_ind)
@@ -109,14 +104,6 @@ local function setup_mini_surround()
   require("mini.surround").setup({})
 end
 
-local function setup_mini_visits()
-  require("mini.visits").setup({
-    track = {
-      event = ""
-    }
-  })
-end
-
 return {
   "echasnovski/mini.nvim",
   config = function()
@@ -126,6 +113,5 @@ return {
     setup_mini_starter()
     setup_mini_statusline()
     setup_mini_surround()
-    setup_mini_visits()
   end
 }
