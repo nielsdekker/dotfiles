@@ -9,10 +9,10 @@ dynamic_padding = true
 
 [font]
 size = 14
-normal = { family = "Monaspace Neon" }
-bold = { family = "Monaspace Neon" }
-italic = { family = "Monaspace Radon", style = "Bold" }
-bold_italic = { family = "Monaspace Radon" }
+normal = { family = "Monaspace Neon Var" }
+bold = { family = "Monaspace Neon Var" }
+italic = { family = "Monaspace Radon Var", style = "Bold" }
+bold_italic = { family = "Monaspace Radon Var" }
 offset.y = 2
 
 [selection]
