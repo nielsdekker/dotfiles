@@ -105,8 +105,7 @@ local function setup_mini_surround()
 end
 
 return {
-  "echasnovski/mini.nvim",
-  config = function()
+  setup = function()
     setup_mini_completion()
     setup_mini_files()
     setup_mini_pick()
@@ -115,3 +114,4 @@ return {
     setup_mini_surround()
   end
 }
+

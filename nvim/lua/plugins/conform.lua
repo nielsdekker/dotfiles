@@ -1,6 +1,5 @@
 return {
-  "stevearc/conform.nvim",
-  config = function()
+  setup = function()
     local confirm = require("conform")
 
     confirm.setup({

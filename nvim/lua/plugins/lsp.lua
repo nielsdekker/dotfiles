@@ -1,13 +1,5 @@
 return {
-  "neovim/nvim-lspconfig",
-  dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-  },
-  opts = {
-    inlay_hints = { enabled = true }
-  },
-  config = function()
+  setup = function()
     local lsp_config = require("lspconfig")
     local mason = require("mason")
     local mason_lsp = require("mason-lspconfig")
@@ -37,7 +29,7 @@ return {
                 checkThirdParty = false,
 
                 library = {
-                  unpack(vim.api.nvim_get_runtime_file('', true)),
+                  unpack(vim.api.nvim_get_runtime_file("", true)),
                 },
               }
             }
@@ -68,3 +60,4 @@ return {
     }
   end
 }
+
