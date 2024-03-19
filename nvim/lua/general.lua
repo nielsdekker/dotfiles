@@ -22,10 +22,3 @@ vim.o.cursorline = true
 
 -- Color column
 vim.o.textwidth = 80
-
--- LSP UI tweaks
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "single",
-  }
-)

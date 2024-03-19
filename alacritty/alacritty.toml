@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/melange.toml"]
+import = ["~/.config/alacritty/themes/dayfox.toml"]
 
 [shell]
 program = "/bin/tmux"
@@ -11,8 +11,8 @@ dynamic_padding = true
 size = 14
 normal = { family = "Monaspace Neon Var" }
 bold = { family = "Monaspace Neon Var" }
-italic = { family = "Monaspace Radon Var", style = "Bold" }
-bold_italic = { family = "Monaspace Radon Var" }
+italic = { family = "Monaspace Radon Var", style = "Normal" }
+bold_italic = { family = "Monaspace Radon Var", style = "Bold" }
 offset.y = 2
 
 [selection]

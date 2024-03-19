@@ -3,8 +3,8 @@ local function setup_mini_completion()
 
   completion.setup({
     window = {
-      info = { height = 25, width = 80, border = "single" },
-      signature = { height = 25, width = 80, border = "single" }
+      info = { height = 25, width = 80, border = "none" },
+      signature = { height = 25, width = 80, border = "none" }
     },
     -- Fallback to files
     fallback_action = "<C-x><C-f>",
@@ -114,4 +114,3 @@ return {
     setup_mini_surround()
   end
 }
-

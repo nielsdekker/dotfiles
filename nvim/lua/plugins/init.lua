@@ -46,8 +46,20 @@ now(function()
   add({ source = "catppuccin/nvim", name = "catppuccin" })
   add({ source = "rose-pine/neovim", name = "rose-pine" })
   add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
+  add("EdenEast/nightfox.nvim")
   add("savq/melange-nvim")
   add("kepano/flexoki-neovim")
 
-  vim.cmd("colorscheme melange")
+  require("nightfox").setup({
+    options = {
+      styles = {
+        comments = "italic",
+        strings = "italic",
+        keywords = "bold",
+        functions = "bold"
+      }
+    }
+  })
+
+  vim.cmd("colorscheme dayfox")
 end)
