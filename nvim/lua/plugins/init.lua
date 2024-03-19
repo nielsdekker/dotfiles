@@ -24,7 +24,7 @@ later(function()
     },
   })
 
-  require("plugins/conform").setup()
+  require("plugins/conform_settings").setup()
   require("plugins/lsp").setup()
   require("plugins/dap").setup()
 end)
