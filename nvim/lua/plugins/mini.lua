@@ -69,23 +69,6 @@ local function setup_mini_pick()
           vim.cmd("copen")
         end
       },
-
-      -- This custom thingy allows you to press C-d to delete the currently
-      -- highlighted item from the matches view.
-      mini_pick_delete = {
-        char = '<C-d>',
-        func = function()
-          if (pick.is_picker_active() == false) then
-            return;
-          end
-
-          local matches = pick.get_picker_matches()
-
-          -- Update the active picker
-          table.remove(matches.all, matches.current_ind)
-          pick.set_picker_items(matches.all)
-        end
-      },
     }
   })
 end

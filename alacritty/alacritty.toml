@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/dayfox.toml"]
+import = ["~/.config/alacritty/themes/tokyonight-day.toml"]
 
 [shell]
 program = "/bin/tmux"

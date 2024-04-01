@@ -61,5 +61,5 @@ now(function()
     }
   })
 
-  vim.cmd("colorscheme dayfox")
+  vim.cmd("colorscheme tokyonight-day")
 end)
