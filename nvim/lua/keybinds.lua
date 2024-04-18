@@ -46,7 +46,8 @@ map("i", "<S-Tab>", function()
 )
 
 -- Code actions
-map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "document_symbol" }) end, { silent = true })
+map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "workspace_symbol" }) end,
+  { silent = true })
 map("n", "<leader>cd", function() require("trouble").toggle("document_diagnostics") end, { silent = true })
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
