@@ -22,3 +22,9 @@ vim.o.cursorline = true
 
 -- Color column
 vim.o.textwidth = 80
+
+-- Enable spell checking
+vim.o.spell = true
+vim.o.spelllang = "en,nl"
+
+vim.lsp.inlay_hint.enable()
