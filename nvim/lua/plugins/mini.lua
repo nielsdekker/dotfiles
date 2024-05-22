@@ -87,10 +87,24 @@ local function setup_mini_surround()
   require("mini.surround").setup({})
 end
 
+local function setup_mini_jump2d()
+  require("mini.jump2d").setup({})
+  vim.api.nvim_set_hl(0, "MiniJump2dSpot", {
+    fg = "#FF0000",
+    bold = true,
+  })
+end
+
+local function setup_mini_notify()
+  require("mini.notify").setup({})
+end
+
 return {
   setup = function()
     setup_mini_completion()
     setup_mini_files()
+    setup_mini_jump2d()
+    setup_mini_notify()
     setup_mini_pick()
     setup_mini_starter()
     setup_mini_statusline()

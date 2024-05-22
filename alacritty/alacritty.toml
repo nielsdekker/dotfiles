@@ -1,7 +1,7 @@
 import = ["~/.config/alacritty/themes/tokyonight-moon.toml"]
 
 [shell]
-program = "/usr/local/bin/tmux"
+program = "tmux"
 
 [window]
 padding = { x = 8, y = 8 }

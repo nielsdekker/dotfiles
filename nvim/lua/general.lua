@@ -2,8 +2,8 @@
 vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.o.ignorecase = true
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.number = false
+vim.wo.relativenumber = false
 vim.o.cmdheight = 0
 
 -- Tabs and spaces
@@ -27,4 +27,6 @@ vim.o.textwidth = 80
 vim.o.spell = true
 vim.o.spelllang = "en,nl"
 
-vim.lsp.inlay_hint.enable()
+if vim.lsp.inlay_hint ~= nil then
+  vim.lsp.inlay_hint.enable()
+end
