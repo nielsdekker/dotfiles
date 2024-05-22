@@ -1,7 +1,10 @@
 import = ["~/.config/alacritty/themes/tokyonight-moon.toml"]
 
 [shell]
-program = "tmux"
+program = "/bin/zsh"
+# This starts tmux and falls back to an hard coded path when not found. This
+# happens on osX with homebrew for some reason.
+args = ["-c", "tmux || /usr/local/bin/tmux"] 
 
 [window]
 padding = { x = 8, y = 8 }
