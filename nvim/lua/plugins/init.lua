@@ -7,7 +7,6 @@ require("plugins/mini").setup()
 -- Tools
 later(function()
   add("tpope/vim-fugitive")
-  add("folke/trouble.nvim")
   add("stevearc/conform.nvim")
   add({
     source = "neovim/nvim-lspconfig",
@@ -43,23 +42,12 @@ end)
 
 -- Theming
 now(function()
-  add({ source = "catppuccin/nvim", name = "catppuccin" })
-  add({ source = "rose-pine/neovim", name = "rose-pine" })
   add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
-  add("EdenEast/nightfox.nvim")
-  add("savq/melange-nvim")
-  add("kepano/flexoki-neovim")
 
-  require("nightfox").setup({
-    options = {
-      styles = {
-        comments = "italic",
-        strings = "italic",
-        keywords = "bold",
-        functions = "bold"
-      }
-    }
+  require("tokyonight").setup({
+    style = "moon",
+    transparent = true,
   })
 
-  vim.cmd("colorscheme tokyonight-day")
+  vim.cmd("colorscheme tokyonight")
 end)
