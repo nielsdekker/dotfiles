@@ -12,7 +12,7 @@ map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
 map("v", "<leader>y", "\"+y") -- Yanks to the clipboard
-map("v", "<leader>s", function()
+map("n", "<leader>s", function()
   local j = require("mini.jump2d")
   j.start(j.builtin_opts.word_start)
 end)
