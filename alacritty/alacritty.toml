@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/tokyonight-moon.toml"]
+import = ["~/.config/alacritty/themes/tokyonight-night.toml"]
 
 [shell]
 program = "/bin/zsh"

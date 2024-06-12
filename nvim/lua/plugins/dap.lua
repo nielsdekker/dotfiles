@@ -1,7 +1,6 @@
 return {
   setup = function()
     local dap = require("dap")
-    local dap_ui = require("dapui")
 
     local mason_path = vim.fn.stdpath("data") .. "/mason"
 
@@ -46,42 +45,5 @@ return {
     vim.fn.sign_define("DapBreakpointRejected", { text = "!<", texthl = "Error" })
     vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "Comment" })
     vim.fn.sign_define("DapBreakpointCondition", { text = "~>", texthl = "Comment" })
-
-    dap_ui.setup({
-      controls = {
-        element = "repl",
-        enabled = "true",
-        icons = {
-          disconnect = "~",
-          pause = "≥",
-          play = ">",
-          run_last = "↺",
-          step_back = "←",
-          step_into = "⬎",
-          step_out = "⬏",
-          step_over = "↪",
-          terminate = "◊",
-        }
-      },
-      icons = {
-        collapsed = "▶",
-        current_frame = "▶",
-        expanded = "▼",
-      },
-      layouts = { {
-        elements = { {
-          id = "repl",
-          size = 0.7
-        }, {
-          id = "scopes",
-          size = 0.3
-        } },
-        position = "bottom",
-        size = 20
-      } }
-    })
-    dap.listeners.after.event_initialized["dapui_config"] = function()
-      dap_ui.open()
-    end
   end
 }

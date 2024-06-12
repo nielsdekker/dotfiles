@@ -26,7 +26,3 @@ vim.o.textwidth = 80
 -- Enable spell checking
 vim.o.spell = true
 vim.o.spelllang = "en,nl"
-
-if vim.lsp.inlay_hint ~= nil then
-  vim.lsp.inlay_hint.enable()
-end

@@ -17,15 +17,15 @@ later(function()
   })
   add({
     source = "mfussenegger/nvim-dap",
-    depends = {
-      "rcarriga/nvim-dap-ui",
-      "nvim-neotest/nvim-nio"
-    },
+  })
+  add({
+    source = "stevearc/overseer.nvim"
   })
 
   require("plugins/conform_settings").setup()
   require("plugins/lsp").setup()
   require("plugins/dap").setup()
+  require("plugins/overseer").setup()
 end)
 
 now(function()
@@ -43,13 +43,14 @@ end)
 -- Theming
 now(function()
   add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
+  add({ source = "catppuccin/nvim", name = "catppuccin" })
 
-  require("tokyonight").setup({
-    style = "moon",
-    transparent = true,
+  require("catppuccin").setup({
+    flavour = "mocha",
+    transparent_background = true,
   })
 
-  vim.cmd("colorscheme tokyonight")
+  vim.cmd("colorscheme catppuccin")
 
   -- Fix the inlay hint styling
   local current = vim.api.nvim_get_hl(0, { name = "LspInlayHint" })
