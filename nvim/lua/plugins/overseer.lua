@@ -6,13 +6,10 @@ local function miniPickOverseer()
 
   overseer.template.list({
     dir = vim.fn.getcwd()
-  }, function(t)
-    local items = vim.tbl_map(function(v)
-      return vim.tbl_extend("keep", v, {
-        text = v.name,
-        name = v.name,
-      })
-    end, t)
+  }, function(items)
+    vim.tbl_map(function(it)
+      it.text = it.name
+    end, items)
 
     pick.ui_select(
       items,
@@ -25,7 +22,7 @@ local function miniPickOverseer()
         overseer.open()
         overseer.run_template({
           name = chosen.name,
-          prompt = "missing",
+          prompt = "allow",
         })
       end
     )
