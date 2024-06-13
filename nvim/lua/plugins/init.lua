@@ -2,7 +2,7 @@ local MiniDeps = require("mini.deps")
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 -- Setup mini
-require("plugins.mini").setup()
+require("plugins.mini")
 
 -- Tools
 later(function()
@@ -22,10 +22,10 @@ later(function()
     source = "stevearc/overseer.nvim"
   })
 
-  require("plugins.conform_settings").setup()
-  require("plugins.lsp").setup()
-  require("plugins.dap").setup()
-  require("plugins.overseer").setup()
+  require("plugins.conform_settings")
+  require("plugins.lsp")
+  require("plugins.dap")
+  require("plugins.overseer")
 end)
 
 now(function()
@@ -38,7 +38,7 @@ now(function()
     },
   })
 
-  require("plugins.treesitter").setup()
+  require("plugins.treesitter")
 end)
 
 -- Theming
@@ -52,8 +52,4 @@ now(function()
   })
 
   vim.cmd("colorscheme catppuccin")
-
-  -- Fix the inlay hint styling
-  local current = vim.api.nvim_get_hl(0, { name = "LspInlayHint" })
-  vim.api.nvim_set_hl(0, "LspInlayHint", { bg = nil, fg = current.fg, italic = true })
 end)

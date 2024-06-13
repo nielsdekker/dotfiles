@@ -1,13 +1,7 @@
-local function setup()
-  local overseer = require("overseer")
-
-  overseer.setup()
-
-  return overseer
-end
+local overseer = require("overseer")
+overseer.setup()
 
 local function miniPickOverseer()
-  local overseer = setup()
   local pick = require("mini.pick")
 
   overseer.template.list({
@@ -28,21 +22,16 @@ local function miniPickOverseer()
           return
         end
 
+        overseer.open()
         overseer.run_template({
           name = chosen.name,
-
-          -- Never prompt. Some issue with overseer not knowing which buffer
-          -- to use. Understandable because the buffer probably points to
-          -- a closed mini.pick window
-          prompt = "allow",
+          prompt = "missing",
         })
-        overseer.open()
       end
     )
   end)
 end
 
 return {
-  setup = setup,
   miniPickOverseer = miniPickOverseer
 }

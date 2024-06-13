@@ -1,6 +1,13 @@
-local function setup_mini_completion()
-  local completion = require("mini.completion")
+local completion = require("mini.completion")
+local files = require("mini.files")
+local pick = require("mini.pick")
+local starter = require("mini.starter");
+local statusline = require("mini.statusline")
+local surround = require("mini.surround")
+local notify = require("mini.notify")
+local git = require("mini.git")
 
+local function setup_mini_completion()
   completion.setup({
     window = {
       info = { height = 25, width = 80, border = "none" },
@@ -28,7 +35,7 @@ local function setup_mini_completion()
 end
 
 local function setup_mini_files()
-  require("mini.files").setup({
+  files.setup({
     windows = {
       preview = true,
       width_preview = 50,
@@ -43,8 +50,6 @@ local function setup_mini_files()
 end
 
 local function setup_mini_pick()
-  local pick = require("mini.pick")
-
   pick.setup({
     source = {
       show = pick.default_show
@@ -74,36 +79,32 @@ local function setup_mini_pick()
 end
 
 local function setup_mini_starter()
-  require("mini.starter").setup();
+  starter.setup()
 end
 
 local function setup_mini_statusline()
-  require("mini.statusline").setup({
+  statusline.setup({
     use_icons = false
   })
 end
 
 local function setup_mini_surround()
-  require("mini.surround").setup()
+  surround.setup()
 end
 
 local function setup_mini_notify()
-  require("mini.notify").setup()
+  notify.setup()
 end
 
 local function setup_mini_git()
-  require("mini.git").setup()
+  git.setup()
 end
 
-return {
-  setup = function()
-    setup_mini_completion()
-    setup_mini_files()
-    setup_mini_notify()
-    setup_mini_pick()
-    setup_mini_starter()
-    setup_mini_statusline()
-    setup_mini_surround()
-    setup_mini_git()
-  end
-}
+setup_mini_completion()
+setup_mini_files()
+setup_mini_notify()
+setup_mini_pick()
+setup_mini_starter()
+setup_mini_statusline()
+setup_mini_surround()
+setup_mini_git()

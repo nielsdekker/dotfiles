@@ -1,19 +1,15 @@
-return {
-  setup = function()
-    local configs = require("nvim-treesitter.configs")
-    configs.setup {
-      sync_install = false,
-      auto_install = true,
+local configs = require("nvim-treesitter.configs")
+configs.setup({
+  sync_install = false,
+  auto_install = true,
 
-      highlight = {
-        enable = true
-      },
-      autotag = {
-        enable = true
-      },
-      indent = {
-        enable = true
-      }
-    }
-  end
-}
+  highlight = {
+    enable = true
+  },
+  autotag = {
+    enable = true
+  },
+  indent = {
+    enable = true
+  }
+})
