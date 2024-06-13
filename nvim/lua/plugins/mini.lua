@@ -74,7 +74,7 @@ local function setup_mini_pick()
 end
 
 local function setup_mini_starter()
-  require("mini.starter").setup({});
+  require("mini.starter").setup();
 end
 
 local function setup_mini_statusline()
@@ -84,11 +84,15 @@ local function setup_mini_statusline()
 end
 
 local function setup_mini_surround()
-  require("mini.surround").setup({})
+  require("mini.surround").setup()
 end
 
 local function setup_mini_notify()
-  require("mini.notify").setup({})
+  require("mini.notify").setup()
+end
+
+local function setup_mini_git()
+  require("mini.git").setup()
 end
 
 return {
@@ -100,5 +104,6 @@ return {
     setup_mini_starter()
     setup_mini_statusline()
     setup_mini_surround()
+    setup_mini_git()
   end
 }

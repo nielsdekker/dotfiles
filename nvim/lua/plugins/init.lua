@@ -2,7 +2,7 @@ local MiniDeps = require("mini.deps")
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 -- Setup mini
-require("plugins/mini").setup()
+require("plugins.mini").setup()
 
 -- Tools
 later(function()
@@ -22,10 +22,10 @@ later(function()
     source = "stevearc/overseer.nvim"
   })
 
-  require("plugins/conform_settings").setup()
-  require("plugins/lsp").setup()
-  require("plugins/dap").setup()
-  require("plugins/overseer").setup()
+  require("plugins.conform_settings").setup()
+  require("plugins.lsp").setup()
+  require("plugins.dap").setup()
+  require("plugins.overseer").setup()
 end)
 
 now(function()
@@ -37,7 +37,8 @@ now(function()
       end
     },
   })
-  require("plugins/treesitter").setup()
+
+  require("plugins.treesitter").setup()
 end)
 
 -- Theming
