@@ -20,26 +20,25 @@ local function miniPickOverseer()
       })
     end, t)
 
-    pick.start({
-      source = {
-        name = "Run task",
-        items = items,
-        choose = function(chosen)
-          overseer.run_template({
-            name = chosen.name,
-            buf_nr = 1,
-
-            -- Never prompt. Some issue with overseer not knowing which buffer
-            -- to use. Understandable because the buffer probably points to
-            -- a closed mini.pick window
-            prompt = "allow",
-          })
-          vim.defer_fn(function()
-            overseer.open()
-          end, 5)
+    pick.ui_select(
+      items,
+      {},
+      function(chosen)
+        if chosen == nil then
+          return
         end
-      },
-    })
+
+        overseer.run_template({
+          name = chosen.name,
+
+          -- Never prompt. Some issue with overseer not knowing which buffer
+          -- to use. Understandable because the buffer probably points to
+          -- a closed mini.pick window
+          prompt = "allow",
+        })
+        overseer.open()
+      end
+    )
   end)
 end
 
