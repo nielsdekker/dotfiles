@@ -13,7 +13,9 @@ local function miniPickOverseer()
 
     pick.ui_select(
       items,
-      {},
+      {
+        prompt = "Run task"
+      },
       function(chosen)
         if chosen == nil then
           return
