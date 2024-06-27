@@ -69,7 +69,7 @@ map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 map("n", "<leader>tt", function() require("overseer").toggle() end)
 map("n", "<leader>tr", function()
-  require("plugins.overseer").miniPickOverseer()
+  require("plugins.overseer_extra").miniPickOverseer()
 end)
 
 -----------------------
