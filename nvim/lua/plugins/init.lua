@@ -25,7 +25,7 @@ later(function()
   require("plugins.conform_settings")
   require("plugins.lsp")
   require("plugins.dap")
-  require("plugins.overseer_extra")
+  -- require("plugins.mini_extra")
 end)
 
 now(function()

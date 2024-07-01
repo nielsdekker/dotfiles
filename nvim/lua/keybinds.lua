@@ -61,7 +61,10 @@ map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)
 map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "workspace_symbol" }) end,
   { silent = true })
 map("n", "<leader>cr", vim.lsp.buf.rename)
-map("n", "<leader>ca", vim.lsp.buf.code_action)
+map("n", "<leader>ca", function()
+  -- vim.lsp.buf.code_action
+  require("plugins.mini_extra").miniPickCodeAction()
+end)
 
 -------------------
 -- T Is for [T]asks
@@ -69,7 +72,7 @@ map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 map("n", "<leader>tt", function() require("overseer").toggle() end)
 map("n", "<leader>tr", function()
-  require("plugins.overseer_extra").miniPickOverseer()
+  require("plugins.mini_extra").miniPickOverseer()
 end)
 
 -----------------------
