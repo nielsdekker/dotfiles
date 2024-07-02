@@ -46,10 +46,10 @@ now(function()
   add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
   add({ source = "catppuccin/nvim", name = "catppuccin" })
 
-  require("catppuccin").setup({
-    flavour = "mocha",
-    transparent_background = true,
+  require("tokyonight").setup({
+    style = "storm",
+    transparent = true,
   })
 
-  vim.cmd("colorscheme catppuccin")
+  vim.cmd("colorscheme tokyonight")
 end)
