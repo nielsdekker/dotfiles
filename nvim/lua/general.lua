@@ -5,6 +5,7 @@ vim.o.ignorecase = true
 vim.wo.number = false
 vim.wo.relativenumber = false
 vim.o.cmdheight = 0
+vim.opt.laststatus = 3
 
 -- Tabs and spaces
 vim.wo.wrap = false

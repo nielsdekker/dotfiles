@@ -84,7 +84,8 @@ end
 
 local function setup_mini_statusline()
   statusline.setup({
-    use_icons = false
+    use_icons = false,
+    set_vim_settings = false,
   })
 end
 
