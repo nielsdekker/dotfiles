@@ -21,8 +21,13 @@ local function codeActionsPicker()
     codeActions = {}
   end
 
+  -- Expand the code actions with the spell suggestions
+  for _, it in pairs(spellSuggest) do
+    table.insert(codeActions, it)
+  end
+
   pick.ui_select(
-    vim.tbl_extend("keep", codeActions, spellSuggest),
+    codeActions,
     { prompt = "Code actions" },
     defaultAction
   )
