@@ -86,6 +86,27 @@ local function setup_mini_statusline()
   statusline.setup({
     use_icons = false,
     set_vim_settings = false,
+    content = {
+      active = function()
+        local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+        local git           = MiniStatusline.section_git({ trunc_width = 40 })
+        local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
+        local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+        local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+        local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+        local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
+
+        return MiniStatusline.combine_groups({
+          { hl = mode_hl,                 strings = { mode } },
+          { hl = 'MiniStatuslineDevinfo', strings = { diagnostics } },
+          '%<', -- Mark general truncate point
+          { hl = 'MiniStatuslineFilename', strings = { filename } },
+          '%=', -- End left alignment
+          { hl = mode_hl,                  strings = { search } },
+          { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+        })
+      end
+    }
   })
 end
 
@@ -106,6 +127,6 @@ setup_mini_files()
 setup_mini_notify()
 setup_mini_pick()
 setup_mini_starter()
+setup_mini_git()
 setup_mini_statusline()
 setup_mini_surround()
-setup_mini_git()

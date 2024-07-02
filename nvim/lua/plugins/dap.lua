@@ -15,16 +15,6 @@ dap.adapters.go = {
   }
 }
 
-dap.adapters["pwa-node"] = {
-  type = "server",
-  host = "localhost",
-  port = 7544,
-  executable = {
-    command = mason_path .. "/bin/js-debug-adapter",
-    args = { "7544" }
-  }
-}
-
 --[[ Example go configuration
     dap.configurations.go = {
       {
