@@ -62,8 +62,7 @@ map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "w
   { silent = true })
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", function()
-  -- vim.lsp.buf.code_action
-  require("plugins.mini_extra").miniPickCodeAction()
+  require("util.pickers").codeActionsPicker()
 end)
 
 -------------------
@@ -72,7 +71,7 @@ end)
 
 map("n", "<leader>tt", function() require("overseer").toggle() end)
 map("n", "<leader>tr", function()
-  require("plugins.mini_extra").miniPickOverseer()
+  require("util.pickers").overseerPicker()
 end)
 
 -----------------------
