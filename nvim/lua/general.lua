@@ -5,7 +5,9 @@ vim.o.ignorecase = true
 vim.wo.number = false
 vim.wo.relativenumber = false
 vim.o.cmdheight = 0
-vim.opt.laststatus = 3
+vim.o.laststatus = 3
+vim.o.textwidth = 80
+vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ",+")
 
 -- Tabs and spaces
 vim.wo.wrap = false
