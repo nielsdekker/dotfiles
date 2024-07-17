@@ -42,7 +42,7 @@ map("i", "<S-Tab>", function()
 -- Goto
 map("n", "g]", function() vim.cmd("cnext") end)
 map("n", "g[", function() vim.cmd("cprev") end)
-map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
+map("n", "gd", function() vim.lsp.buf.definition() end, { silent = true })
 map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
 
 ---------------------------
