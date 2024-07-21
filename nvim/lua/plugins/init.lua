@@ -45,11 +45,16 @@ end)
 now(function()
   add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
   add({ source = "catppuccin/nvim", name = "catppuccin" })
+  add({ source = "scottmckendry/cyberdream.nvim", name = "cyberdream" })
 
-  require("tokyonight").setup({
-    style = "storm",
+  require("cyberdream").setup({
     transparent = true,
+    italic_comments = true,
+
+    theme = {
+      variant = "light"
+    }
   })
 
-  vim.cmd("colorscheme tokyonight")
+  vim.cmd("colorscheme cyberdream")
 end)
