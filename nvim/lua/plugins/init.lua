@@ -56,5 +56,11 @@ now(function()
     }
   })
 
+  later(function()
+    -- Change the highlight group for the mini float because it doesn't really
+    -- work with the cyberdream theme
+    vim.api.nvim_set_hl(0, "MiniNotifyNormal", { link = "Comment" })
+  end)
+
   vim.cmd("colorscheme cyberdream")
 end)

@@ -113,7 +113,7 @@ local function setup_mini_surround()
 end
 
 local function setup_mini_notify()
-  notify.setup()
+  notify.setup({})
 end
 
 local function setup_mini_git()
