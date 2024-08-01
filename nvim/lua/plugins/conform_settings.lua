@@ -14,5 +14,7 @@ confirm.setup({
     html = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },
+    templ = { "templ" },
+    go = { "gofmt" }
   }
 })
