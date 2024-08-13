@@ -46,20 +46,13 @@ now(function()
   add({ source = "catppuccin/nvim", name = "catppuccin" })
   add({ source = "scottmckendry/cyberdream.nvim", name = "cyberdream" })
 
-  require("cyberdream").setup({
+  require("tokyonight").setup({
     transparent = true,
-    italic_comments = true,
-
-    theme = {
-      variant = "light"
-    }
+    style = "day",
+    styles = {
+      comments = { italic = true }
+    },
   })
 
-  later(function()
-    -- Change the highlight group for the mini float because it doesn't really
-    -- work with the cyberdream theme
-    vim.api.nvim_set_hl(0, "MiniNotifyNormal", { link = "Comment" })
-  end)
-
-  vim.cmd("colorscheme cyberdream")
+  vim.cmd("colorscheme tokyonight")
 end)
