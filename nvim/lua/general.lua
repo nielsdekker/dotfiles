@@ -12,7 +12,7 @@ vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ",+")
 -- Tabs and spaces
 vim.o.wrap = false
 vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.shiftwidth = 0
 vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.list = true
