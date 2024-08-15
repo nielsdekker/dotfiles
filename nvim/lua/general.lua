@@ -47,10 +47,10 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 
 -- Prevents the integrated terminal from closing on exit. Now an explicit close
 -- call needs to be given.
-vim.api.nvim_create_autocmd('TermClose', {
+vim.api.nvim_create_autocmd("TermClose", {
   callback = function(ctx)
     vim.cmd('stopinsert')
-    vim.api.nvim_create_autocmd('TermEnter', {
+    vim.api.nvim_create_autocmd("TermEnter", {
       callback = function()
         vim.cmd('stopinsert')
       end,

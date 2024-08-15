@@ -51,7 +51,7 @@ map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "reference
 
 map("n", "<leader>ff", function() require("mini.pick").builtin.files({ tool = "git" }) end)
 map("n", "<leader>fs", function() require("mini.pick").builtin.grep_live({ tool = "git" }) end)
-map("n", "<leader>fb", function() require("mini.pick").builtin.buffers() end)
+map("n", "<leader>fb", function() require("util.pickers").relativeBufferPicker() end)
 map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)
 map("n", "<leader>fm", function() require("mini.extra").pickers.marks() end)
 
