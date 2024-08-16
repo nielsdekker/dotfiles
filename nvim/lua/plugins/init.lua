@@ -21,6 +21,9 @@ later(function()
   add({
     source = "stevearc/overseer.nvim"
   })
+  add({
+    source = "mbbill/undotree"
+  })
 
   require("plugins.conform_settings")
   require("plugins.lsp")

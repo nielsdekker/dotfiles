@@ -44,6 +44,7 @@ map("n", "g]", function() vim.cmd("cnext") end)
 map("n", "g[", function() vim.cmd("cprev") end)
 map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
 map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
+map("n", "gu", function() vim.cmd("UndotreeToggle") end, { silent = true })
 
 ---------------------------
 -- F Is for [F]inding stuff
