@@ -58,4 +58,5 @@ now(function()
   })
 
   vim.cmd("colorscheme tokyonight")
+  vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#c4c8da" })
 end)
