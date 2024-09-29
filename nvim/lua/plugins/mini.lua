@@ -6,6 +6,7 @@ local statusline = require("mini.statusline")
 local surround = require("mini.surround")
 local notify = require("mini.notify")
 local git = require("mini.git")
+local icons = require("mini.icons")
 
 local function setup_mini_completion()
   completion.setup({
@@ -45,7 +46,6 @@ local function setup_mini_files()
       go_in = "L",
       go_in_plus = "l"
     },
-    content = { prefix = function() end }
   })
 end
 
@@ -84,7 +84,7 @@ end
 
 local function setup_mini_statusline()
   statusline.setup({
-    use_icons = false,
+    use_icons = true,
     set_vim_settings = false,
     content = {
       active = function()
@@ -121,6 +121,12 @@ local function setup_mini_git()
   git.setup()
 end
 
+local function setup_mini_icons()
+  icons.setup()
+  icons.tweak_lsp_kind("replace")
+end
+
+setup_mini_icons()
 setup_mini_completion()
 setup_mini_files()
 setup_mini_notify()
