@@ -5,7 +5,7 @@ local mason_lsp = require("mason-lspconfig")
 mason.setup {}
 mason_lsp.setup {
   ensure_installed = {
-    "tsserver",
+    "ts_ls",
     "gopls",
   }
 }
@@ -48,8 +48,8 @@ mason_lsp.setup_handlers {
     }
   end,
 
-  ["tsserver"] = function()
-    lsp_config.tsserver.setup {
+  ["ts_ls"] = function()
+    lsp_config.ts_ls.setup {
       settings = {
         typescript = {
           inlayHints = {

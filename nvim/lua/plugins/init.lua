@@ -51,12 +51,12 @@ now(function()
 
   require("tokyonight").setup({
     transparent = true,
-    style = "day",
+    style = "moon",
     styles = {
       comments = { italic = true }
     },
   })
 
   vim.cmd("colorscheme tokyonight")
-  vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#c4c8da" })
+  vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#2f334d" })
 end)
