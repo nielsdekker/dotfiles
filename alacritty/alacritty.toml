@@ -20,3 +20,8 @@ offset.y = 2
 
 [selection]
 save_to_clipboard = true
+
+[keyboard]
+bindings = [
+  { key = "F9", action = "ToggleFullscreen" }
+]

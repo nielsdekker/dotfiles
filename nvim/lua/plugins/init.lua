@@ -6,8 +6,8 @@ require("plugins.mini")
 
 -- Tools
 later(function()
-  add("tpope/vim-fugitive")
-  add("stevearc/conform.nvim")
+  add({ source = "tpope/vim-fugitive" })
+  add({ source = "stevearc/conform.nvim" })
   add({
     source = "neovim/nvim-lspconfig",
     depends = {
@@ -15,15 +15,9 @@ later(function()
       "williamboman/mason-lspconfig.nvim",
     }
   })
-  add({
-    source = "mfussenegger/nvim-dap",
-  })
-  add({
-    source = "stevearc/overseer.nvim"
-  })
-  add({
-    source = "mbbill/undotree"
-  })
+  add({ source = "mfussenegger/nvim-dap", })
+  add({ source = "stevearc/overseer.nvim" })
+  add({ source = "mbbill/undotree" })
 
   require("plugins.conform_settings")
   require("plugins.lsp")
