@@ -39,6 +39,7 @@ mason_lsp.setup_handlers {
     lsp_config.yamlls.setup {
       settings = {
         yaml = {
+          disableDefaultProperties = true,
           keyOrdering = false,
           schemas = {
             kubernetes = { "**/k8s/**/templates/*.yaml" }
