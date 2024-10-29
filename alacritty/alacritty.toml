@@ -1,6 +1,6 @@
-import = ["~/.config/alacritty/themes/tokyonight-moon.toml"]
+general.import = ["~/.config/alacritty/themes/tokyonight-moon.toml"]
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 # This starts tmux and falls back to an hard coded path when not found. This
 # happens on osX with homebrew for some reason.
