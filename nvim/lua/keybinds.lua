@@ -10,12 +10,8 @@ vim.g.mapleader = " "
 -- Vim standard stuff
 --------------------
 
--- Navigation
-map("n", "<leader>wh", "<C-w>h")
-map("n", "<leader>wj", "<C-w>j")
-map("n", "<leader>wk", "<C-w>k")
-map("n", "<leader>wl", "<C-w>l")
-map("v", "<leader>y", "\"+y") -- Yanks to the clipboard
+-- Yanks to the clipboard
+map("v", "<leader>y", "\"+y")
 
 -- Moving around
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
@@ -25,15 +21,34 @@ map("n", "K", vim.lsp.buf.hover, { silent = true })
 
 -- Completion
 map("i", "<Tab>", function()
-    return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-  end,
-  { silent = true, expr = true }
+        return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+    end,
+    { silent = true, expr = true }
 )
 map("i", "<S-Tab>", function()
-    return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-  end,
-  { silent = true, expr = true }
+        return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
+    end,
+    { silent = true, expr = true }
 )
+
+
+----------------------------
+-- W Is for [W]indows
+--
+-- The nvim kind, not the OS
+----------------------------
+map("n", "<leader>wh", "<C-w>h")
+map("n", "<leader>wj", "<C-w>j")
+map("n", "<leader>wk", "<C-w>k")
+map("n", "<leader>wl", "<C-w>l")
+map("n", "<leader>wH", "<C-w>H")
+map("n", "<leader>wJ", "<C-w>J")
+map("n", "<leader>wK", "<C-w>K")
+map("n", "<leader>wL", "<C-w>L")
+
+-- Tool windows
+map("n", "wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
+map("n", "wt", function() require("neotest").summary.open() end)
 
 ------------------
 -- G Is for [G]oto
@@ -61,21 +76,10 @@ map("n", "<leader>fm", function() require("mini.extra").pickers.marks() end)
 -- C Is for [C]ode actions
 --------------------------
 
-map("n", "<leader>cs", function() require("mini.extra").pickers.lsp({ scope = "workspace_symbol" }) end,
-  { silent = true })
 map("n", "<leader>cr", vim.lsp.buf.rename)
 map("n", "<leader>ca", function()
-  vim.lsp.buf.code_action()
-  -- require("util.pickers").codeActionsPicker()
-end)
-
--------------------
--- T Is for [T]asks
--------------------
-
-map("n", "<leader>tt", function() require("overseer").toggle() end)
-map("n", "<leader>tr", function()
-  require("util.pickers").overseerPicker()
+    vim.lsp.buf.code_action()
+    -- require("util.pickers").codeActionsPicker()
 end)
 
 -----------------------
@@ -88,6 +92,6 @@ map("n", "<leader>d[", function() require("dap").step_into() end, { silent = tru
 map("n", "<leader>d]", function() require("dap").step_out() end, { silent = true })
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true })
 map("n", "<leader>db", function()
-  require("dap").list_breakpoints();
-  vim.cmd("copen")
+    require("dap").list_breakpoints();
+    vim.cmd("copen")
 end, { silent = true })
