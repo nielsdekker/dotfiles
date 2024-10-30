@@ -47,8 +47,8 @@ map("n", "<leader>wK", "<C-w>K")
 map("n", "<leader>wL", "<C-w>L")
 
 -- Tool windows
-map("n", "wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
-map("n", "wt", function() require("neotest").summary.open() end)
+map("n", "<leader>wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
+map("n", "<leader>wt", function() require("neotest").summary.open() end)
 
 ------------------
 -- G Is for [G]oto
