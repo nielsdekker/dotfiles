@@ -31,6 +31,11 @@ map("i", "<S-Tab>", function()
     { silent = true, expr = true }
 )
 
+-- Use // to reset the highlight and search
+map("n", "//", function()
+    vim.cmd("let @/ = \"\"")
+end)
+
 
 ----------------------------
 -- W Is for [W]indows
