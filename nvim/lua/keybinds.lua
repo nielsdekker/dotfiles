@@ -6,28 +6,26 @@ vim.g.mapleader = " "
 -- - Most keybindings are in the format: leader + prefix + ...
 -- - Only really basic stuff should can have a direct keybinding
 
----------------------
--- Vim standard stuff
---------------------
+----------------------
+-- Vim standard tweaks
+----------------------
 
--- Yanks to the clipboard
+-- Yanks to the system clipboard
 map("v", "<leader>y", "\"+y")
 
--- Moving around
+-- Open mini files window
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
 
--- Diagnostics
+-- Shows the lsp info
 map("n", "K", vim.lsp.buf.hover, { silent = true })
 
--- Completion
-map("i", "<Tab>", function()
-        return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-    end,
+-- Map tab to move the completion forward and shift tab to move it backwards
+map("i", "<Tab>",
+    function() return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>" end,
     { silent = true, expr = true }
 )
-map("i", "<S-Tab>", function()
-        return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-    end,
+map("i", "<S-Tab>",
+    function() return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>" end,
     { silent = true, expr = true }
 )
 
@@ -35,7 +33,6 @@ map("i", "<S-Tab>", function()
 map("n", "//", function()
     vim.cmd("let @/ = \"\"")
 end)
-
 
 ----------------------------
 -- W Is for [W]indows
@@ -50,10 +47,15 @@ map("n", "<leader>wH", "<C-w>H")
 map("n", "<leader>wJ", "<C-w>J")
 map("n", "<leader>wK", "<C-w>K")
 map("n", "<leader>wL", "<C-w>L")
+map("n", "<leader>w=", "<C-w>=")
 
 -- Tool windows
 map("n", "<leader>wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
 map("n", "<leader>wt", function() require("neotest").summary.open() end)
+map("n", "<leader>wb", function()
+    require("dap").list_breakpoints();
+    vim.cmd("copen")
+end, { silent = true })
 
 ------------------
 -- G Is for [G]oto
@@ -91,12 +93,8 @@ end)
 -- D is for [D]ebugging
 -----------------------
 
-map("n", "<leader>dc", function() require("dap").continue() end, { silent = true })
-map("n", "<leader>dn", function() require("dap").step_over() end, { silent = true })
-map("n", "<leader>d[", function() require("dap").step_into() end, { silent = true })
-map("n", "<leader>d]", function() require("dap").step_out() end, { silent = true })
-map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true })
-map("n", "<leader>db", function()
-    require("dap").list_breakpoints();
-    vim.cmd("copen")
-end, { silent = true })
+map("n", "<leader>dc", function() require("dap").continue() end, { silent = true })          -- debug continue
+map("n", "<leader>do", function() require("dap").step_over() end, { silent = true })         -- debug over
+map("n", "<leader>di", function() require("dap").step_into() end, { silent = true })         -- debug into
+map("n", "<leader>de", function() require("dap").step_out() end, { silent = true })          -- debug exit
+map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
