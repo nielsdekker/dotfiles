@@ -7,12 +7,12 @@ dap.defaults.fallback.exception_breakpoints = {}
 -- Basic adapter config. Project specific configs should be set up in a
 -- projects .nvim.lua file.
 dap.adapters.go = {
-  type = "server",
-  port = 8001,
-  executable = {
-    command = mason_path .. "/bin/dlv",
-    args = { "dap", "-l", "127.0.0.1:8001" }
-  }
+    type = "server",
+    port = 8001,
+    executable = {
+        command = mason_path .. "/bin/dlv",
+        args = { "dap", "-l", "127.0.0.1:8001" }
+    }
 }
 
 --[[ Example go configuration

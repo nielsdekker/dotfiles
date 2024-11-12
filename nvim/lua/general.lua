@@ -28,6 +28,7 @@ vim.o.cursorline = true
 -- Enable spell checking
 vim.o.spell = true
 vim.o.spelllang = "en,nl"
+vim.o.spelloptions = "camel,noplainbuffer"
 
 -- Autocommands
 
@@ -35,27 +36,27 @@ vim.o.spelllang = "en,nl"
 -- In short this disables the inline virtual text and adds a float when
 -- hovering over an error instead.
 vim.diagnostic.config({
-  virtual_text = false
+    virtual_text = false
 })
 vim.o.updatetime = 250
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-  callback = function()
-    vim.diagnostic.open_float(nil, { focus = false })
-  end
+    group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+    callback = function()
+        vim.diagnostic.open_float(nil, { focus = false })
+    end
 })
 
 -- Prevents the integrated terminal from closing on exit. Now an explicit close
 -- call needs to be given.
 vim.api.nvim_create_autocmd("TermClose", {
-  callback = function(ctx)
-    vim.cmd('stopinsert')
-    vim.api.nvim_create_autocmd("TermEnter", {
-      callback = function()
+    callback = function(ctx)
         vim.cmd('stopinsert')
-      end,
-      buffer = ctx.buf,
-    })
-  end,
-  nested = true,
+        vim.api.nvim_create_autocmd("TermEnter", {
+            callback = function()
+                vim.cmd('stopinsert')
+            end,
+            buffer = ctx.buf,
+        })
+    end,
+    nested = true,
 })
