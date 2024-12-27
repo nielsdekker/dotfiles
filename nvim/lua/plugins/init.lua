@@ -49,14 +49,5 @@ end)
 now(function()
     add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
 
-    require("tokyonight").setup({
-        transparent = true,
-        style = "moon",
-        styles = {
-            comments = { italic = true }
-        },
-    })
-
-    vim.cmd("colorscheme tokyonight")
-    vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#2f334d" })
+    require("plugins.tokyonight")
 end)

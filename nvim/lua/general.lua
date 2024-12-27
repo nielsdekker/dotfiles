@@ -1,5 +1,4 @@
 -- window
-vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.o.ignorecase = true
 vim.o.number = false
