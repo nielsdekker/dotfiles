@@ -59,3 +59,10 @@ vim.api.nvim_create_autocmd("TermClose", {
     end,
     nested = true,
 })
+
+-- Make sure terraform files work as intended
+vim.filetype.add({
+    extension = {
+        tf = "terraform"
+    }
+})

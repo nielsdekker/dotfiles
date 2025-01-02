@@ -10,6 +10,9 @@ tokyo.setup({
         hi.ColorColumn = {
             bg = co.bg_highlight
         }
+        hi.WinSeparator = {
+            fg = co.border_highlight
+        }
     end
 })
 
