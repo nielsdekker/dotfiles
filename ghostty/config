@@ -17,6 +17,8 @@ keybind = clear
 
 # Generic key binds
 keybind = ctrl+a>x=close_surface
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = super+v=paste_from_clipboard
 
 # Key binds for tabs
 keybind = ctrl+a>w=toggle_tab_overview
