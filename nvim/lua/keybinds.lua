@@ -51,7 +51,7 @@ map("n", "<leader>w=", "<C-w>=")
 
 -- Tool windows
 map("n", "<leader>wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
-map("n", "<leader>wt", function() require("neotest").summary.open() end)
+map("n", "<leader>wt", function() require("neotest").summary.toggle() end)
 map("n", "<leader>wb", function()
     require("dap").list_breakpoints();
     vim.cmd("copen")

@@ -1,3 +1,5 @@
+config-file = ?macos-config
+
 # Theming
 theme = dark:tokyonight-storm,light:tokyonight-day
 font-family = "MonaspiceNe Nerd Font"

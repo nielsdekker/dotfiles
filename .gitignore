@@ -3,4 +3,10 @@
 
 *.bak
 
+# Generated stuff like lock files
 nvim/lazy-lock.json
+
+# Custom osx settings
+ghostty/macos-config
+
+

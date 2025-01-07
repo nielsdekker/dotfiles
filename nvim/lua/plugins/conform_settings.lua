@@ -1,6 +1,6 @@
-local confirm = require("conform")
+local conform = require("conform")
 
-confirm.setup({
+conform.setup({
     format_on_save = {
         timeout_ms = 1000,
         lsp_format = "fallback",
