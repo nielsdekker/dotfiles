@@ -2,6 +2,6 @@ local neotest = require("neotest")
 
 neotest.setup({
     adapters = {
-        require("neotest-golang")
+        require("neotest-golang"),
     }
 })

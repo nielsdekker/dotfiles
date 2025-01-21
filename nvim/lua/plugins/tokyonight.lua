@@ -3,6 +3,7 @@ local tokyo = require("tokyonight")
 tokyo.setup({
     style = "moon",
     light_style = "day",
+    transparent = true,
     styles = {
         comments = { italic = true }
     },
@@ -11,7 +12,7 @@ tokyo.setup({
             bg = co.bg_highlight
         }
         hi.WinSeparator = {
-            fg = co.border_highlight
+            fg = co.foreground
         }
     end
 })

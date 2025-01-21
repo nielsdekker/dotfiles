@@ -1,8 +1,8 @@
 -- window
 vim.o.termguicolors = true
 vim.o.ignorecase = true
-vim.o.number = false
-vim.o.relativenumber = false
+vim.o.number = true
+vim.o.relativenumber = true
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 vim.o.textwidth = 80
