@@ -78,6 +78,7 @@ map("n", "<leader>fh", function() require("mini.pick").builtin.help() end)
 map("n", "<leader>fb", function() require("util.pickers").relativeBufferPicker() end)
 map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)
 map("n", "<leader>fm", function() require("mini.extra").pickers.marks() end)
+map("n", "<leader>fd", function() require("mini.extra").pickers.diagnostic() end)
 
 --------------------------
 -- C Is for [C]ode actions
@@ -94,7 +95,7 @@ end)
 -----------------------
 
 map("n", "<leader>dc", function() require("dap").continue() end, { silent = true })          -- debug continue
-map("n", "<leader>do", function() require("dap").step_over() end, { silent = true })         -- debug over
-map("n", "<leader>di", function() require("dap").step_into() end, { silent = true })         -- debug into
-map("n", "<leader>de", function() require("dap").step_out() end, { silent = true })          -- debug exit
+map("n", "<leader>dj", function() require("dap").step_over() end, { silent = true })         -- debug over
+map("n", "<leader>dl", function() require("dap").step_into() end, { silent = true })         -- debug into
+map("n", "<leader>dh", function() require("dap").step_out() end, { silent = true })          -- debug exit
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
