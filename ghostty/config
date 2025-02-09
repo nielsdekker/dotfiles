@@ -33,10 +33,10 @@ keybind = ctrl+a>shift+[=move_tab:-1
 # Key binds for splits
 keybind = ctrl+a>shift+5=new_split:right
 keybind = ctrl+a>shift+'=new_split:down
-keybind = ctrl+a>h=goto_split:left
-keybind = ctrl+a>j=goto_split:bottom
-keybind = ctrl+a>k=goto_split:top
-keybind = ctrl+a>l=goto_split:right
+keybind = unconsumed:ctrl+h=goto_split:left
+keybind = unconsumed:ctrl+j=goto_split:bottom
+keybind = unconsumed:ctrl+k=goto_split:top
+keybind = unconsumed:ctrl+l=goto_split:right
 
 # Tab based on index
 keybind = ctrl+a>1=goto_tab:1

@@ -1,19 +1,45 @@
 local dap = require("dap")
-local mason_path = vim.fn.stdpath("data") .. "/mason"
+local dapui = require("dapui")
 
 -- Set defaults for DAP
 dap.defaults.fallback.exception_breakpoints = {}
 
 -- Basic adapter config. Project specific configs should be set up in a
 -- projects .nvim.lua file.
-dap.adapters.go = {
-    type = "server",
-    port = 8001,
-    executable = {
-        command = mason_path .. "/bin/dlv",
-        args = { "dap", "-l", "127.0.0.1:8001" }
-    }
-}
+dap.adapters.delve = function(cb, config)
+    if config.buildCmds then
+        for _, v in pairs(config.buildCmds) do
+            print(table.concat(v, " "))
+            local job = vim.system(v, {
+                stderr = function(_, data)
+                    if data then
+                        print(data)
+                    end
+                end,
+                stdout = function(_, data)
+                    if data then
+                        print(data)
+                    end
+                end,
+            })
+            local result = job.wait(job)
+
+            if result.code > 0 then
+                print("Build failed")
+                return
+            end
+        end
+    end
+
+    cb({
+        type = "server",
+        port = "${port}",
+        executable = {
+            command = "dlv",
+            args = { "dap", "-l", "127.0.0.1:", "--log", "--log-output=dap" }
+        }
+    })
+end
 
 --[[ Example go configuration
     dap.configurations.go = {

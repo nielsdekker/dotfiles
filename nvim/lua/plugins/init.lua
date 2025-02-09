@@ -13,7 +13,14 @@ later(function()
             "williamboman/mason-lspconfig.nvim",
         }
     })
-    add({ source = "mfussenegger/nvim-dap" })
+    add({
+        source = "mfussenegger/nvim-dap",
+        depends = {
+            "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio",
+        }
+    })
+
     add({ source = "mbbill/undotree" })
     add({
         source = "nvim-treesitter/nvim-treesitter",
