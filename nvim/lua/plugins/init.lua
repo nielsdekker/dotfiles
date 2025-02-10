@@ -14,9 +14,9 @@ later(function()
         }
     })
     add({
-        source = "mfussenegger/nvim-dap",
+        source = "rcarriga/nvim-dap-ui",
         depends = {
-            "rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap",
             "nvim-neotest/nvim-nio",
         }
     })

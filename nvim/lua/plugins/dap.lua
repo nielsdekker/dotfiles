@@ -1,6 +1,33 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
+dapui.setup({
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.25
+        }, {
+            id = "breakpoints",
+            size = 0.25
+        }, {
+            id = "stacks",
+            size = 0.25
+        }, {
+            id = "watches",
+            size = 0.25
+        } },
+        position = "right",
+        size = 40
+    }, {
+        elements = { {
+            id = "repl",
+            size = 1
+        } },
+        position = "bottom",
+        size = 10
+    } },
+});
+
 -- Set defaults for DAP
 dap.defaults.fallback.exception_breakpoints = {}
 
@@ -36,21 +63,28 @@ dap.adapters.delve = function(cb, config)
         port = "${port}",
         executable = {
             command = "dlv",
-            args = { "dap", "-l", "127.0.0.1:", "--log", "--log-output=dap" }
+            args = { "dap", "-l", "127.0.0.1:${port}", "--log", "--log-output=dap" }
         }
     })
 end
 
---[[ Example go configuration
-    dap.configurations.go = {
-      {
-        type = "go",
+--[[ Example delve configuration with templ
+dap.configurations.go = {
+    {
+        type = "delve",
+        name = "Run",
         request = "launch",
-        name = "Debug current file",
-        program = "${file}",
-      }
+        program = "./cmd/main.go",
+        outputMode = "remote",
+        env = {
+            DB_CONNECTION_STRING = "postgres://..."
+        },
+        buildCmds = {
+            { "go", "run", "github.com/a-h/templ/cmd/templ@v0.3.833", "generate" },
+        }
     }
-    ]]
+}
+--]]
 
 -- Setup UI
 vim.fn.sign_define("DapBreakpoint", { text = "|>", texthl = "Comment" })

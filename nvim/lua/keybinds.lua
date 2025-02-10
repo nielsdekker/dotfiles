@@ -56,6 +56,7 @@ map("n", "<leader>wb", function()
     require("dap").list_breakpoints();
     vim.cmd("copen")
 end, { silent = true })
+map("n", "<leader>wd", function() require("dapui").toggle() end)
 
 ------------------
 -- G Is for [G]oto
