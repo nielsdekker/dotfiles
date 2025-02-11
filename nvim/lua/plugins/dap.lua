@@ -1,6 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
+---@diagnostic disable-next-line: missing-fields
 dapui.setup({
     layouts = { {
         elements = { {

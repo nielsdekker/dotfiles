@@ -82,6 +82,42 @@ pick.setup({
 })
 
 -- Mini status line
+local function wrapHighlightGroup(name)
+    local hl = vim.api.nvim_get_hl(0, { name = name })
+    local hlName = name .. "Border"
+    vim.api.nvim_set_hl(0, hlName, {
+        foreground = hl.bg,
+    })
+
+    return hlName
+end
+
+local function wrapStart(tbl)
+    if string.len(table.concat(tbl.strings, "")) == 0 then
+        return tbl
+    end
+    local hlName = wrapHighlightGroup(tbl.hl)
+    table.insert(tbl.strings, 1, string.format("  %%#%s#", tbl.hl))
+
+    return {
+        hl = hlName,
+        strings = tbl.strings
+    }
+end
+
+local function wrapEnd(tbl)
+    if string.len(table.concat(tbl.strings, "")) == 0 then
+        return tbl
+    end
+    local hlName = wrapHighlightGroup(tbl.hl)
+    table.insert(tbl.strings, string.format("%%#%s#  ", hlName))
+
+    return {
+        hl = tbl.hl,
+        strings = tbl.strings
+    }
+end
+
 statusline.setup({
     use_icons = true,
     set_vim_settings = false,
@@ -94,36 +130,13 @@ statusline.setup({
             local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
             local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
-            local function wrapBorder(tbl)
-                local hl = vim.api.nvim_get_hl(0, { name = tbl.hl })
-                local hlName = tbl.hl .. "border"
-                vim.api.nvim_set_hl(0, hlName, {
-                    foreground = hl.bg,
-                })
-
-                if string.len(table.concat(tbl.strings, "")) == 0 then
-                    return tbl
-                end
-
-                local strs = { string.format("%%#%s#", tbl.hl) }
-                for _, v in pairs(tbl.strings) do
-                    table.insert(strs, v)
-                end
-                table.insert(strs, string.format("%%#%s#", hlName))
-
-                return {
-                    hl = hlName,
-                    strings = strs
-                }
-            end
-
             return MiniStatusline.combine_groups({
-                wrapBorder({ hl = mode_hl, strings = { search, mode } }),
-                wrapBorder({ hl = "MiniStatuslineDevinfo", strings = { diagnostics } }),
+                wrapStart({ hl = mode_hl, strings = { search, mode } }),
+                { hl = "MiniStatuslineDevinfo",  strings = { diagnostics } },
                 '%<', -- Mark general truncate point
-                wrapBorder({ hl = "MiniStatuslineFilename", strings = { filename } }),
+                { hl = "MiniStatuslineFilename", strings = { filename } },
                 '%=', -- End left alignment
-                wrapBorder({ hl = "MiniStatuslineFileinfo", strings = { fileinfo } }),
+                wrapEnd({ hl = "MiniStatuslineFileinfo", strings = { fileinfo } }),
             })
         end
     }
