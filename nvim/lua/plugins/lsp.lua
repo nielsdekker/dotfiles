@@ -2,6 +2,13 @@ local lsp_config = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
+local lsp_to_skip = {
+    -- Cucumber doesn't allow for disabling the formatter. And IJ doesn't format
+    -- cucumber files as it should. Besides kotlin not having any tooling
+    -- outside IJ so just disable the cucumber language server by default.
+    "cucumber_language_server"
+}
+
 mason.setup {}
 mason_lsp.setup {
     ensure_installed = {
@@ -13,7 +20,9 @@ mason_lsp.setup {
 mason_lsp.setup_handlers {
     -- Default config for all langauge servers
     function(server_name)
-        require("lspconfig")[server_name].setup {}
+        if vim.tbl_contains(lsp_to_skip, server_name) == false then
+            require("lspconfig")[server_name].setup {}
+        end
     end,
 
     ["lua_ls"] = function()
