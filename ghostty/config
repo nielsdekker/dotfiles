@@ -22,21 +22,33 @@ keybind = ctrl+a>x=close_surface
 keybind = ctrl+shift+v=paste_from_clipboard
 keybind = super+v=paste_from_clipboard
 
-# Key binds for tabs
-keybind = ctrl+a>w=toggle_tab_overview
-keybind = ctrl+a>c=new_tab
-keybind = ctrl+a>]=next_tab
-keybind = ctrl+a>[=previous_tab
-keybind = ctrl+a>shift+]=move_tab:+1
-keybind = ctrl+a>shift+[=move_tab:-1
+################################################################################
+## Ctrl keybinds, used for quick navigation. These should not conflict with
+## anything and are only for quick simple actions.
+################################################################################
 
-# Key binds for splits
-keybind = ctrl+a>shift+5=new_split:right
-keybind = ctrl+a>shift+'=new_split:down
+# Navigation
+keybind = ctrl+w=toggle_tab_overview
+keybind = ctrl+]=next_tab
+keybind = ctrl+[=previous_tab
+keybind = ctrl+shift+]=move_tab:+1
+keybind = ctrl+shift+[=move_tab:-1
+
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
 keybind = ctrl+l=goto_split:right
+
+################################################################################
+### TMUX Keybinds, these are keybinds with a prefix based on the old tmux conf
+################################################################################
+
+# Creating splits and tabs
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>l=new_split:right
+keybind = ctrl+a>h=new_split:left
+keybind = ctrl+a>j=new_split:down
+keybind = ctrl+a>k=new_split:up
 
 # Tab based on index
 keybind = ctrl+a>1=goto_tab:1
@@ -48,3 +60,4 @@ keybind = ctrl+a>6=goto_tab:6
 keybind = ctrl+a>7=goto_tab:7
 keybind = ctrl+a>8=goto_tab:8
 keybind = ctrl+a>9=goto_tab:9
+

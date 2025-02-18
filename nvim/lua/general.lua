@@ -1,12 +1,12 @@
 -- window
 vim.o.termguicolors = true
 vim.o.ignorecase = true
-vim.o.number = true
-vim.o.relativenumber = true
+vim.o.number = false
+vim.o.relativenumber = false
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 vim.o.textwidth = 80
-vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ",+")
+-- vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ",+")
 
 -- Tabs and spaces
 vim.o.wrap = false
