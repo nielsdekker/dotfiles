@@ -73,8 +73,8 @@ map("n", "gu", function() vim.cmd("UndotreeToggle") end, { silent = true })
 -- F Is for [F]inding stuff
 ---------------------------
 
-map("n", "<leader>ff", function() require("mini.pick").builtin.files({ tool = "git" }) end)
-map("n", "<leader>fs", function() require("mini.pick").builtin.grep_live({ tool = "git" }) end)
+map("n", "<leader>ff", function() require("mini.pick").builtin.files({ tool = "rg" }) end)
+map("n", "<leader>fs", function() require("mini.pick").builtin.grep_live({ tool = "rg" }) end)
 map("n", "<leader>fh", function() require("mini.pick").builtin.help() end)
 map("n", "<leader>fb", function() require("util.pickers").relativeBufferPicker() end)
 map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)

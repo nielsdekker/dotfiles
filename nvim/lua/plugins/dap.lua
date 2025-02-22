@@ -1,8 +1,13 @@
 local dap = require("dap")
 local dapui = require("dapui")
+local notify = require("mini.notify")
 
 ---@diagnostic disable-next-line: missing-fields
 dapui.setup({
+    controls = {
+        element = "repl",
+        enabled = false,
+    },
     layouts = { {
         elements = { {
             id = "scopes",
@@ -37,24 +42,32 @@ dap.defaults.fallback.exception_breakpoints = {}
 dap.adapters.delve = function(cb, config)
     if config.buildCmds then
         for _, v in pairs(config.buildCmds) do
-            print(table.concat(v, " "))
+            local notificationData = table.concat(v, " ")
+            local notification = notify.add(notificationData, "INFO")
+
             local job = vim.system(v, {
                 stderr = function(_, data)
                     if data then
-                        print(data)
+                        notificationData = notificationData .. data
+                        notify.update(notification, { msg = notificationData })
                     end
                 end,
                 stdout = function(_, data)
                     if data then
-                        print(data)
+                        notificationData = notificationData .. data
+                        notify.update(notification, { msg = notificationData })
                     end
                 end,
             })
             local result = job.wait(job)
 
             if result.code > 0 then
-                print("Build failed")
+                notificationData = notificationData .. "\r\nBuild failed"
+                notify.update(notification, { msg = notificationData, level = "ERROR" })
+                vim.defer_fn(function() notify.remove(notification) end, 7000)
                 return
+            else
+                notify.remove(notification)
             end
         end
     end

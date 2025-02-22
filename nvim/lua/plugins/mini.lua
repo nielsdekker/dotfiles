@@ -78,7 +78,7 @@ pick.setup({
                 vim.cmd("copen")
             end
         },
-    }
+    },
 })
 
 -- Mini status line
