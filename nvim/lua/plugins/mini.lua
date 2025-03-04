@@ -9,8 +9,8 @@ local icons = require("mini.icons")
 
 -- Oneliner setups
 starter.setup()
-surround.setup({})
-notify.setup({})
+surround.setup()
+notify.setup()
 icons.setup()
 icons.tweak_lsp_kind("replace")
 
@@ -81,43 +81,6 @@ pick.setup({
     },
 })
 
--- Mini status line
-local function wrapHighlightGroup(name)
-    local hl = vim.api.nvim_get_hl(0, { name = name })
-    local hlName = name .. "Border"
-    vim.api.nvim_set_hl(0, hlName, {
-        foreground = hl.bg,
-    })
-
-    return hlName
-end
-
-local function wrapStart(tbl)
-    if string.len(table.concat(tbl.strings, "")) == 0 then
-        return tbl
-    end
-    local hlName = wrapHighlightGroup(tbl.hl)
-    table.insert(tbl.strings, 1, string.format("  %%#%s#", tbl.hl))
-
-    return {
-        hl = hlName,
-        strings = tbl.strings
-    }
-end
-
-local function wrapEnd(tbl)
-    if string.len(table.concat(tbl.strings, "")) == 0 then
-        return tbl
-    end
-    local hlName = wrapHighlightGroup(tbl.hl)
-    table.insert(tbl.strings, string.format("%%#%s#  ", hlName))
-
-    return {
-        hl = tbl.hl,
-        strings = tbl.strings
-    }
-end
-
 statusline.setup({
     use_icons = true,
     set_vim_settings = false,
@@ -125,18 +88,19 @@ statusline.setup({
     content = {
         active = function()
             local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+            local git           = MiniStatusline.section_git({ trunc_width = 40 })
             local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
             local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
             local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
             local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
             return MiniStatusline.combine_groups({
-                wrapStart({ hl = mode_hl, strings = { search, mode } }),
-                { hl = "MiniStatuslineDevinfo",  strings = { diagnostics } },
+                { hl = mode_hl,                 strings = { search, mode } },
+                { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                 '%<', -- Mark general truncate point
                 { hl = "MiniStatuslineFilename", strings = { filename } },
                 '%=', -- End left alignment
-                wrapEnd({ hl = "MiniStatuslineFileinfo", strings = { fileinfo } }),
+                { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
             })
         end
     }

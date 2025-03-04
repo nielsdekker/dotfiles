@@ -40,8 +40,6 @@ end)
 
 -- Theming
 now(function()
-    add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
-
     require("plugins.mini")
-    require("plugins.tokyonight")
+    require("plugins.colo")
 end)
