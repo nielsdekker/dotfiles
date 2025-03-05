@@ -9,7 +9,7 @@ setopt PROMPT_SUBST
 zstyle ':vcs_info:git:*' formats '[%b]'
 
 PROMPT=$'%{$reset_color%}\n%{%F{yellow}%}%(1j.[%j] .)%{%F{cyan}%}%~ %{%F{red}%}${vcs_info_msg_0_}'$'\n''$ %{$reset_color%}'
-RPROMPT='%{%F{white}%}%*'
+RPROMPT='%{%F{magenta}%}%*'
 
 #####
 # Default environment
