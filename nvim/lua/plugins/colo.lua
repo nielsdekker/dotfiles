@@ -1,8 +1,5 @@
 ---@diagnostic disable: unused-local
 
-local later = require("mini.deps").later
-vim.cmd("colorscheme default")
-
 -- Palette, also see gui-colors
 local blue = { dark = "NvimDarkBlue", light = "NvimLightBlue" }
 local cyan = { dark = "NvimDarkCyan", light = "NvimLightCyan" }
@@ -37,13 +34,18 @@ local function updateGroup(group, dark, light)
     end
 end
 
--- Use a later to prevent issues with the colorscheme switching between dark and
--- light mode depending on the current OS settings.
-later(function()
-    -- Tweaks to the color scheme
-    makeItalic("Comment")
-    makeItalic("Statement")
 
-    updateGroup("ColorColumn", { bg = gray3.dark }, { bg = gray3.light })
-    updateGroup("Constant", { fg = magenta.light }, { fg = magenta.dark })
-end)
+-- Use an autocmd to prevent issues with the colorscheme switching between dark
+-- and light mode depending on the current OS settings.
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        -- Tweaks to the color scheme
+        makeItalic("Comment")
+        makeItalic("Statement")
+
+        updateGroup("ColorColumn", { bg = gray3.dark }, { bg = gray3.light })
+        updateGroup("Constant", { fg = magenta.light }, { fg = magenta.dark })
+    end
+})
+
+vim.cmd("colorscheme default")
