@@ -6,7 +6,7 @@ vim.o.relativenumber = true
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 vim.o.textwidth = 80
-vim.o.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ",+")
+vim.o.colorcolumn = "+1"
 
 -- Tabs and spaces
 vim.o.wrap = false

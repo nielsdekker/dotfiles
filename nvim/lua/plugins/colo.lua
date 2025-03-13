@@ -34,7 +34,6 @@ local function updateGroup(group, dark, light)
     end
 end
 
-
 -- Use an autocmd to prevent issues with the colorscheme switching between dark
 -- and light mode depending on the current OS settings.
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -45,6 +44,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
         updateGroup("ColorColumn", { bg = gray3.dark }, { bg = gray3.light })
         updateGroup("Constant", { fg = magenta.light }, { fg = magenta.dark })
+
+        updateGroup("Normal", { bg = "NONE" })
     end
 })
 
