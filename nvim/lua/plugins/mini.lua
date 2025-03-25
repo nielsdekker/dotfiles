@@ -83,7 +83,7 @@ pick.setup({
 
 statusline.setup({
     use_icons = true,
-    set_vim_settings = false,
+    set_vim_settings = true,
 
     content = {
         active = function()

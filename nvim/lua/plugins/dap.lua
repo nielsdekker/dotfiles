@@ -77,7 +77,13 @@ dap.adapters.delve = function(cb, config)
         port = "${port}",
         executable = {
             command = "dlv",
-            args = { "dap", "-l", "127.0.0.1:${port}", "--log", "--log-output=dap" }
+            args = {
+                "dap",
+                "-l",
+                "127.0.0.1:${port}",
+                "--log",
+                "--log-output=dap"
+            }
         }
     })
 end

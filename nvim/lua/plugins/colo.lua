@@ -45,7 +45,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         updateGroup("ColorColumn", { bg = gray3.dark }, { bg = gray3.light })
         updateGroup("Constant", { fg = magenta.light }, { fg = magenta.dark })
 
-        updateGroup("Normal", { bg = "NONE" })
+        update("Normal", { bg = "NONE" })
+
+        -- Fix the status line, no idea why the lua api doesn't work in this
+        -- case.
+        vim.cmd("hi MiniStatuslineModeNormal guifg=White guibg=Black")
+        vim.cmd("hi MiniStatuslineModeInsert guifg=White guibg=NvimDarkCyan")
     end
 })
 
