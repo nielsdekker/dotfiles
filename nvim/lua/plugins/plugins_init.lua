@@ -1,5 +1,18 @@
 local MiniDeps = require("mini.deps")
-local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
+local add, later, now = MiniDeps.add, MiniDeps.later, MiniDeps.now
+
+now(function()
+    -- Mini
+    require("plugins.mini")
+
+    -- Theming
+    require("plugins.colo")
+
+    -- Make sure LSP is initialized immediately, just in case a file is opened
+    -- directly.
+    add({ source = "williamboman/mason.nvim" })
+    require("plugins.lsp")
+end)
 
 -- Tools
 later(function()
@@ -7,20 +20,9 @@ later(function()
     add({ source = "lewis6991/gitsigns.nvim", name = "gitsigns" })
     add({ source = "stevearc/conform.nvim" })
     add({
-        source = "neovim/nvim-lspconfig",
-        depends = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        }
+        source = "igorlfs/nvim-dap-view",
+        depends = { "mfussenegger/nvim-dap" },
     })
-    add({
-        source = "rcarriga/nvim-dap-ui",
-        depends = {
-            "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio",
-        }
-    })
-
     add({ source = "mbbill/undotree" })
     add({
         source = "nvim-treesitter/nvim-treesitter",
@@ -33,13 +35,6 @@ later(function()
 
     require("plugins.treesitter")
     require("plugins.conform_settings")
-    require("plugins.lsp")
     require("plugins.dap")
     require("plugins.gitsigns")
-end)
-
--- Theming
-now(function()
-    require("plugins.mini")
-    require("plugins.colo")
 end)

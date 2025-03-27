@@ -16,9 +16,6 @@ map("v", "<leader>y", "\"+y")
 -- Open mini files window
 map("n", "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), false) end)
 
--- Shows the lsp info
-map("n", "K", vim.lsp.buf.hover, { silent = true })
-
 -- Map tab to move the completion forward and shift tab to move it backwards
 map("i", "<Tab>",
     function() return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>" end,
@@ -56,7 +53,7 @@ map("n", "<leader>wb", function()
     require("dap").list_breakpoints();
     vim.cmd("copen")
 end, { silent = true })
-map("n", "<leader>wd", function() require("dapui").toggle() end)
+map("n", "<leader>wd", function() require("dap-view").toggle() end)
 
 ------------------
 -- G Is for [G]oto
@@ -74,7 +71,7 @@ map("n", "gu", function() vim.cmd("UndotreeToggle") end, { silent = true })
 ---------------------------
 
 map("n", "<leader>ff", function() require("mini.pick").builtin.files({ tool = "git" }) end)
-map("n", "<leader>fs", function() require("mini.pick").builtin.grep_live({ tool = "rg" }) end)
+map("n", "<leader>fs", function() require("mini.pick").builtin.grep_live({ tool = "git" }) end)
 map("n", "<leader>fh", function() require("mini.pick").builtin.help() end)
 map("n", "<leader>fb", function() require("util.pickers").relativeBufferPicker() end)
 map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)
@@ -86,10 +83,7 @@ map("n", "<leader>fd", function() require("mini.extra").pickers.diagnostic() end
 --------------------------
 
 map("n", "<leader>cr", vim.lsp.buf.rename)
-map("n", "<leader>ca", function()
-    vim.lsp.buf.code_action()
-    -- require("util.pickers").codeActionsPicker()
-end)
+map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 -----------------------
 -- D is for [D]ebugging

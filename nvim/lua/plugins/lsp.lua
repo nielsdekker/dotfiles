@@ -1,94 +1,58 @@
-local lsp_config = require("lspconfig")
 local mason = require("mason")
-local mason_lsp = require("mason-lspconfig")
+local lspBinPath = vim.fn.stdpath("data") .. "/mason/bin/"
 
-local lsp_to_skip = {
-    -- Cucumber doesn't allow for disabling the formatter. And IJ doesn't format
-    -- cucumber files as it should. Besides kotlin not having any tooling
-    -- outside IJ so just disable the cucumber language server by default.
-    "cucumber_language_server"
+mason.setup {
+    install_root_dir = lspBinPath
 }
 
-mason.setup {}
-mason_lsp.setup {
-    ensure_installed = {
-        "ts_ls",
-        "gopls",
+-- GO
+vim.lsp.config["gopls"] = {
+    cmd = { "gopls" },
+    filetypes = { "go" },
+    root_markers = { "go.mod", ".git" },
+}
+
+-- Javascript/typescript
+vim.lsp.config["ts_ls"] = {
+    -- Should be installed with mason
+    cmd = { lspBinPath .. "typescript-language-server" },
+    filetypes = { "ts", "tsx", "js", "jsx" },
+    root_markers = { ".git", "tsconfig.json", "jsconfig.json" },
+}
+
+-- Lua
+vim.lsp.config["lua_ls"] = {
+    --  Should be installed with mason
+    cmd = { lspBinPath .. "lua-language-server" },
+    filetypes = { "lua" },
+    root_markers = { "init.lua", ".nvim.lua", ".git" },
+    settings = {
+        Lua = {
+            runtime = { version = "LuaJIT" },
+            workspace = {
+                checkThirdParty = false,
+
+                library = {
+                    unpack(vim.api.nvim_get_runtime_file("", true)),
+                },
+            }
+        }
     }
 }
 
-mason_lsp.setup_handlers {
-    -- Default config for all langauge servers
-    function(server_name)
-        if vim.tbl_contains(lsp_to_skip, server_name) == false then
-            require("lspconfig")[server_name].setup {}
-        end
-    end,
-
-    ["lua_ls"] = function()
-        lsp_config.lua_ls.setup {
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = "LuaJIT"
-                    },
-                    workspace = {
-                        checkThirdParty = false,
-
-                        library = {
-                            unpack(vim.api.nvim_get_runtime_file("", true)),
-                        },
-                    }
-                }
+-- Yaml
+vim.lsp.config["yamlls"] = {
+    cmd = { lspBinPath .. "yaml-language-server" },
+    root_markers = { ".git" },
+    settings = {
+        yaml = {
+            disableDefaultProperties = true,
+            keyOrdering = false,
+            schemas = {
+                kubernetes = { "**/k8s/**/templates/*.yaml" }
             }
         }
-    end,
-
-    ["yamlls"] = function()
-        lsp_config.yamlls.setup {
-            settings = {
-                yaml = {
-                    disableDefaultProperties = true,
-                    keyOrdering = false,
-                    schemas = {
-                        kubernetes = { "**/k8s/**/templates/*.yaml" }
-                    }
-                }
-            }
-        }
-    end,
-
-    ["ts_ls"] = function()
-        lsp_config.ts_ls.setup {
-            settings = {
-                typescript = {
-                    inlayHints = {
-                        includeInlayParameterNameHints = 'all',
-                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                        includeInlayFunctionParameterTypeHints = true,
-                        includeInlayVariableTypeHints = true,
-                        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                        includeInlayPropertyDeclarationTypeHints = true,
-                        includeInlayFunctionLikeReturnTypeHints = true,
-                        includeInlayEnumMemberValueHints = true,
-                    }
-                },
-                javascript = {
-                    inlayHints = {
-                        includeInlayParameterNameHints = 'all',
-                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                        includeInlayFunctionParameterTypeHints = true,
-                        includeInlayVariableTypeHints = true,
-                        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                        includeInlayPropertyDeclarationTypeHints = true,
-                        includeInlayFunctionLikeReturnTypeHints = true,
-                        includeInlayEnumMemberValueHints = true,
-                    }
-                }
-            },
-            on_attach = function(client)
-                client.server_capabilities.document_formatting = false
-            end
-        }
-    end,
+    }
 }
+
+vim.lsp.enable({ "gopls", "ts_ls", "lua_ls", "yamlls" })

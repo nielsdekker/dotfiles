@@ -15,4 +15,4 @@ end
 -- Set up "mini.deps" (customize to your liking)
 require("mini.deps").setup({ path = { package = path_package } })
 
-require("plugins")
+require("plugins/plugins_init")

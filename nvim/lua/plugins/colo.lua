@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         updateGroup("Constant", { fg = magenta.light }, { fg = magenta.dark })
 
         update("Normal", { bg = "NONE" })
+        update("FloatTitle", { bg = "NONE" })
 
         -- Fix the status line, no idea why the lua api doesn't work in this
         -- case.
