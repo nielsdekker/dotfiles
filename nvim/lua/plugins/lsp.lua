@@ -1,8 +1,9 @@
 local mason = require("mason")
-local lspBinPath = vim.fn.stdpath("data") .. "/mason/bin/"
+local masonPath = vim.fn.stdpath("data") .. "/mason/"
+local lspBinPath = masonPath .. "bin/"
 
 mason.setup {
-    install_root_dir = lspBinPath
+    install_root_dir = masonPath
 }
 
 -- GO
