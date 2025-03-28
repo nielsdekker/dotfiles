@@ -17,7 +17,7 @@ vim.lsp.config["gopls"] = {
 vim.lsp.config["ts_ls"] = {
     -- Should be installed with mason
     cmd = { lspBinPath .. "typescript-language-server" },
-    filetypes = { "ts", "tsx", "js", "jsx" },
+    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
     root_markers = { ".git", "tsconfig.json", "jsconfig.json" },
 }
 
@@ -44,6 +44,7 @@ vim.lsp.config["lua_ls"] = {
 -- Yaml
 vim.lsp.config["yamlls"] = {
     cmd = { lspBinPath .. "yaml-language-server" },
+    filetypes = { "yaml" },
     root_markers = { ".git" },
     settings = {
         yaml = {
