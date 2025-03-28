@@ -16,9 +16,12 @@ vim.lsp.config["gopls"] = {
 -- Javascript/typescript
 vim.lsp.config["ts_ls"] = {
     -- Should be installed with mason
-    cmd = { lspBinPath .. "typescript-language-server" },
+    cmd = {
+        lspBinPath .. "typescript-language-server",
+        "--stdio"
+    },
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    root_markers = { ".git", "tsconfig.json", "jsconfig.json" },
+    root_markers = { ".git" },
 }
 
 -- Lua
