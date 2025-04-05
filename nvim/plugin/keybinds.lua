@@ -93,19 +93,3 @@ map("n", "<leader>dj", function() require("dap").step_over() end, { silent = tru
 map("n", "<leader>dl", function() require("dap").step_into() end, { silent = true })         -- debug into
 map("n", "<leader>dh", function() require("dap").step_out() end, { silent = true })          -- debug exit
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
-
--------------------
--- M is for [M]urky
--------------------
-
-map("n", "<leader>mm", function() require("murky").mark() end)
-map("n", "<leader>m[", function() require("murky").prev_mark() end)
-map("n", "<leader>m]", function() require("murky").next_mark() end)
-map("n", "<leader>fm", function()
-    require("mini.pick").start({
-        source = {
-            name = "murky",
-            items = require("murky").items(),
-        }
-    })
-end)
