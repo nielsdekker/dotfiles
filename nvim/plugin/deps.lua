@@ -5,6 +5,7 @@ deps.add({ source = "williamboman/mason.nvim" })
 deps.add({ source = "tpope/vim-fugitive" })
 deps.add({ source = "lewis6991/gitsigns.nvim", name = "gitsigns" })
 deps.add({ source = "stevearc/conform.nvim" })
+deps.add({ source = "stevearc/quicker.nvim" })
 deps.add({
     source = "igorlfs/nvim-dap-view",
     depends = { "mfussenegger/nvim-dap" },

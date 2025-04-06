@@ -7,6 +7,7 @@ end
 
 vim.g.colors_name = "nelis"
 
+---@diagnostic disable-next-line: duplicate-doc-alias
 ---@alias palette ({group: string, hl: vim.api.keyset.highlight})
 
 -- Check gui-colors for the default color names and `highlight_group.c` for the

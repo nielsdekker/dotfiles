@@ -21,7 +21,6 @@ pick.setup({
                     pick.get_picker_matches().all
                 )
                 pick.stop()
-                vim.cmd("copen")
             end
         },
     },
