@@ -67,7 +67,14 @@ map("n", "<leader>wb", function()
     vim.cmd("copen")
 end, { silent = true })
 map("n", "<leader>wd", function() require("dap-view").toggle() end)
-map("n", "<leader>wq", function() require("quicker").toggle() end)
+map("n", "<leader>wq", function()
+    local q = require("quicker")
+    if q.is_open() then
+        q.close()
+    else
+        vim.cmd("bo cwindow")
+    end
+end)
 
 ------------------
 -- G Is for [G]oto
