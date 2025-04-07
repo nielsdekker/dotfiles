@@ -3,7 +3,7 @@ require("mini.deps").now(function()
 
     conform.setup({
         format_on_save = {
-            timeout_ms = 1000,
+            timeout_ms = 3000,
             lsp_format = "fallback",
         },
         formatters_by_ft = {
@@ -16,7 +16,15 @@ require("mini.deps").now(function()
             yaml = { "prettier" },
             markdown = { "prettier" },
             templ = { "templ" },
-            go = { "gofmt" }
+            go = { "gofmt" },
+            kotlin = { "ktfmt" },
+            java = { "google-java-format" },
+        },
+        formatters = {
+            ktfmt = {
+                inherit = true,
+                prepend_args = { "--kotlinlang-style" },
+            }
         }
     })
 end)
