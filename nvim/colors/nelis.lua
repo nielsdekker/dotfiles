@@ -20,16 +20,15 @@ local palette = {
         { group = "Comment",     hl = { fg = "NvimDarkGrey4", italic = true } },
         { group = "ColorColumn", hl = { bg = "NvimLightGrey3" } },
         { group = "Constant",    hl = { fg = "NvimDarkMagenta" } },
-        { group = "Type",        hl = { fg = "NvimDarkBlue" } },
     },
     ---@type palette[]
     dark = {
-        { group = "Normal",      hl = { fg = "NvimLightGrey2", bg = "NONE" } },
-        { group = "Statement",   hl = { fg = "NvimLightGrey2", italic = true } },
-        { group = "Comment",     hl = { fg = "NvimLightGrey4", italic = true } },
-        { group = "ColorColumn", hl = { bg = "NvimDarkGrey3" } },
-        { group = "Constant",    hl = { fg = "NvimLightMagenta" } },
-        { group = "Type",        hl = { fg = "NvimLightBlue" } },
+        { group = "Normal",       hl = { fg = "NvimLightGrey2", bg = "NONE" } },
+        { group = "Statement",    hl = { fg = "NvimLightGrey2", italic = true } },
+        { group = "Comment",      hl = { fg = "NvimLightGrey4", italic = true } },
+        { group = "ColorColumn",  hl = { bg = "NvimDarkGrey3" } },
+        { group = "Constant",     hl = { fg = "NvimLightMagenta" } },
+        { group = "CursorColumn", hl = { bg = "NvimLightBlue" } },
     },
 }
 

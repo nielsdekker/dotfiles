@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 return {
     --  Should be installed with mason
     cmd = { "lua-language-server" },

@@ -1,4 +1,5 @@
-vim.lsp.config.jdtls = {
+---@type vim.lsp.Config
+return {
     cmd = { "jdtls" },
     filetypes = { "java" },
     root_markers = { ".git" },
@@ -10,6 +11,22 @@ vim.lsp.config.jdtls = {
     handlers = {
         -- Disables the annoying "validate document" pop-ups
         ["$/progress"] = function() end
+    },
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = {
+                    resolveSupport = {
+                        properties = {
+                            "documentation",
+                            "additionalTextEdits",
+                            "insertTextFormat",
+                            "insertTextMode",
+                            "command"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-return {}
