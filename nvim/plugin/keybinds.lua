@@ -61,20 +61,20 @@ map("n", "<leader>wJ", "<C-w>J")
 map("n", "<leader>wK", "<C-w>K")
 map("n", "<leader>wL", "<C-w>L")
 map("n", "<leader>w=", "<C-w>=")
+
+-- Tool windows
 map("n", "<leader>wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
-map("n", "<leader>wb", function()
-    require("dap").list_breakpoints();
-    vim.cmd("copen")
-end, { silent = true })
 map("n", "<leader>wd", function() require("dap-view").toggle() end)
 map("n", "<leader>wq", function()
     local q = require("quicker")
     if q.is_open() then
         q.close()
     else
+        -- Makes sure the quickfix window shows across all panes
         vim.cmd("bo cwindow")
     end
 end)
+map("n", "<leader>wg", function() require("neogit").open() end)
 
 ------------------
 -- G Is for [G]oto
