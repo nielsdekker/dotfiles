@@ -1,7 +1,7 @@
 config-file = ?macos-config
 
 # Theming
-theme = dark:NvimDark,light:NvimLight
+theme = dark:nelis_dark,light:nelis_light
 font-family = "MonaspiceNe Nerd Font"
 font-family-italic = "MonaSpiceRn Nerd Font"
 font-family-bold-italic = "MonaSpiceRn Nerd Font"
@@ -33,8 +33,8 @@ keybind = ctrl+a>shift+]=move_tab:+1
 keybind = ctrl+a>shift+[=move_tab:-1
 
 keybind = ctrl+a>h=goto_split:left
-keybind = ctrl+>j=goto_split:bottom
-keybind = ctrl+>k=goto_split:top
+keybind = ctrl+a>j=goto_split:bottom
+keybind = ctrl+a>k=goto_split:top
 keybind = ctrl+a>l=goto_split:right
 
 
