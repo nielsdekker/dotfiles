@@ -46,6 +46,10 @@ map("n", "<C-k>", function()
     end
 end)
 
+-- Goto
+map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
+map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
+
 ---------------------
 -- W is for [W]indows
 --
@@ -74,15 +78,13 @@ map("n", "<leader>wq", function()
         vim.cmd("bo cwindow")
     end
 end)
-map("n", "<leader>wg", function() require("neogit").open() end)
 
-------------------
--- G Is for [G]oto
-------------------
+-----------------
+-- G Is for [G]it
+-----------------
 
--- Goto
-map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
-map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
+map("n", "<leader>gs", function() require("neogit").open() end)
+map("n", "<leader>gb", function() require("gitsigns").blame() end)
 
 ---------------------------
 -- F Is for [F]inding stuff
