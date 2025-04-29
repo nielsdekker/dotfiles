@@ -16,19 +16,22 @@ local palette = {
     ---@type palette[]
     light = {
         { group = "Normal",      hl = { fg = "NvimDarkGrey2", bg = "NONE" } },
-        { group = "Statement",   hl = { fg = "NvimDarkGrey2", italic = true } },
+        { group = "Statement",   hl = { fg = "NvimDarkBlue", bold = true } },
         { group = "Comment",     hl = { fg = "NvimDarkGrey4", italic = true } },
         { group = "ColorColumn", hl = { bg = "NvimLightGrey3" } },
         { group = "Constant",    hl = { fg = "NvimDarkMagenta" } },
+        { group = "PreProc",     hl = { fg = "NvimDarkYellow" } },
+        { group = "Type",        hl = { italic = true, fg = "NvimDarkGrey2" } },
     },
     ---@type palette[]
     dark = {
-        { group = "Normal",       hl = { fg = "NvimLightGrey2", bg = "NONE" } },
-        { group = "Statement",    hl = { fg = "NvimLightGrey2", italic = true } },
-        { group = "Comment",      hl = { fg = "NvimLightGrey4", italic = true } },
-        { group = "ColorColumn",  hl = { bg = "NvimDarkGrey3" } },
-        { group = "Constant",     hl = { fg = "NvimLightMagenta" } },
-        { group = "CursorColumn", hl = { bg = "NvimLightBlue" } },
+        { group = "Normal",      hl = { fg = "NvimLightGrey2", bg = "NONE" } },
+        { group = "Statement",   hl = { fg = "NvimLightBlue", bold = true } },
+        { group = "Comment",     hl = { fg = "NvimLightGrey4", italic = true } },
+        { group = "ColorColumn", hl = { bg = "NvimDarkGrey3" } },
+        { group = "Constant",    hl = { fg = "NvimLightMagenta" } },
+        { group = "PreProc",     hl = { fg = "NvimLightYellow" } },
+        { group = "Type",        hl = { italic = true, fg = "NvimLightGrey2" } },
     },
 }
 
