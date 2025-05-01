@@ -46,6 +46,9 @@ map("n", "<C-k>", function()
     end
 end)
 
+-- "z=" Uses mini pick
+map("n", "z=", function() require("mini.extra").pickers.spellsuggest() end)
+
 -- Goto
 map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
 map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
@@ -97,6 +100,12 @@ map("n", "<leader>fb", function() require("pickers").relativeBufferPicker() end)
 map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)
 map("n", "<leader>fm", function() require("mini.extra").pickers.marks() end)
 map("n", "<leader>fd", function() require("mini.extra").pickers.diagnostic() end)
+map("n", "<leader>fw", function()
+    -- Finds the current word
+    local cw = vim.fn.expand("<cword>")
+    vim.schedule(function() MiniPick.set_picker_query(vim.split(cw, '')) end)
+    require("mini.pick").builtin.grep_live({ tool = "git" })
+end)
 
 --------------------------
 -- C Is for [C]ode actions

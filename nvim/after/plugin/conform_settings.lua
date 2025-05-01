@@ -19,6 +19,7 @@ require("mini.deps").now(function()
             go = { "gofmt" },
             kotlin = { "ktfmt" },
             java = { "google-java-format" },
+            sql = { "sql_formatter" }
         },
         formatters = {
             ktfmt = {

@@ -1,1 +1,8 @@
-vim.lsp.enable({ "gopls", "ts_ls", "lua_ls", "yamlls", "jdtls" })
+vim.lsp.enable({
+    "gopls",
+    "jdtls",
+    "lua_ls",
+    "terraform_ls",
+    "ts_ls",
+    "yamlls",
+})
