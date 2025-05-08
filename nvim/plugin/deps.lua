@@ -1,7 +1,7 @@
 -- Set up "mini.deps" (customize to your liking)
 local deps = require("mini.deps")
 
-deps.add({ source = "williamboman/mason.nvim" })
+deps.add({ source = "mason-org/mason.nvim" })
 deps.add({ source = "lewis6991/gitsigns.nvim", name = "gitsigns" })
 deps.add({
     source = "NeogitOrg/neogit",
