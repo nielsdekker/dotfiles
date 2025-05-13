@@ -22,3 +22,12 @@ deps.add({
         end
     },
 })
+deps.add({
+    name = "codecompanion",
+    source = "olimorris/codecompanion.nvim",
+    depends = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+    }
+})
+deps.add({ source = "MeanderingProgrammer/render-markdown.nvim" })

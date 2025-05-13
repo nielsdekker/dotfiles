@@ -125,7 +125,7 @@ map("n", "<leader>dh", function() require("dap").step_out() end, { silent = true
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
 
 -------------------------
------ Q if for [Q]uickfix
+----- Q is for [Q]uickfix
 -------------------------
 
 map("n", "<leader>qe", function()
@@ -135,3 +135,9 @@ map("n", "<leader>qe", function()
         add_to_existing = true,
     })
 end)
+
+-------------------------
+----- A is for [A]I
+-------------------------
+
+map("n", "<leader>ac", function() require("codecompanion").chat() end)
