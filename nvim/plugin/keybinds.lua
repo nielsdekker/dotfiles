@@ -19,16 +19,6 @@ map("n", "-", function()
     require("mini.files").open(vim.api.nvim_buf_get_name(0), false)
 end)
 
--- Map tab to move the completion forward and shift tab to move it backwards
-map("i", "<Tab>",
-    function() return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>" end,
-    { silent = true, expr = true }
-)
-map("i", "<S-Tab>",
-    function() return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>" end,
-    { silent = true, expr = true }
-)
-
 -- Use // to reset the highlight and search
 map("n", "//", function()
     vim.cmd("let @/ = \"\"")

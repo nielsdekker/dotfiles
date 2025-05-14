@@ -31,3 +31,8 @@ deps.add({
     }
 })
 deps.add({ source = "MeanderingProgrammer/render-markdown.nvim" })
+
+deps.add({
+    source = "saghen/blink.cmp",
+    checkout = "v1.3.0"
+})

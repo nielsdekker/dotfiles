@@ -12,7 +12,7 @@ local M = {}
 
 M.setup = function(tbl)
     local ns = vim.api.nvim_create_namespace("DetektCustom")
-    local config_file = vim.fs.root(0, tbl.root_markers)
+    local config_files = vim.fs.find(tbl.root_markers, { upward = true, type = "file" })
     local au_group = vim.api.nvim_create_augroup("DetektCustom", {
         clear = true,
     })
@@ -22,7 +22,7 @@ M.setup = function(tbl)
             pattern = "*.kt",
             group = au_group,
             callback = function()
-                M._run_detekt(config_file, ns)
+                M._run_detekt(config_files[1], ns)
             end
         }
     )
@@ -43,11 +43,10 @@ M._run_detekt = function(config_file, ns)
     }
 
     if config_file ~= nil then
-        cmd = vim.tbl_extend("keep", cmd, {
-            "--config",
-            config_file
-        })
+        table.insert(cmd, "--config")
+        table.insert(cmd, config_file)
     end
+
 
     vim.notify("Detekt: Validating " .. bufname, vim.log.levels.INFO)
     vim.system(cmd, { text = true }, function(obj)

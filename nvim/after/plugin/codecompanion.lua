@@ -1,5 +1,6 @@
 require("mini.deps").later(function()
     local cc = require("codecompanion")
+    local blink = require("blink.cmp")
 
     cc.setup({
         strategies = {
@@ -24,5 +25,12 @@ require("mini.deps").later(function()
                 })
             end
         }
+    })
+
+    blink.add_source_provider("codecompanion", {
+        name = "CodeCompanion",
+        module = "codecompanion.providers.completion.blink",
+        enabled = true,
+        score_offset = 10,
     })
 end)

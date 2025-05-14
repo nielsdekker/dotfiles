@@ -8,6 +8,9 @@ configs.setup({
     auto_install = true,
 
     highlight = {
-        enable = true
+        enable = true,
+    },
+    injections = {
+        enable = true,
     },
 })
