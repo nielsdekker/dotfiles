@@ -62,15 +62,6 @@ map("n", "<leader>w=", "<C-w>=")
 -- Tool windows
 map("n", "<leader>wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
 map("n", "<leader>wd", function() require("dap-view").toggle() end)
-map("n", "<leader>wq", function()
-    local q = require("quicker")
-    if q.is_open() then
-        q.close()
-    else
-        -- Makes sure the quickfix window shows across all panes
-        vim.cmd("bo cwindow")
-    end
-end)
 
 -----------------
 -- G Is for [G]it
@@ -113,18 +104,6 @@ map("n", "<leader>dj", function() require("dap").step_over() end, { silent = tru
 map("n", "<leader>dl", function() require("dap").step_into() end, { silent = true })         -- debug into
 map("n", "<leader>dh", function() require("dap").step_out() end, { silent = true })          -- debug exit
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
-
--------------------------
------ Q is for [Q]uickfix
--------------------------
-
-map("n", "<leader>qe", function()
-    require("quicker").toggle_expand({
-        before = 3,
-        after = 3,
-        add_to_existing = true,
-    })
-end)
 
 -------------------------
 ----- A is for [A]I

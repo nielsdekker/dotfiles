@@ -8,7 +8,6 @@ deps.add({
     depends = { "nvim-lua/plenary.nvim" }
 })
 deps.add({ source = "stevearc/conform.nvim" })
-deps.add({ source = "stevearc/quicker.nvim" })
 deps.add({
     source = "igorlfs/nvim-dap-view",
     depends = { "mfussenegger/nvim-dap" },
