@@ -140,4 +140,5 @@ end)
 ----- A is for [A]I
 -------------------------
 
+map("n", "<leader>aa", function() require("codecompanion").toggle() end)
 map("n", "<leader>ac", function() require("codecompanion").chat() end)

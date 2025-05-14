@@ -3,9 +3,9 @@ require("mini.deps").later(function()
 
     cc.setup({
         strategies = {
-            chat = { adapter = "mistral" },
             inline = { adapter = "mistral" },
             cmd = { adapter = "mistral" },
+            chat = { adapter = "mistral" },
         },
         display = {
             chat = {
@@ -15,5 +15,14 @@ require("mini.deps").later(function()
                 },
             },
         },
+        adapters = {
+            mistral = function()
+                return require("codecompanion.adapters").extend("mistral", {
+                    schema = {
+                        model = { default = "codestral-2501" }
+                    }
+                })
+            end
+        }
     })
 end)
