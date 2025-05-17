@@ -6,6 +6,9 @@ require("mini.deps").now(function()
             documentation = { auto_show = true },
             accept = { auto_brackets = { enabled = false } },
             list = { selection = { preselect = false, auto_insert = true } },
+
+            -- Make sure the winblend option also affects blink.cmp
+            menu = { winblend = vim.o.winblend },
         },
         keymap = {
             preset = "default",

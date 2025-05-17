@@ -106,7 +106,7 @@ statusline.setup({
                         diagnostics,
                         sepStr(
                             getOrCreateAltMode(devInfoHl, fileNameHl),
-                            separators.triangle.C
+                            separators.triangle.A
                         )
                     }
                 },

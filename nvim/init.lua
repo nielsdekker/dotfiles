@@ -13,6 +13,7 @@ vim.o.colorcolumn = "+1"
 vim.o.signcolumn = "yes"
 vim.o.winborder = "solid"
 vim.o.winblend = 7
+vim.o.fillchars = "eob: "
 
 -- Tabs and spaces
 vim.o.wrap = false
