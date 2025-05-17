@@ -46,6 +46,11 @@ end
 -- the OS.
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
+        -- Make sure this is the active color scheme
+        if vim.g.colors_name ~= "nelis" then
+            return
+        end
+
         if vim.o.background == "dark" then
             load_palette(palette.dark)
         else

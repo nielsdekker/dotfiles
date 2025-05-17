@@ -12,7 +12,7 @@ local M = {}
 
 M.setup = function(tbl)
     local ns = vim.api.nvim_create_namespace("DetektCustom")
-    local config_files = vim.fs.find(tbl.root_markers, { upward = true, type = "file" })
+    local config_files = vim.fs.find(tbl.config_names, { upward = true, type = "file" })
     local au_group = vim.api.nvim_create_augroup("DetektCustom", {
         clear = true,
     })

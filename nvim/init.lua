@@ -44,5 +44,3 @@ vim.filetype.add({
         tf = "terraform"
     }
 })
-
-vim.cmd.colorscheme("nelis")

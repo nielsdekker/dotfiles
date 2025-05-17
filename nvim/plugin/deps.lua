@@ -35,3 +35,5 @@ deps.add({
     source = "saghen/blink.cmp",
     checkout = "v1.3.0"
 })
+
+deps.add({ source = "rose-pine/neovim", name = "rose-pine" })

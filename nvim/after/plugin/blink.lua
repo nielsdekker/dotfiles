@@ -5,7 +5,7 @@ require("mini.deps").now(function()
         completion = {
             documentation = { auto_show = true },
             accept = { auto_brackets = { enabled = false } },
-            list = { selection = { preselect = false, auto_insert = true } }
+            list = { selection = { preselect = false, auto_insert = true } },
         },
         keymap = {
             preset = "default",

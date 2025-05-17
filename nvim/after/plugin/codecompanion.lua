@@ -9,6 +9,10 @@ require("mini.deps").later(function()
             chat = { adapter = "mistral" },
         },
         display = {
+            diff = {
+                enabled = true,
+                provider = "mini_diff"
+            },
             chat = {
                 intro_message = "Press `?` for options",
                 window = {

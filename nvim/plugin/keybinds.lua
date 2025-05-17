@@ -25,12 +25,12 @@ map("n", "//", function()
 end)
 
 -- Small helpers to make navigating the quick-fix faster
-map("n", "<C-j>", function()
+map("n", "<C-n>", function()
     if require("mini.pick").is_picker_active() == false then
         vim.cmd("cnext")
     end
 end)
-map("n", "<C-k>", function()
+map("n", "<C-p>", function()
     if require("mini.pick").is_picker_active() == false then
         vim.cmd("cprev")
     end
