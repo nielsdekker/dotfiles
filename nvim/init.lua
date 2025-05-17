@@ -14,6 +14,8 @@ vim.o.signcolumn = "yes"
 vim.o.winborder = "solid"
 vim.o.winblend = 7
 vim.o.fillchars = "eob: "
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 -- Tabs and spaces
 vim.o.wrap = false
