@@ -1,6 +1,4 @@
-require("mini.deps").now(function()
-    require("mini.starter").setup({
-        footer = "",
-        silent = true,
-    })
-end)
+require("mini.starter").setup({
+    footer = "",
+    silent = true,
+})

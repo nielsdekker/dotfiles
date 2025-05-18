@@ -1,6 +1,4 @@
-require("mini.deps").later(function()
-    local notify = require("mini.notify")
-    notify.setup()
+local notify = require("mini.notify")
 
-    vim.notify = notify.make_notify()
-end)
+notify.setup()
+vim.notify = notify.make_notify()

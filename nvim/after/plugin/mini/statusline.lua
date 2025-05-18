@@ -1,5 +1,3 @@
-local statusline = require("mini.statusline")
-
 local separators = {
     triangle = { A = "", B = "", C = "", D = "" }
 }
@@ -77,7 +75,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- Mini pick
-statusline.setup({
+require("mini.statusline").setup({
     use_icons = true,
     set_vim_settings = true,
 

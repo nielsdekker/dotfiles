@@ -1,8 +1,16 @@
-require("mini.deps").later(function()
-    local cc = require("codecompanion")
-    local blink = require("blink.cmp")
+local deps = require("mini.deps")
 
-    cc.setup({
+deps.later(function()
+    deps.add({
+        name = "codecompanion",
+        source = "olimorris/codecompanion.nvim",
+        depends = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        }
+    })
+
+    require("codecompanion").setup({
         strategies = {
             inline = { adapter = "mistral" },
             cmd = { adapter = "mistral" },
@@ -29,12 +37,5 @@ require("mini.deps").later(function()
                 })
             end
         }
-    })
-
-    blink.add_source_provider("codecompanion", {
-        name = "CodeCompanion",
-        module = "codecompanion.providers.completion.blink",
-        enabled = true,
-        score_offset = 10,
     })
 end)

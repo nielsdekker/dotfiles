@@ -1,7 +1,9 @@
-require("mini.deps").now(function()
-    local conform = require("conform")
+local deps = require("mini.deps")
 
-    conform.setup({
+deps.later(function()
+    deps.add({ source = "stevearc/conform.nvim" })
+
+    require("conform").setup({
         format_on_save = {
             timeout_ms = 3000,
             lsp_format = "fallback",

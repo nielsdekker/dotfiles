@@ -1,4 +1,11 @@
-require("mini.deps").later(function()
+local deps = require("mini.deps")
+
+deps.later(function()
+    deps.add({
+        source = "igorlfs/nvim-dap-view",
+        depends = { "mfussenegger/nvim-dap" },
+    })
+
     local dap = require("dap")
 
     -- Setup UI

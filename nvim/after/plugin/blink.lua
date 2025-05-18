@@ -1,7 +1,9 @@
-require("mini.deps").now(function()
-    local blink = require("blink.cmp")
+local deps = require("mini.deps")
 
-    blink.setup({
+deps.now(function()
+    deps.add({ source = "saghen/blink.cmp", checkout = "v1.3.0" })
+
+    require("blink.cmp").setup({
         completion = {
             documentation = { auto_show = true },
             accept = { auto_brackets = { enabled = false } },
