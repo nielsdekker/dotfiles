@@ -27,10 +27,26 @@ return {
             },
             adapters = {
                 mistral = function()
+                    -- Mistral is openai compatible so hack in tools support
+                    local openai = require("codecompanion.adapters.openai")
+
                     return require("codecompanion.adapters").extend("mistral", {
+                        opts = {
+                            stream = true,
+                            tools = true,
+                        },
                         schema = {
                             model = { default = "codestral-2501" }
-                        }
+                        },
+                        handlers = {
+                            chat_output = function(self, data, tools)
+                                return openai.handlers.chat_output(self, data, tools)
+                            end,
+                            form_tools = function(self, tools)
+                                return openai.handlers.form_tools(self, tools)
+                            end,
+                            tools = openai.handlers.tools
+                        },
                     })
                 end
             }

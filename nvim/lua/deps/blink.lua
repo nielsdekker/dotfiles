@@ -7,7 +7,10 @@ return {
         require("blink.cmp").setup({
             completion = {
                 documentation = { auto_show = true },
-                accept = { auto_brackets = { enabled = false } },
+                accept = {
+                    auto_brackets = { enabled = false },
+                    dot_repeat = false,
+                },
                 list = { selection = { preselect = false, auto_insert = true } },
 
                 -- Make sure the winblend option also affects blink.cmp

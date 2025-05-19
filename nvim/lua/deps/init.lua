@@ -20,6 +20,7 @@ return {
     require("deps.detekt"),
     require("deps.gitsigns"),
     require("deps.mason"),
+    require("deps.mini_diff"),
     require("deps.mini_files"),
     require("deps.mini_icons"),
     require("deps.mini_notify"),

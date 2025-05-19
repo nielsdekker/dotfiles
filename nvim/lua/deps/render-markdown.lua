@@ -4,7 +4,8 @@ return {
 
     later = function()
         require("render-markdown").setup({
-            file_types = { "markdown", "codecompanion" }
+            completions = { blink = { enabled = true } },
+            file_types = { "markdown", "codecompanion" },
         })
     end
 }

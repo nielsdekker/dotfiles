@@ -1,0 +1,59 @@
+{
+  "name": "Dotfiles Workspace",
+  "version": "1.0.0",
+  "system_prompt": "You are an assistant that helps with dotfiles configuration.",
+  "groups": [
+    {
+      "name": "alacritty",
+      "system_prompt": "You are an assistant that helps with alacritty configuration.",
+      "data": ["alacritty_config"]
+    },
+    {
+      "name": "ghostty",
+      "system_prompt": "You are an assistant that helps with ghostty configuration.",
+      "data": ["ghostty_config"]
+    },
+    {
+      "name": "nvim",
+      "system_prompt": "You are an assistant that helps with nvim configuration.",
+      "data": ["nvim_init", "nvim_keybinds", "nvim_deps"]
+    },
+    {
+      "name": "tmux",
+      "system_prompt": "You are an assistant that helps with tmux configuration.",
+      "data": ["tmux_config"]
+    }
+  ],
+  "data": {
+    "alacritty_config": {
+      "type": "file",
+      "path": "alacritty/alacritty.toml",
+      "description": "Alacritty configuration file"
+    },
+    "ghostty_config": {
+      "type": "file",
+      "path": "ghostty/config",
+      "description": "Ghostty configuration file"
+    },
+    "nvim_init": {
+      "type": "file",
+      "path": "nvim/init.lua",
+      "description": "Neovim initialization file"
+    },
+    "nvim_keybinds": {
+      "type": "file",
+      "path": "nvim/plugin/keybinds.lua",
+      "description": "Neovim keybindings configuration"
+    },
+    "nvim_deps": {
+      "type": "file",
+      "path": "nvim/lua/deps/init.lua",
+      "description": "Neovim dependencies configuration"
+    },
+    "tmux_config": {
+      "type": "file",
+      "path": "tmux/tmux.conf",
+      "description": "Tmux configuration file"
+    }
+  }
+}

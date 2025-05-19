@@ -111,3 +111,4 @@ map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { sile
 
 map("n", "<leader>aa", function() require("codecompanion").toggle() end)
 map("n", "<leader>ac", function() require("codecompanion").chat() end)
+map("n", "<leader>ak", function() require("codecompanion").actions() end)
