@@ -36,7 +36,7 @@ return {
                             tools = true,
                         },
                         schema = {
-                            model = { default = "codestral-2501" }
+                            model = { default = "mistral-medium-latest" }
                         },
                         handlers = {
                             chat_output = function(self, data, tools)
