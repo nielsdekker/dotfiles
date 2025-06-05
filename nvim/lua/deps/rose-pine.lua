@@ -1,3 +1,4 @@
+--- @type MiniDep
 return {
     source = "rose-pine/neovim",
     name = "rose-pine",
@@ -7,8 +8,5 @@ return {
                 legacy_highlights = false,
             },
         })
-
-        -- This also makes this the default theme
-        vim.cmd.colorscheme("rose-pine")
     end
 }

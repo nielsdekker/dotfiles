@@ -31,6 +31,7 @@ return {
     require("deps.neogit"),
     require("deps.render-markdown"),
     require("deps.rose-pine"),
+    require("deps.kanso"),
     require("deps.treesitter"),
     require("deps.undotree"),
 }
