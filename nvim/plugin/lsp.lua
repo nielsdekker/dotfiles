@@ -6,4 +6,5 @@ vim.lsp.enable({
     "ts_ls",
     "yamlls",
     "just_lsp",
+    "kotlin_lsp",
 })
