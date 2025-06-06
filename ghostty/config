@@ -14,6 +14,7 @@ window-theme = ghostty
 copy-on-select = clipboard
 window-new-tab-position = end
 mouse-hide-while-typing = true
+app-notifications = no-clipboard-copy
 
 # Start with a clean slate
 keybind = clear
