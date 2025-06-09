@@ -24,37 +24,35 @@ keybind = ctrl+a>x=close_surface
 keybind = ctrl+shift+v=paste_from_clipboard
 keybind = super+v=paste_from_clipboard
 
-################################################################################
-### TMUX Keybinds, these are keybinds with a prefix based on the old tmux conf
-################################################################################
-
+############
 # Navigation
-keybind = ctrl+a>]=next_tab
-keybind = ctrl+a>[=previous_tab
-keybind = ctrl+a>shift+]=move_tab:+1
-keybind = ctrl+a>shift+[=move_tab:-1
+############
 
-keybind = ctrl+a>h=goto_split:left
-keybind = ctrl+a>j=goto_split:bottom
-keybind = ctrl+a>k=goto_split:top
-keybind = ctrl+a>l=goto_split:right
+# Tabs
+keybind = ctrl+t=new_tab
+keybind = ctrl+p=previous_tab
+keybind = ctrl+n=next_tab
+keybind = ctrl+shift+n=move_tab:+1
+keybind = ctrl+shift+p=move_tab:-1
 
+# Panes
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+l=goto_split:right
 
-# Creating splits and tabs
-keybind = ctrl+a>c=new_tab
-keybind = ctrl+a>shift+l=new_split:right
-keybind = ctrl+a>shift+h=new_split:left
-keybind = ctrl+a>shift+j=new_split:down
-keybind = ctrl+a>shift+k=new_split:up
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+l=new_split:right
 
-# Tab based on index
-keybind = ctrl+a>1=goto_tab:1
-keybind = ctrl+a>2=goto_tab:2
-keybind = ctrl+a>3=goto_tab:3
-keybind = ctrl+a>4=goto_tab:4
-keybind = ctrl+a>5=goto_tab:5
-keybind = ctrl+a>6=goto_tab:6
-keybind = ctrl+a>7=goto_tab:7
-keybind = ctrl+a>8=goto_tab:8
-keybind = ctrl+a>9=goto_tab:9
-
+# Index based navigation
+keybind = ctrl+1=goto_tab:1
+keybind = ctrl+2=goto_tab:2
+keybind = ctrl+3=goto_tab:3
+keybind = ctrl+4=goto_tab:4
+keybind = ctrl+5=goto_tab:5
+keybind = ctrl+6=goto_tab:6
+keybind = ctrl+7=goto_tab:7
+keybind = ctrl+8=goto_tab:8
+keybind = ctrl+9=goto_tab:9
