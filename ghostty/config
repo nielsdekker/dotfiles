@@ -1,7 +1,7 @@
 config-file = ?macos-config
 
 # Theming
-theme = dark:rose-pine,light:rose-pine-dawn
+theme = dark:kanso-zen,light:kanso-pearl
 font-family = "MonaspiceNe Nerd Font"
 font-family-italic = "MonaSpiceRn Nerd Font"
 font-family-bold-italic = "MonaSpiceRn Nerd Font"
@@ -30,10 +30,10 @@ keybind = super+v=paste_from_clipboard
 
 # Tabs
 keybind = ctrl+t=new_tab
-keybind = ctrl+p=previous_tab
-keybind = ctrl+n=next_tab
-keybind = ctrl+shift+n=move_tab:+1
-keybind = ctrl+shift+p=move_tab:-1
+keybind = ctrl+[=previous_tab
+keybind = ctrl+]=next_tab
+keybind = ctrl+shift+[=move_tab:-1
+keybind = ctrl+shift+]=move_tab:+1
 
 # Panes
 keybind = ctrl+h=goto_split:left
