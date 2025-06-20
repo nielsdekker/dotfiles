@@ -5,6 +5,12 @@ return {
 
     later = function()
         require("blink.cmp").setup({
+            appearance = {
+                use_nvim_cmp_as_default = false,
+                nerd_font_variant = "mono",
+                kind_icons = { codestral = "󰄛" }
+
+            },
             completion = {
                 documentation = { auto_show = true },
                 accept = {
@@ -23,9 +29,21 @@ return {
                 ["<CR>"] = { "accept", "fallback" },
             },
             sources = {
-                default = { "lsp", "path", "buffer" },
+                default = { "lsp", "path", "buffer", "minuet" },
                 per_filetype = {
                     codecompanion = { "codecompanion" }
+                },
+                providers = {
+                    minuet = {
+                        name = "minuet",
+                        module = "minuet.blink",
+                        async = true,
+                        timeout_ms = 3000,
+                        score_offset = 50,
+                        enabled = function()
+                            return vim.fn.system({ "git", "check-ignore", vim.fn.expand("%") }) == ""
+                        end
+                    }
                 }
             }
         })
