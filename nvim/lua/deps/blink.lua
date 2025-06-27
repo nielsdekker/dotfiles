@@ -21,6 +21,9 @@ return {
 
                 -- Make sure the winblend option also affects blink.cmp
                 menu = { winblend = vim.o.winblend },
+
+                -- Prevent unnecessary tokens
+                trigger = { prefetch_on_insert = false },
             },
             keymap = {
                 preset = "default",

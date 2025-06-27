@@ -58,8 +58,22 @@ eval "$(fzf --zsh)"
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Aliases for tools
+alias gs='git switch'
+alias gp='git fetch; git pull;'
+alias k='kubectl'
+alias n='nvim'
+alias tf='terraform'
+
 #####
 # Overwrites
 #####
 alias ls="ls -lh --color"
+
+function expand-alias() {
+	zle _expand_alias
+	zle self-insert
+}
+zle -N expand-alias
+bindkey -M main ' ' expand-alias
 

@@ -4,7 +4,9 @@ return {
     now = function()
         local icons = require("mini.icons")
 
-        icons.setup()
+        icons.setup({
+            style = "glyph"
+        })
         icons.tweak_lsp_kind("replace")
     end
 }

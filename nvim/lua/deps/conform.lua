@@ -20,7 +20,8 @@ return {
                 go = { "gofmt" },
                 kotlin = { "ktfmt" },
                 java = { "google-java-format" },
-                sql = { "sql_formatter" }
+                sql = { "sql_formatter" },
+                helm = { "prettier" },
             },
             formatters = {
                 ktfmt = {
