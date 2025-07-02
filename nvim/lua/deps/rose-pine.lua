@@ -8,5 +8,8 @@ return {
                 legacy_highlights = false,
             },
         })
+
+        -- Make this the default theme
+        vim.cmd("colo rose-pine")
     end
 }

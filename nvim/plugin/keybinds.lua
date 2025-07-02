@@ -24,24 +24,9 @@ map("n", "//", function()
     vim.cmd("let @/ = \"\"")
 end)
 
--- Small helpers to make navigating the quick-fix faster
-map("n", "<C-n>", function()
-    if require("mini.pick").is_picker_active() == false then
-        vim.cmd("cnext")
-    end
-end)
-map("n", "<C-p>", function()
-    if require("mini.pick").is_picker_active() == false then
-        vim.cmd("cprev")
-    end
-end)
-
--- "z=" Uses mini pick
-map("n", "z=", function() require("mini.extra").pickers.spellsuggest() end)
-
 -- Goto
-map("n", "gd", function() require("mini.extra").pickers.lsp({ scope = "definition" }) end, { silent = true })
-map("n", "gr", function() require("mini.extra").pickers.lsp({ scope = "references" }) end, { silent = true })
+map("n", "gd", function() require("snacks").picker.lsp_definitions() end, { silent = true })
+map("n", "gr", function() require("mini.extra").picker.lsp_references() end, { silent = true })
 
 ---------------------
 -- W is for [W]indows
@@ -74,19 +59,13 @@ map("n", "<leader>gb", function() require("gitsigns").blame() end)
 -- F Is for [F]inding stuff
 ---------------------------
 
-map("n", "<leader>ff", function() require("mini.pick").builtin.files({ tool = "git" }) end)
-map("n", "<leader>fs", function() require("mini.pick").builtin.grep_live({ tool = "git" }) end)
-map("n", "<leader>fh", function() require("mini.pick").builtin.help() end)
-map("n", "<leader>fb", function() require("pickers").relativeBufferPicker() end)
-map("n", "<leader>fk", function() require("mini.extra").pickers.commands() end)
-map("n", "<leader>fm", function() require("mini.extra").pickers.marks() end)
-map("n", "<leader>fd", function() require("mini.extra").pickers.diagnostic() end)
-map("n", "<leader>fw", function()
-    -- Finds the current word
-    local cw = vim.fn.expand("<cword>")
-    vim.schedule(function() MiniPick.set_picker_query(vim.split(cw, '')) end)
-    require("mini.pick").builtin.grep_live({ tool = "git" })
-end)
+map("n", "<leader>ff", function() require("snacks").picker.files() end)
+map("n", "<leader>fs", function() require("snacks").picker.grep() end)
+map("n", "<leader>fh", function() require("snacks").picker.help() end)
+map("n", "<leader>fb", function() require("snacks").picker.buffers() end)
+map("n", "<leader>fk", function() require("snacks").picker.commands() end)
+map("n", "<leader>fm", function() require("snacks").picker.marks() end)
+map("n", "<leader>fd", function() require("snacks").picker.diagnostics() end)
 
 --------------------------
 -- C Is for [C]ode actions

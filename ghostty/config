@@ -1,7 +1,7 @@
 config-file = ?macos-config
 
 # Theming
-theme = dark:kanso-zen,light:kanso-pearl
+theme = dark:rose-pine,light:rose-pine-dawn
 font-family = "MonaspiceNe Nerd Font"
 font-family-italic = "MonaSpiceRn Nerd Font"
 font-family-bold-italic = "MonaSpiceRn Nerd Font"

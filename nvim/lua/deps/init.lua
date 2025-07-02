@@ -25,7 +25,6 @@ return {
     require("deps.mini_files"),
     require("deps.mini_icons"),
     require("deps.mini_notify"),
-    require("deps.mini_pick"),
     require("deps.mini_starter"),
     require("deps.mini_statusline"),
     require("deps.mini_surround"),
@@ -33,6 +32,7 @@ return {
     require("deps.neogit"),
     require("deps.render-markdown"),
     require("deps.rose-pine"),
+    require("deps.snacks"),
     require("deps.treesitter"),
     require("deps.undotree"),
 }

@@ -7,8 +7,5 @@ return {
             transparent = true,
             background = { dark = "zen", light = "pearl" }
         })
-
-        -- Make this the default theme
-        vim.cmd("colo kanso")
     end
 }
