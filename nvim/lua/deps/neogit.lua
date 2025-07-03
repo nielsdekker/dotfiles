@@ -4,9 +4,10 @@ return {
     depends = { "nvim-lua/plenary.nvim" },
     later = function()
         require("neogit").setup({
+            prompt_force_push = false,
             integrations = {
-                mini_pick = true,
-            }
+                snacks = true,
+            },
         })
     end
 }

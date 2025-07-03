@@ -26,7 +26,7 @@ end)
 
 -- Goto
 map("n", "gd", function() require("snacks").picker.lsp_definitions() end, { silent = true })
-map("n", "gr", function() require("mini.extra").picker.lsp_references() end, { silent = true })
+map("n", "gr", function() require("snacks").picker.lsp_references() end, { silent = true })
 
 ---------------------
 -- W is for [W]indows
