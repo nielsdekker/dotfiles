@@ -16,13 +16,16 @@ map("v", "<leader>y", "\"+y")
 
 -- Open mini files window
 map("n", "-", function()
-    require("mini.files").open(vim.api.nvim_buf_get_name(0), false)
+    require("snacks").explorer.open()
 end)
 
 -- Use // to reset the highlight and search
 map("n", "//", function()
     vim.cmd("let @/ = \"\"")
 end)
+
+-- Remap the spell suggest to snacks
+map("n", "z=", function() require("snacks").picker.spelling() end)
 
 -- Goto
 map("n", "gd", function() require("snacks").picker.lsp_definitions() end, { silent = true })
