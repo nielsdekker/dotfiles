@@ -32,22 +32,7 @@ return {
                 ["<CR>"] = { "accept", "fallback" },
             },
             sources = {
-                default = { "lsp", "path", "buffer", "minuet" },
-                per_filetype = {
-                    codecompanion = { "codecompanion" }
-                },
-                providers = {
-                    minuet = {
-                        name = "minuet",
-                        module = "minuet.blink",
-                        async = true,
-                        timeout_ms = 3000,
-                        score_offset = 50,
-                        enabled = function()
-                            return vim.fn.system({ "git", "check-ignore", vim.fn.expand("%") }) == ""
-                        end
-                    }
-                }
+                default = { "lsp", "path", "buffer" },
             }
         })
     end

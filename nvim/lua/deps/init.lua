@@ -14,7 +14,6 @@
 --- @type MiniDep[]
 return {
     require("deps.blink"),
-    require("deps.codecompanion"),
     require("deps.conform"),
     require("deps.dap"),
     require("deps.detekt"),
@@ -24,7 +23,6 @@ return {
     require("deps.mini_icons"),
     require("deps.mini_statusline"),
     require("deps.mini_surround"),
-    require("deps.minuet"),
     require("deps.neogit"),
     require("deps.render-markdown"),
     require("deps.rose-pine"),

@@ -28,7 +28,7 @@ fi
 
 source "$ZINIT_HOME/zinit.zsh"
 
-#####
+####
 # Install plugins
 #####
 zinit light Aloxaf/fzf-tab
