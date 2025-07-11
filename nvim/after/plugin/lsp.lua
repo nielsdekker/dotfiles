@@ -7,4 +7,5 @@ vim.lsp.enable({
     "yamlls",
     -- "just_lsp",
     "kotlin_lsp",
+    "json_lsp",
 })
