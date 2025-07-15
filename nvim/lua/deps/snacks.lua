@@ -12,6 +12,8 @@ return {
                 layout = "ivy",
                 sources = {
                     explorer = {
+                        hidden = true,
+                        ignored = true,
                         layout = "top",
                         auto_close = true,
                     }
