@@ -56,7 +56,6 @@ map("n", "<leader>wd", function() require("dap-view").toggle() end)
 -----------------
 
 map("n", "<leader>gs", function() require("neogit").open() end)
-map("n", "<leader>gb", function() require("gitsigns").blame() end)
 
 ---------------------------
 -- F Is for [F]inding stuff
@@ -67,7 +66,6 @@ map("n", "<leader>fs", function() require("snacks").picker.grep() end)
 map("n", "<leader>fh", function() require("snacks").picker.help() end)
 map("n", "<leader>fb", function() require("snacks").picker.buffers() end)
 map("n", "<leader>fk", function() require("snacks").picker.commands() end)
-map("n", "<leader>fm", function() require("snacks").picker.marks() end)
 map("n", "<leader>fd", function() require("snacks").picker.diagnostics() end)
 
 --------------------------
@@ -86,3 +84,9 @@ map("n", "<leader>dj", function() require("dap").step_over() end, { silent = tru
 map("n", "<leader>dl", function() require("dap").step_into() end, { silent = true })         -- debug into
 map("n", "<leader>dh", function() require("dap").step_out() end, { silent = true })          -- debug exit
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
+
+----------------------
+-- T is for [T]erminal
+----------------------
+
+map("n", "<leader>tt", function() require("snacks").terminal.toggle() end)

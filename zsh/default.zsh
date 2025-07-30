@@ -61,6 +61,7 @@ bindkey "^[[1;5D" backward-word
 # Aliases for tools
 alias gs='git switch'
 alias gp='git fetch; git pull;'
+alias gm='git merge'
 alias k='kubectl'
 alias n='nvim'
 alias tf='terraform'

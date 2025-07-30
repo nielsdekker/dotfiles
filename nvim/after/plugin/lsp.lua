@@ -5,7 +5,7 @@ vim.lsp.enable({
     "terraform_ls",
     "ts_ls",
     "yamlls",
-    -- "just_lsp",
     "kotlin_lsp",
     "json_lsp",
+    "cucumber_ls",
 })
