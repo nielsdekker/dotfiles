@@ -16,6 +16,7 @@ vim.o.winblend = 7
 vim.o.fillchars = "eob: "
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
+vim.o.mousescroll = "ver:1,hor:1"
 
 -- Tabs and spaces
 vim.o.wrap = false
