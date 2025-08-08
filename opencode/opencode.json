@@ -1,17 +1,28 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "system",
-  "autoshare": false,
+  "share": "disabled",
   "autoupdate": true,
   "model": "mistral/devstral-medium-2507",
-  "mode": {
+  "permission": {
+    "bash": "ask"
+  },
+  "agent": {
     "build": {
+      "mode": "primary",
       "tools": {
         "write": true,
         "edit": true,
-        "bash": false
+        "bash": true
       }
     },
-    "plan": {}
+    "plan": {
+      "mode": "primary",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    }
   }
 }
