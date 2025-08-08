@@ -5,10 +5,13 @@
   "autoupdate": true,
   "model": "mistral/devstral-medium-2507",
   "mode": {
-    "tools": {
-      "write": true,
-      "edit": true,
-      "bash": false
-    }
+    "build": {
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      }
+    },
+    "plan": {}
   }
 }

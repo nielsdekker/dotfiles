@@ -15,7 +15,6 @@ return {
                     local git           = MiniStatusline.section_git({ trunc_width = 40 })
                     local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
                     local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
-                    local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
                     local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
                     return MiniStatusline.combine_groups({
@@ -35,11 +34,6 @@ return {
                         },
                         '%<', -- Mark general truncate point
                         { hl = fileNameHl, strings = { filename } },
-                        '%=', -- End left alignment
-                        {
-                            hl = fileNameHl,
-                        },
-                        { hl = devInfoHl,  strings = { fileinfo } },
                     })
                 end
             }

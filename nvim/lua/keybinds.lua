@@ -48,7 +48,6 @@ map("n", "<leader>wL", "<C-w>L")
 map("n", "<leader>w=", "<C-w>=")
 
 -- Tool windows
-map("n", "<leader>wu", function() vim.cmd("UndotreeToggle") end, { silent = true })
 map("n", "<leader>wd", function() require("dap-view").toggle() end)
 
 -----------------
