@@ -8,8 +8,6 @@ return {
             appearance = {
                 use_nvim_cmp_as_default = false,
                 nerd_font_variant = "mono",
-                kind_icons = { codestral = "󰄛" }
-
             },
             completion = {
                 documentation = { auto_show = true },

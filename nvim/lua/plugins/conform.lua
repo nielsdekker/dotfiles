@@ -1,3 +1,5 @@
+local formatters_for_frontend = { "prettier" }
+
 --- @type MiniDep
 return {
     source = "stevearc/conform.nvim",
@@ -9,10 +11,10 @@ return {
             },
             formatters_by_ft = {
                 json = { "prettier" },
-                javascript = { "prettier" },
-                typescript = { "prettier" },
-                javascriptreact = { "prettier" },
-                typescriptreact = { "prettier" },
+                javascript = formatters_for_frontend,
+                typescript = formatters_for_frontend,
+                javascriptreact = formatters_for_frontend,
+                typescriptreact = formatters_for_frontend,
                 html = { "prettier" },
                 yaml = { "prettier" },
                 markdown = { "prettier" },
