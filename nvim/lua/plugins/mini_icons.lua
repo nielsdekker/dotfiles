@@ -1,6 +1,6 @@
 --- @type MiniDep
 return {
-    source = "mini.nvim",
+    source = "nvim-mini/mini.nvim",
     now = function()
         local icons = require("mini.icons")
 

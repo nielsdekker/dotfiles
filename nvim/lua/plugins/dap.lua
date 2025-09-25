@@ -14,18 +14,27 @@ return {
 
         -- Basic adapter config. Project specific configs should be set up in a projects
         -- .nvim.lua file.
-        dap.adapters.delve = {
+        dap.adapters.go = {
             type = "server",
-            port = "${port}",
+            port = "36999",
             executable = {
-                command = "dlv",
+                command = "go",
                 args = {
+                    "tool",
+                    "dlv",
                     "dap",
                     "-l",
-                    "127.0.0.1:${port}",
-                    "--log",
-                    "--log-output=dap"
+                    "127.0.0.1:36999"
                 }
+            }
+        }
+
+        dap.configurations.go = {
+            {
+                type = "go",
+                name = "Attach to delve",
+                mode = "remote",
+                request = "attach",
             }
         }
     end

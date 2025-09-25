@@ -1,6 +1,6 @@
 --- @type MiniDep
 return {
-    source = "mini.nvim",
+    source = "nvim-mini/mini.nvim",
     later = function()
         local devInfoHl = "MiniStatusLineDevinfo"
         local fileNameHl = "MiniStatuslineFilename"
