@@ -14,6 +14,8 @@ vim.o.fillchars = "eob: "
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 vim.o.mousescroll = "ver:1,hor:1"
+vim.o.updatetime = 1000
+vim.o.swapfile = false
 
 -- Tabs and spaces
 vim.o.wrap = false
@@ -34,14 +36,24 @@ vim.o.spell = true
 vim.o.spelllang = "en,nl"
 vim.o.spelloptions = "camel,noplainbuffer"
 
-vim.diagnostic.config({
-    virtual_text = false, -- { current_line = true },
-    virtual_lines = { current_line = true },
-})
-
 -- Make sure terraform files work as intended
 vim.filetype.add({
     extension = {
         tf = "terraform"
     }
+})
+
+foo = 1
+
+-- Diagnostics
+vim.diagnostic.config({
+    virtual_text = true,
+    virtual_lines = false, -- { current_line = true },
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    pattern = "*",
+    callback = function()
+        vim.diagnostic.open_float()
+    end
 })

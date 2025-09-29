@@ -4,7 +4,10 @@ return {
     now = function()
         local snacks = require('snacks')
         snacks.setup({
-            explorer = { enabled = true },
+            explorer = {
+                replace_netrw = true,
+                enabled = true,
+            },
             statuscolumn = { enabled = true },
             picker = {
                 enabled = true,
@@ -15,7 +18,7 @@ return {
                         ignored = true,
                         auto_close = true,
                     }
-                },
+                }
             },
             indent = {
                 only_scope = true,
