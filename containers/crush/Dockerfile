@@ -4,13 +4,16 @@
 # # Create a volume for the `.local`, this stores some settings for crush
 # podman volume create --ignore crush_dot_local
 # 
+# # Build the image
+# podman build -t the-tag-for-building .
+#
+# # In the code/source folder
 # podman run \
 #     -it \
-#     -e TERM=tmux-256color \
 #     -e OPENAI_API_KEY=$OPENAI_API_KEY \
 #     -v crush_dot_local:/root/.local \
 #     -v ./:/app/:z \
-#     the-tag-that-was-used-for-building
+#     the-tag-for-building
 # ```
 #
 FROM golang:1.25-trixie
@@ -27,22 +30,26 @@ RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION
     | tee /etc/apt/sources.list.d/adoptium.list
 RUN apt update && apt install temurin-25-jdk -y
 
-# Setup crush 
-# TODO put at the end but here for caching layers and debugging
-RUN go install github.com/charmbracelet/crush@v0.10.4
-
 # Install the different LSP's
 WORKDIR /opt/kotlin-lsp
 RUN wget "https://download-cdn.jetbrains.com/kotlin-lsp/0.253.10629/kotlin-0.253.10629.zip"
 RUN unzip kotlin-0.253.10629.zip && rm ./kotlin-0.253.10629.zip
 RUN chmod +x ./kotlin-lsp.sh
 
-# Finalize the setup as the non root user
-COPY ./crush.json /root/.config/crush/crush.json
+# Setup crush 
+RUN go install github.com/charmbracelet/crush@v0.10.4
 
 # Add a workdir to mount stuff to
 RUN mkdir /app
 WORKDIR /app
+
+# Copy configs. When using docker instead of podman make sure to add a non-root
+# user
+COPY ./crush.json /root/.config/crush/crush.json
+
+# !!!!!
+# When using docker instead of podman make sure to add a non-root user here
+# !!!!!
 
 # Start crush
 CMD ["/go/bin/crush"]
