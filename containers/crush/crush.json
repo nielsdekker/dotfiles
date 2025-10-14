@@ -6,7 +6,8 @@
   "lsp": {
     "kotlin": {
       "command": "/opt/kotlin-lsp/kotlin-lsp.sh",
-      "args": ["--stdio"]
+      "args": ["--stdio"],
+      "filetypes": ["kt"]
     }
   }
 }
