@@ -43,10 +43,6 @@ RUN npm install -g opencode-ai@latest
 RUN mkdir /app
 WORKDIR /app
 
-# Copy configs. When using docker instead of podman make sure to add a non-root
-# user
-COPY ./opencode.json /root/.config/opencode/opencode.json
-
 # !!!!!
 # When using docker instead of podman make sure to add a non-root user here
 # !!!!!

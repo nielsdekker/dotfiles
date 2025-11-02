@@ -16,7 +16,7 @@ map("v", "<leader>y", "\"+y")
 
 -- Open mini files window
 map("n", "-", function()
-    require("snacks").explorer.open()
+    require("oil").open()
 end)
 
 -- Use // to reset the highlight and search

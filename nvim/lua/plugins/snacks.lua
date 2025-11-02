@@ -4,10 +4,6 @@ return {
     now = function()
         local snacks = require('snacks')
         snacks.setup({
-            explorer = {
-                replace_netrw = true,
-                enabled = true,
-            },
             statuscolumn = { enabled = true },
             picker = {
                 enabled = true,

@@ -4,7 +4,7 @@ return {
     name = "tokyo",
     now = function()
         require("tokyonight").setup({
-            style = "moon",
+            style = "night",
             light_style = "day",
             transparent = true,
         })

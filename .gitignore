@@ -9,4 +9,4 @@ nvim/lazy-lock.json
 # Custom osx settings
 ghostty/macos-config
 
-
+.env
