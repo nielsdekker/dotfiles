@@ -2,6 +2,6 @@
 require("bootstrap_mini")
 
 require("settings")
-require("keybinds")
+require("keybinds)
 require("plugins")
 require("lsp")
