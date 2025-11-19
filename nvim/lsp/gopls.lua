@@ -1,6 +1,6 @@
----@type vim.lsp.Config
+--@type vim.lsp.Config
 return {
     cmd = { "gopls" },
-    filetypes = { "js" },
+    filetypes = { "go" },
     root_markers = { "go.mod", ".git" },
 }
