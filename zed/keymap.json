@@ -1,0 +1,71 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "",
+    "bindings": {
+      // Panes and stuff
+      "ctrl-]": "pane::ActivateNextItem",
+      "ctrl-[": "pane::ActivatePreviousItem",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "!Editor",
+    "bindings": {
+      "escape": "workspace::CloseActiveDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // General shortcuts
+      "-": "vim::ToggleProjectPanelFocus",
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences",
+
+      // [F]inding stuff
+      "space f f": "file_finder::Toggle",
+      "space f b": "tab_switcher::ToggleAll",
+      "space f d": "diagnostics::Deploy",
+      "space f s": "workspace::NewSearch",
+
+      // [W]indow management
+      "space w h": "workspace::ActivatePaneLeft",
+      "space w j": "workspace::ActivatePaneDown",
+      "space w k": "workspace::ActivatePaneUp",
+      "space w l": "workspace::ActivatePaneRight",
+
+      // [C]ode actions
+      "space c a": "editor::ToggleCodeActions",
+
+      // [G]it
+      "space g s": "git::Diff",
+
+      // [T]erminal
+      "space t t": "workspace::ToggleBottomDock",
+      "space t n": "workspace::NewTerminal"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "(Editor && !agent_diff)",
+    "bindings": {
+      "space s": "git::ToggleStaged"
+    }
+  }
+]
