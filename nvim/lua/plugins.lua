@@ -1,15 +1,15 @@
----- @class MiniDep
-----
----- Settings specific to mini.deps
----- @field source string
----- @field name? string
----- @field checkout? string
----- @field depends? string[]
----- @field hooks? { post_checkout?: function }
-----
----- Own settings
----- @field now? function
----- @field later? function
+--- @class MiniDep
+---
+--- Settings specific to mini.deps
+--- @field source string
+--- @field name? string
+--- @field checkout? string
+--- @field depends? string[]
+--- @field hooks? { post_checkout?: function }
+---
+--- Own settings
+--- @field now? function
+--- @field later? function
 
 local add, later, now =
     require("mini.deps").add,

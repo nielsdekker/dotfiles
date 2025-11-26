@@ -61,11 +61,5 @@
       "tab": "editor::ContextMenuNext",
       "shift-tab": "editor::ContextMenuPrevious"
     }
-  },
-  {
-    "context": "(Editor && !agent_diff)",
-    "bindings": {
-      "space s": "git::ToggleStaged"
-    }
   }
 ]

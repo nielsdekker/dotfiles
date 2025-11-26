@@ -1,5 +1,5 @@
 # Theming
-theme = dark:TokyoNight,light:TokyoNight Day
+theme = dark:Carbonfox,light:Dayfox
 font-family = "Cascadia Code"
 window-padding-x = 8
 window-padding-y = 8

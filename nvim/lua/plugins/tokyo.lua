@@ -8,8 +8,5 @@ return {
             light_style = "day",
             transparent = true,
         })
-
-        -- Make this the default theme
-        vim.cmd.colorscheme "tokyonight"
     end,
 }
