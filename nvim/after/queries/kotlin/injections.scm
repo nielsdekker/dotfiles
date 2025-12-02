@@ -12,3 +12,21 @@
           ((string_content) @injection.content
             (#set! injection.language "sql")))))))
 
+; Follows intellij style highlighting based on comments. In short adding the
+; following will highlight the string of a property declaration.
+;
+; // language=json
+; val someProp = """
+; { "data": [1, 2, 3] 
+; """
+((line_comment)
+  @injection.language .
+  (property_declaration
+    (string_literal
+      (string_content) @injection.content))
+
+  (#match?  @injection.language "^\/\/ language=.+$")
+  (#gsub! @injection.language "^// language=(.+)$" "%1")
+  (#set! injection.combined)
+)
+
