@@ -1,5 +1,5 @@
 # Theming
-theme = Sonokai
+theme = light:Melange Light,dark:Melange Dark
 font-family = "Cascadia Code"
 window-padding-x = 8
 window-padding-y = 8

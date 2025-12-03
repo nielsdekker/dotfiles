@@ -21,9 +21,20 @@
 ; """
 ((line_comment)
   @injection.language .
-  (property_declaration
-    (string_literal
-      (string_content) @injection.content))
+  [
+    (property_declaration
+      (string_literal
+        (string_content) @injection.content))
+    (property_declaration
+      (call_expression
+        (navigation_expression
+          (string_literal
+            (string_content) @injection.content))))
+    (call_expression
+      (navigation_expression
+        (string_literal
+          (string_content) @injection.content)))
+  ]
 
   (#match?  @injection.language "^\/\/ language=.+$")
   (#gsub! @injection.language "^// language=(.+)$" "%1")
