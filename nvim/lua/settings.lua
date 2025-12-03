@@ -9,7 +9,7 @@ vim.o.textwidth = 80
 vim.o.colorcolumn = "+1"
 vim.o.signcolumn = "yes"
 vim.o.winborder = "solid"
-vim.o.winblend = 7
+-- vim.o.winblend = 7
 vim.o.fillchars = "eob: "
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
@@ -42,8 +42,6 @@ vim.filetype.add({
         tf = "terraform"
     }
 })
-
-foo = 1
 
 -- Diagnostics
 vim.diagnostic.config({
