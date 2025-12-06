@@ -3,5 +3,6 @@ require("bootstrap_mini")
 
 require("settings")
 require("keybinds")
+require("statusline")
 require("plugins")
 require("lsp")
