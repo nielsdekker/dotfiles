@@ -36,6 +36,8 @@ vim.o.spell = true
 vim.o.spelllang = "en,nl"
 vim.o.spelloptions = "camel,noplainbuffer"
 
+vim.cmd.colorscheme("nelis")
+
 -- Make sure terraform files work as intended
 vim.filetype.add({
     extension = {

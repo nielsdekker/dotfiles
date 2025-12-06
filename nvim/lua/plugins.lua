@@ -16,26 +16,31 @@ local add, later, now =
     require("mini.deps").later,
     require("mini.deps").now
 
-local plugins = vim.iter(vim.api.nvim_get_runtime_file("lua/plugins/*.lua", true))
-    :map(function(f)
-        return vim.fn.fnamemodify(f, ":t:r")
-    end)
-    :totable()
+--- Small helper function to load all plugins in the given path
+local function loadForPath(p)
+    local plugins = vim.iter(vim.api.nvim_get_runtime_file(p, true))
+        :map(function(f)
+            return vim.fn.fnamemodify(f, ":t:r")
+        end)
+        :totable()
 
-for _, v in ipairs(plugins) do
-    ---@type MiniDep
-    local plugin = require("plugins." .. v)
+    for _, v in ipairs(plugins) do
+        ---@type MiniDep
+        local plugin = require("plugins." .. v)
 
-    if plugin.source ~= "mini.nvim" then
-        add({
-            source = plugin.source,
-            name = plugin.name,
-            depends = plugin.depends,
-            checkout = plugin.checkout,
-            hooks = plugin.hooks,
-        })
+        if plugin.source ~= "mini.nvim" then
+            add({
+                source = plugin.source,
+                name = plugin.name,
+                depends = plugin.depends,
+                checkout = plugin.checkout,
+                hooks = plugin.hooks,
+            })
+        end
+
+        if plugin.now ~= nil then now(plugin.now) end
+        if plugin.later ~= nil then later(plugin.later) end
     end
-
-    if plugin.now ~= nil then now(plugin.now) end
-    if plugin.later ~= nil then later(plugin.later) end
 end
+
+loadForPath("lua/plugins/*.lua")
