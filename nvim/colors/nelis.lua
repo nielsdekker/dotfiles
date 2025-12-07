@@ -23,6 +23,7 @@ local palette = {
         { group = "PreProc",              hl = { fg = "NvimDarkYellow" } },
         { group = "Type",                 hl = { italic = true, fg = "NvimDarkGrey2" } },
         { group = "NonText",              hl = { fg = "NvimDarkGrey4" } },
+        { group = "MatchParen",           hl = { fg = "Black", bg = "NvimLightGrey3", bold = true } },
 
         --- Statusline colors
         { group = "StatusLine",           hl = { fg = "NvimDarkGrey2", bg = "NvimLightGrey2" } },
