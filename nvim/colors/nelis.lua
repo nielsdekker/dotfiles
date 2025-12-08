@@ -1,4 +1,10 @@
--- Small tweaks to the default color scheme.
+---@diagnostic disable-next-line: duplicate-doc-alias
+--- @alias palette ({
+---     group: string,
+---     gen_inverse: boolean,
+---     hl: vim.api.keyset.highlight,
+--- })
+local S = {}
 
 -- Reset the colors
 if vim.g.colors_name then
@@ -6,74 +12,6 @@ if vim.g.colors_name then
 end
 
 vim.g.colors_name = "nelis"
-
---- @diagnostic disable-next-line: duplicate-doc-alias
---- @alias palette ({group: string, hasInverse: boolean, hl: vim.api.keyset.highlight})
-
--- Check gui-colors for the default color names and `highlight_group.c` for the
--- default values.
-local palette = {
-    ---@type palette[]
-    light = {
-        { group = "Normal",               hl = { fg = "NvimDarkGrey2", bg = "NONE" } },
-        { group = "Statement",            hl = { fg = "NvimDarkBlue", bold = true } },
-        { group = "Comment",              hl = { fg = "NvimDarkGrey4", italic = true } },
-        { group = "ColorColumn",          hl = { bg = "NvimLightGrey3" } },
-        { group = "Constant",             hl = { fg = "NvimDarkMagenta" } },
-        { group = "PreProc",              hl = { fg = "NvimDarkYellow" } },
-        { group = "Type",                 hl = { italic = true, fg = "NvimDarkGrey2" } },
-        { group = "NonText",              hl = { fg = "NvimDarkGrey4" } },
-        { group = "MatchParen",           hl = { fg = "Black", bg = "NvimLightGrey3", bold = true } },
-
-        --- Statusline colors
-        { group = "StatusLine",           hl = { fg = "NvimDarkGrey2", bg = "NvimLightGrey2" } },
-        { group = "StatusLineMode",       hl = { fg = "NvimDarkYellow", bg = "NvimLightYellow" },   hasInverse = true },
-        { group = "StatusLineModeNormal", hl = { fg = "NvimDarkBlue", bg = "NvimLightBlue" },       hasInverse = true },
-        { group = "StatusLineModeInsert", hl = { fg = "NvimDarkMagenta", bg = "NvimLightMagenta" }, hasInverse = true },
-        { group = "StatusLineModeVisual", hl = { fg = "NvimDarkGreen", bg = "NvimLightGreen" },     hasInverse = true },
-        { group = "StatusLineModeSelect", hl = { fg = "NvimDarkGreen", bg = "NvimLightGreen" } },
-        { group = "StatusLineGit",        hl = { fg = "Magenta" } },
-        { group = "StatusLineErrors",     hl = { fg = "NvimDarkRed", bg = "NvimLightRed" },         hasInverse = true },
-        { group = "StatusLineWarnings",   hl = { fg = "NvimDarkYellow", bg = "NvimLightYellow" },   hasInverse = true },
-    },
-    ---@type palette[]
-    dark = {
-        { group = "Normal",               hl = { fg = "NvimLightGrey2", bg = "NONE" } },
-        { group = "Statement",            hl = { fg = "NvimLightBlue", bold = true } },
-        { group = "Comment",              hl = { fg = "NvimLightGrey4", italic = true } },
-        { group = "ColorColumn",          hl = { bg = "NvimDarkGrey3" } },
-        { group = "Constant",             hl = { fg = "NvimLightMagenta" } },
-        { group = "PreProc",              hl = { fg = "NvimLightYellow" } },
-        { group = "Type",                 hl = { italic = true, fg = "NvimLightGrey2" } },
-        { group = "NonText",              hl = { fg = "NvimLightGrey4" } },
-
-        --- Statusline colors
-        { group = "StatusLine",           hl = { fg = "NvimLightGrey2", bg = "NvimDarkGrey2" } },
-        { group = "StatusLineMode",       hl = { fg = "NvimLightYellow", bg = "NvimDarkYellow" },   hasInverse = true },
-        { group = "StatusLineModeNormal", hl = { fg = "NvimLightBlue", bg = "NvimDarkBlue" },       hasInverse = true },
-        { group = "StatusLineModeInsert", hl = { fg = "NvimLightMagenta", bg = "NvimDarkMagenta" }, hasInverse = true },
-        { group = "StatusLineModeVisual", hl = { fg = "NvimLightGreen", bg = "NvimDarkGreen" },     hasInverse = true },
-        { group = "StatusLineModeSelect", hl = { fg = "NvimLightGreen", bg = "NvimDarkGreen" } },
-        { group = "StatusLineGit",        hl = { fg = "Violet" } },
-        { group = "StatusLineErrors",     hl = { fg = "NvimLightRed", bg = "NvimDarkRed" },         hasInverse = true },
-        { group = "StatusLineWarnings",   hl = { fg = "NvimLightYellow", bg = "NvimDarkYellow" },   hasInverse = true },
-    },
-}
-
---- @param p palette[]
-local function load_palette(p)
-    for _, v in pairs(p) do
-        vim.api.nvim_set_hl(0, v.group, v.hl)
-
-        if v.hasInverse then
-            local inverse = vim.fn.deepcopy(v.hl)
-            inverse.fg = v.hl.bg
-            inverse.bg = ""
-
-            vim.api.nvim_set_hl(0, v.group .. "Inverse", inverse)
-        end
-    end
-end
 
 -- Use an auto command so the colors can be updated based on dark/light mode of
 -- the OS.
@@ -85,9 +23,88 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         end
 
         if vim.o.background == "dark" then
-            load_palette(palette.dark)
+            S.use_palette("NvimLight", "NvimDark")
         else
-            load_palette(palette.light)
+            S.use_palette("NvimDark", "NvimLight")
         end
     end
 })
+
+--- For the colors they can be prefixed with the following:
+--- - `#` Use the primary prefix
+--- - `%` Use the secondary prefix
+---
+--- This is done to make it easy to switch between light and dark modes
+---
+--- @type palette[]
+S.colors = {
+    { group = "Normal",                        hl = { fg = "#Grey2", bg = "NONE" } },
+    { group = "Statement",                     hl = { fg = "#Blue", bold = true } },
+    { group = "Comment",                       hl = { fg = "#Grey4", italic = true } },
+    { group = "ColorColumn",                   hl = { bg = "%Grey3" } },
+    { group = "Constant",                      hl = { fg = "#Magenta" } },
+    { group = "PreProc",                       hl = { fg = "#Yellow" } },
+    { group = "Type",                          hl = { fg = "#Grey2", italic = true } },
+    { group = "NonText",                       hl = { fg = "#Grey4" } },
+    { group = "MatchParen",                    hl = { fg = "Orange", bg = "NONE", bold = true } },
+
+    -- Statusline colors
+    { group = "StatusLine",                    hl = { fg = "#Grey2", bg = "%Grey2" } },
+    { group = "StatusLineMode",                hl = { fg = "#Yellow", bg = "%Yellow" },               gen_inverse = true },
+    { group = "StatusLineModeNormal",          hl = { fg = "#Blue", bg = "%Blue" },                   gen_inverse = true },
+    { group = "StatusLineModeInsert",          hl = { fg = "#Magenta", bg = "%Magenta" },             gen_inverse = true },
+    { group = "StatusLineModeVisual",          hl = { fg = "#Green", bg = "%Green" },                 gen_inverse = true },
+    { group = "StatusLineModeSelect",          hl = { fg = "#Green", bg = "%Green" } },
+    { group = "StatusLineGit",                 hl = { fg = "Magenta" } },
+    { group = "StatusLineDiagnosticErrors",    hl = { fg = "#Red", bg = "%Red" },                     gen_inverse = true },
+    { group = "StatusLineDiagnosticWarnings",  hl = { fg = "#Yellow", bg = "%Yellow" },               gen_inverse = true },
+    { group = "StatusLineDiagnosticSeparator", hl = { fg = "%Yellow", bg = "%Red" },                  gen_inverse = true },
+    { group = "StatusLineInfo",                hl = { fg = "#Grey4", bg = "%Grey4" },                 gen_inverse = true },
+
+    -- Diagnostic
+    { group = "DiagnosticVirtualTextError",    hl = { fg = "#Red", bg = "%Red", italic = true } },
+    { group = "DiagnosticVirtualTextWarn",     hl = { fg = "#Yellow", bg = "%Yellow", italic = true } },
+    { group = "DiagnosticVirtualTextHint",     hl = { fg = "#Cyan", bg = "%Cyan", italic = true } },
+    { group = "DiagnosticErrorLine",           hl = { bg = "%Red" } },
+    { group = "DiagnosticWarnLine",            hl = { bg = "%Yellow" } },
+    { group = "DiagnosticHintLine",            hl = { bg = "%Cyan" } },
+}
+
+--- @param primary_prefix string
+--- @param secondary_prefix string
+S.use_palette = function(primary_prefix, secondary_prefix)
+    for _, v in pairs(S.colors) do
+        v.hl.fg = S.with_prefix(v.hl.fg, primary_prefix, secondary_prefix)
+        v.hl.bg = S.with_prefix(v.hl.bg, primary_prefix, secondary_prefix)
+
+        vim.api.nvim_set_hl(0, v.group, v.hl)
+
+        if v.hl.bg ~= nil and v.gen_inverse then
+            local inverse = vim.fn.deepcopy(v.hl)
+            inverse.fg = v.hl.bg
+            inverse.bg = ""
+
+            vim.api.nvim_set_hl(0, v.group .. "Inverse", inverse)
+        end
+    end
+end
+
+--- @param value (string|integer)|nil
+--- @param primary_prefix string
+--- @param secondary_prefix string
+--- @return (string|integer)| nil
+S.with_prefix = function(value, primary_prefix, secondary_prefix)
+    if value == nil then
+        return nil
+    end
+
+    local prefix = string.sub(value, 1, 1)
+
+    if prefix == "#" then
+        return primary_prefix .. string.sub(value, 2)
+    elseif prefix == "%" then
+        return secondary_prefix .. string.sub(value, 2)
+    else
+        return value
+    end
+end

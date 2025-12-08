@@ -4,6 +4,26 @@ local icons = {
     warn = "",
     border_left = "",
     border_right = "",
+    triangle = "",
+}
+
+local groups = {
+    -- Small groups
+    default = "StatusLine",
+    git = "StatusLineGit",
+    info = "StatusLineInfo",
+
+    -- Mode switching
+    mode = "StatusLineMode",
+    mode_normal = "StatusLineModeNormal",
+    mode_visual = "StatusLineModeVisual",
+    mode_select = "StatusLineModeSelect",
+    mode_insert = "StatusLineModeInsert",
+
+    -- Diagnostics
+    diag_errors = "StatusLineDiagnosticErrors",
+    diag_warnings = "StatusLineDiagnosticWarnings",
+    diag_seperator = "StatusLineDiagnosticSeparator",
 }
 
 -- Renders the given string with the highlight
@@ -13,38 +33,40 @@ end
 
 -- Renders the string and add borders to the left and right of it.
 local function with_border(s, hl)
-    return with_hl(icons.border_left, hl .. "Inverse")
+    return " "
+        .. with_hl(icons.border_left, hl .. "Inverse")
         .. with_hl(s, hl)
         .. with_hl(icons.border_right, hl .. "Inverse")
+        .. " "
 end
 
 --- Creates a mode block to show whether or not we are in insert mode
 local function get_mode()
     local modes = {
-        ["n"] = { text = "Normal", hl = "StatusLineModeNormal", hl_inverse = "StatusLineModeNormalInverse" },
-        ["v"] = { text = "Visual", hl = "StatusLineModeVisual", hl_inverse = "StatusLineModeVisualInverse" },
-        ["V"] = { text = "Visual", hl = "StatusLineModeVisual", hl_inverse = "StatusLineModeVisualInverse" },
+        ["n"] = { text = "Normal", hl = groups.mode_normal },
+        ["v"] = { text = "Visual", hl = groups.mode_visual },
+        ["V"] = { text = "Visual", hl = groups.mode_visual },
         -- Matches ^V
-        ["\22"] = { text = "Visual", hl = "StatusLineModeVisual", hl_inverse = "StatusLineModeVisualInverse" },
-        ["s"] = { text = "Select", hl = "StatusLineModeSelect", hl_inverse = "StatusLineModeSelectInverse" },
-        ["S"] = { text = "Select", hl = "StatusLineModeSelect", hl_inverse = "StatusLineModeSelectInverse" },
+        ["\22"] = { text = "Visual", hl = groups.mode_visual },
+        ["s"] = { text = "Select", hl = groups.mode_select },
+        ["S"] = { text = "Select", hl = groups.mode_select },
         -- Matches ^S
-        ["\19"] = { text = "Select", hl = "StatusLineModeSelect", hl_inverse = "StatusLineModeSelectInverse" },
-        ["i"] = { text = "Insert", hl = "StatusLineModeInsert", hl_inverse = "StatusLineModeInsertInverse" },
-        ["R"] = { text = "Replace", hl = "StatusLineMode", hl_inverse = "StatusLineModeInverse" },
-        ["c"] = { text = "Command", hl = "StatusLineMode", hl_inverse = "StatusLineModeInverse" },
-        ["r"] = { text = "Prompt", hl = "StatusLineMode", hl_inverse = "StatusLineModeInverse" },
-        ["!"] = { text = "Shell", hl = "StatusLineMode", hl_inverse = "StatusLineModeInverse" },
-        ["t"] = { text = "Terminal", hl = "StatusLineMode", hl_inverse = "StatusLineModeInverse" },
+        ["\19"] = { text = "Select", hl = groups.mode_select },
+        ["i"] = { text = "Insert", hl = groups.mode_insert },
+        ["R"] = { text = "Replace", hl = groups.mode },
+        ["c"] = { text = "Command", hl = groups.mode },
+        ["r"] = { text = "Prompt", hl = groups.mode },
+        ["!"] = { text = "Shell", hl = groups.mode },
+        ["t"] = { text = "Terminal", hl = groups.mode },
     }
 
     local mode = string.sub(vim.api.nvim_get_mode().mode, 1, 2)
     local m = modes[mode]
 
     if m ~= nil then
-        return " " .. with_border(m.text, m.hl) .. " "
+        return with_border(m.text, m.hl)
     else
-        return " " .. with_border(mode, "StatusLineMode") .. " "
+        return with_border(mode, groups.mode)
     end
 end
 
@@ -53,7 +75,7 @@ local function get_git_branch_name()
     local branch_name = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
 
     if branch_name ~= "" then
-        return with_hl(icons.git .. " " .. branch_name, "StatusLineGit")
+        return with_hl(icons.git .. " " .. branch_name, groups.git)
     else
         return ""
     end
@@ -64,28 +86,36 @@ local function get_diagnostics()
     local error_count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }))
     local warning_count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }))
 
-    local errors = ""
-    if error_count ~= 0 then
-        errors = with_border(icons.err .. " " .. error_count, "StatusLineErrors") .. " "
+    if error_count ~= 0 and warning_count ~= 0 then
+        return " "
+            .. with_hl(icons.border_left, groups.diag_errors .. "Inverse")
+            .. with_hl(icons.err .. " " .. error_count, groups.diag_errors)
+            .. with_hl(icons.triangle, groups.diag_seperator)
+            .. with_hl(icons.warn .. " " .. warning_count, groups.diag_warnings)
+            .. with_hl(icons.border_right, groups.diag_warnings .. "Inverse")
+            .. " "
+    elseif error_count ~= 0 then
+        return with_border(icons.err .. " " .. error_count, groups.diag_errors)
+    elseif warning_count ~= 0 then
+        return with_border(icons.warn .. " " .. warning_count, groups.diag_warnings)
+    else
+        return ""
     end
+end
 
-    local warnings = ""
-    if warning_count ~= 0 then
-        warnings = with_border(icons.warn .. " " .. warning_count, "StatusLineWarnings") .. " "
-    end
-
-    return errors .. warnings
+local function get_cursor_info()
+    return with_border("[l:%l c:%c]", groups.info)
 end
 
 StatusLine = function()
     return table.concat({
-        "%#StatusLine#",
         get_mode(),
         get_diagnostics(),
         get_git_branch_name(),
-        "%#StatusLine# %f",
+        with_hl(" %f", groups.default),
+        -- Moves to the end
         "%=",
-        "[l:%l c:%c] "
+        get_cursor_info()
     })
 end
 
