@@ -66,16 +66,6 @@ alias k='kubectl'
 alias n='nvim'
 alias tf='terraform'
 
-# AI Sandboxes
-alias opencode='podman run -it \
-    -e TERM=$TERM \
-    -e MISTRAL_API_KEY=$MISTRAL_API_KEY \
-    -v $HOME/.config/opencode/:/root/.config/opencode/:z \
-    -v $HOME/.local/share/opencode/:/root/.local/share/opencode/:z \
-    -v $HOME/.local/state/opencode/:/root/.local/state/opencode/:z \
-    -v ./:/app/:z \
-    opencode-container'
-
 #####
 # Overwrites
 #####

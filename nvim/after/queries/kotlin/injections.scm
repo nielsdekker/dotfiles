@@ -34,10 +34,20 @@
       (navigation_expression
         (string_literal
           (string_content) @injection.content)))
+    (value_argument
+      (call_expression
+        (navigation_expression
+          (string_literal
+            (string_content) @injection.content))))
+    (string_literal
+      (string_content) @injection.content)
+    (value_argument
+      (string_literal
+        (string_content) @injection.content))
   ]
 
   (#match?  @injection.language "^\/\/ language=.+$")
   (#gsub! @injection.language "^// language=(.+)$" "%1")
-  (#set! injection.combined)
+  ; (#set! injection.combined)
 )
 
