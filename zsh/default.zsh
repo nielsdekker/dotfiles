@@ -66,6 +66,13 @@ alias k='kubectl'
 alias n='nvim'
 alias tf='terraform'
 
+alias vibe='podman run -it \
+    -e TERM=$TERM \
+    -e MISTRAL_API_KEY=$MISTRAL_API_KEY \
+    -v $HOME/.config/vibe/:/root/.vibe/:z \
+    -v ./:/app/:z \
+    vibe-container'
+
 #####
 # Overwrites
 #####

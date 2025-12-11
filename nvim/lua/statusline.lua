@@ -8,6 +8,7 @@ StatusLine = function()
         S.with_hl(" %f", S.groups.default),
         -- Moves to the end
         "%=",
+        S.get_lsp_info(),
         S.get_cursor_info()
     })
 end
@@ -74,6 +75,26 @@ S.get_diagnostics = function()
         return S.with_border(S.icons.warn .. " " .. warning_count, S.groups.diag_warnings)
     else
         return ""
+    end
+end
+
+S.get_lsp_info = function()
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
+    if next(clients) == nil then
+        return ""
+    end
+
+    local buf_ft = vim.api.nvim_get_option_value("filetype", {})
+    for _, client in ipairs(clients) do
+        local ft = client.config.filetypes
+        if ft and vim.fn.index(ft, buf_ft) ~= -1 then
+            local isLoading = vim.fn.len(client.progress.pending) > 0
+            if isLoading then
+                return S.with_border(client.name .. " loading", S.groups.info)
+            else
+                return S.with_border(client.name, S.groups.info)
+            end
+        end
     end
 end
 
