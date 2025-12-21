@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
     source = "saghen/blink.cmp",
-    checkout = "v1.3.0",
+    checkout = "v1.8.0",
 
     later = function()
         require("blink.cmp").setup({

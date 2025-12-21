@@ -83,3 +83,9 @@ map("n", "<leader>dj", function() require("dap").step_over() end, { silent = tru
 map("n", "<leader>dl", function() require("dap").step_into() end, { silent = true })         -- debug into
 map("n", "<leader>dh", function() require("dap").step_out() end, { silent = true })          -- debug exit
 map("n", "<leader>dt", function() require("dap").toggle_breakpoint() end, { silent = true }) -- debug toggle
+
+----------------
+-- A is for [A]I
+----------------
+
+map("n", "<leader>aa", function() require("avante").open_sidebar() end, { silent = true })
