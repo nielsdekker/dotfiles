@@ -24,7 +24,7 @@ vim.o.shiftwidth = 0
 vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '+' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "+" }
 
 vim.g.shell = "/bin/zsh"
 vim.o.shell = "/bin/zsh"
@@ -40,29 +40,29 @@ vim.cmd.colorscheme("nelis")
 
 -- Make sure terraform files work as intended
 vim.filetype.add({
-    extension = {
-        tf = "terraform"
-    }
+	extension = {
+		tf = "terraform",
+	},
 })
 
 -- Diagnostics
 vim.diagnostic.config({
-    virtual_text = true,
-    virtual_lines = false,
+	virtual_text = true,
+	virtual_lines = false,
 
-    signs = {
-        linehl = {
-            [vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
-            [vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
-            [vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
-            [vim.diagnostic.severity.INFO] = "DiagnosticHintLine",
-        }
-    }
+	signs = {
+		linehl = {
+			[vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
+			[vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
+			[vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
+			[vim.diagnostic.severity.INFO] = "DiagnosticHintLine",
+		},
+	},
 })
 
 vim.api.nvim_create_autocmd("CursorHold", {
-    pattern = "*",
-    callback = function()
-        vim.diagnostic.open_float()
-    end
+	pattern = "*",
+	callback = function()
+		vim.diagnostic.open_float()
+	end,
 })

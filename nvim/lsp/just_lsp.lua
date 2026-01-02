@@ -1,5 +1,5 @@
 --- @type vim.lsp.Config
 return {
-    cmd = { "just-lsp" },
-    filetypes = { "just" },
+	cmd = { "just-lsp" },
+	filetypes = { "just" },
 }
