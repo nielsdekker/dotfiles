@@ -115,11 +115,3 @@ end, { silent = true }) -- debug exit
 map("n", "<leader>dt", function()
 	require("dap").toggle_breakpoint()
 end, { silent = true }) -- debug toggle
-
-----------------
--- A is for [A]I
-----------------
-
-map("n", "<leader>aa", function()
-	require("avante").open_sidebar()
-end, { silent = true })

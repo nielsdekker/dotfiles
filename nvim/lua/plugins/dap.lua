@@ -12,29 +12,50 @@ return {
 		vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "Comment" })
 		vim.fn.sign_define("DapBreakpointCondition", { text = "~>", texthl = "Comment" })
 
-		-- Basic adapter config. Project specific configs should be set up in a projects
-		-- .nvim.lua file.
-		dap.adapters.go = {
-			type = "server",
-			port = "36999",
-			executable = {
-				command = "go",
-				args = {
-					"tool",
-					"dlv",
-					"dap",
-					"-l",
-					"127.0.0.1:36999",
+		dap.adapters.go = function(callback, client_config)
+			local host = client_config.host or "127.0.0.1"
+			local port = client_config.port or 36999
+
+			callback({
+				type = "server",
+				port = port,
+				executable = {
+					command = "dlv",
+					args = {
+						"dap",
+						"-l",
+						host .. ":" .. port,
+					},
 				},
-			},
-		}
+			})
+		end
+		-- dap.adapters.go = {
+		-- 	type = "server",
+		-- 	port = "36999",
+		-- 	executable = {
+		-- 		command = "dlv",
+		-- 		args = {
+		-- 			"dap",
+		-- 			"-l",
+		-- 			"127.0.0.1:36999",
+		-- 		},
+		-- 	},
+		-- }
 
 		dap.configurations.go = {
 			{
 				type = "go",
-				name = "Attach to delve",
-				mode = "remote",
-				request = "attach",
+				name = "Run cmd/main",
+				request = "launch",
+				program = "./cmd/main.go",
+				outputMode = "remote",
+			},
+			{
+				type = "go",
+				name = "Run file",
+				request = "launch",
+				program = "${file}",
+				outputMode = "remote",
 			},
 		}
 	end,
