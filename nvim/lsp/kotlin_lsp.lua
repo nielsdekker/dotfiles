@@ -1,7 +1,7 @@
 ---@type vim.lsp.Config
 return {
 	name = "kotlin-lsp",
-	cmd = { "/home/niels/.local/share/kotlin-lsp/kotlin-lsp.sh", "--stdio" },
+	cmd = { "/opt/kotlin-lsp/kotlin-lsp.sh", "--stdio" },
 	single_file_support = false,
 	filetypes = { "kotlin" },
 	root_markers = { ".git" },
