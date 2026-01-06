@@ -31,6 +31,10 @@ return {
 					inherit = true,
 					prepend_args = { "--kotlinlang-style" },
 				},
+				sql_formatter = {
+					inherit = true,
+					prepend_args = { "--language=postgresql" },
+				},
 			},
 		})
 	end,
