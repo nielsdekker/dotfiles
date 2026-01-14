@@ -89,8 +89,7 @@ S.colors = {
 	},
 	{
 		group = "StatusLineInfo",
-		hl = { fg = "#Grey4", bg = "%Grey4" },
-		gen_inverse = true,
+		hl = { fg = "#Grey4", italic = true },
 	},
 
 	-- Diagnostic

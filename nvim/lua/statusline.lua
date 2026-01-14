@@ -1,19 +1,64 @@
-local S = {}
+local S = {
+	--- @type { is_done: boolean, progress: number }[]
+	lsp = {},
+}
 
 StatusLine = function()
 	return table.concat({
 		S.get_mode(),
 		S.get_diagnostics(),
 		S.get_git_branch_name(),
-		S.with_hl(" %f", S.groups.default),
+		S.with_hl(" %f%m%r", S.groups.default),
 		-- Moves to the end
 		"%=",
 		S.get_lsp_info(),
-		S.get_cursor_info(),
 	})
 end
 
 vim.o.statusline = "%!v:lua.StatusLine()"
+
+-- Make sure the status line is updated when the diagnostics change
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+	callback = function()
+		S.redraw()
+	end,
+})
+
+vim.api.nvim_create_autocmd("LspProgress", {
+	callback = function(evt)
+		print("hoi")
+		local lspClient = evt.data.client_id
+		local kind = evt.data.params.value.kind
+
+		if kind == "report" then
+			if S.lsp[lspClient] == nil then
+				S.lsp[lspClient] = {
+					is_done = false,
+					progress = 0,
+				}
+			elseif S.lsp[lspClient].progress == evt.data.params.value.percentage then
+				-- No new data so nothing to update
+				return
+			else
+				S.lsp[lspClient] = {
+					progress = evt.data.params.value.percentage,
+				}
+				S.redraw()
+			end
+		elseif kind == "end" then
+			S.lsp[lspClient] = {
+				is_done = true,
+				progress = 100,
+			}
+
+			S.redraw()
+		end
+	end,
+})
+
+S.redraw = function()
+	vim.api.nvim__redraw({ statusline = true })
+end
 
 --- Creates a mode block to show whether or not we are in insert mode
 S.get_mode = function()
@@ -84,18 +129,24 @@ S.get_lsp_info = function()
 		return ""
 	end
 
+	local all_clients = {}
+
 	local buf_ft = vim.api.nvim_get_option_value("filetype", {})
 	for _, client in ipairs(clients) do
+		---@diagnostic disable-next-line: undefined-field
 		local ft = client.config.filetypes
-		if ft and vim.fn.index(ft, buf_ft) ~= -1 then
-			local isLoading = vim.fn.len(client.progress.pending) > 0
-			if isLoading then
-				return S.with_border(client.name .. " loading", S.groups.info)
+		local lsp = S.lsp[client.id]
+
+		if lsp and ft and vim.fn.index(ft, buf_ft) ~= -1 then
+			if lsp.is_done then
+				table.insert(all_clients, client.name)
 			else
-				return S.with_border(client.name, S.groups.info)
+				table.insert(all_clients, client.name .. " " .. lsp.progress .. "%%")
 			end
 		end
 	end
+
+	return S.with_hl(table.concat(all_clients, " "), S.groups.info)
 end
 
 S.get_cursor_info = function()
