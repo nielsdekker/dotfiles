@@ -1,5 +1,9 @@
 local map = vim.keymap.set
 
+local feedkeys = function(keys)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
+end
+
 vim.g.mapleader = " "
 
 -- Some guidelines about the keybindings:
@@ -14,7 +18,7 @@ vim.g.mapleader = " "
 -- Yanks to the system clipboard
 map("v", "<leader>y", '"+y')
 
--- Open mini files window
+-- Open oil
 map("n", "-", function()
 	require("oil").open()
 end)
@@ -36,6 +40,35 @@ end, { silent = true })
 map("n", "gr", function()
 	require("snacks").picker.lsp_references()
 end, { silent = true })
+
+-- LSP completion
+map("i", "<C-Space>", function()
+	return vim.fn.pumvisible() > 0 and "<C-n>" or "<C-x><C-o>"
+end, { expr = true })
+
+map("i", "<Tab>", function()
+	if vim.fn.pumvisible() > 0 then
+		feedkeys("<C-n>")
+	elseif vim.snippet.active({ direction = 1 }) then
+		vim.snippet.jump(1)
+	else
+		feedkeys("<Tab>")
+	end
+end, { silent = true })
+
+map("i", "<S-Tab>", function()
+	if vim.fn.pumvisible() > 0 then
+		feedkeys("<C-p>")
+	elseif vim.snippet.active({ direction = -1 }) then
+		vim.snippet.jump(-1)
+	else
+		feedkeys("<S-Tab>")
+	end
+end, { silent = true })
+
+map("i", "<cr>", function()
+	return vim.fn.pumvisible() > 0 and "<C-y>" or "<cr>"
+end, { expr = true })
 
 ---------------------
 -- W is for [W]indows

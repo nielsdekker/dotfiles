@@ -1,64 +1,34 @@
-local S = {
-	--- @type { is_done: boolean, progress: number }[]
-	lsp = {},
-}
+local S = {}
 
 StatusLine = function()
-	return table.concat({
+	local items = {
 		S.get_mode(),
 		S.get_diagnostics(),
 		S.get_git_branch_name(),
-		S.with_hl(" %f%m%r", S.groups.default),
-		-- Moves to the end
-		"%=",
-		S.get_lsp_info(),
-	})
+		S.with_hl("%f%m%r", S.groups.default),
+	}
+
+	local s_line = ""
+	for _, v in ipairs(items) do
+		if v ~= "" then
+			s_line = s_line .. " " .. v
+		end
+	end
+
+	return s_line
 end
 
 vim.o.statusline = "%!v:lua.StatusLine()"
 
+-- Autocommands
+local statuslineGroup = vim.api.nvim_create_augroup("nelis-statusline", { clear = true })
 -- Make sure the status line is updated when the diagnostics change
 vim.api.nvim_create_autocmd("DiagnosticChanged", {
+	group = statuslineGroup,
 	callback = function()
-		S.redraw()
+		vim.cmd("redrawstatus")
 	end,
 })
-
-vim.api.nvim_create_autocmd("LspProgress", {
-	callback = function(evt)
-		print("hoi")
-		local lspClient = evt.data.client_id
-		local kind = evt.data.params.value.kind
-
-		if kind == "report" then
-			if S.lsp[lspClient] == nil then
-				S.lsp[lspClient] = {
-					is_done = false,
-					progress = 0,
-				}
-			elseif S.lsp[lspClient].progress == evt.data.params.value.percentage then
-				-- No new data so nothing to update
-				return
-			else
-				S.lsp[lspClient] = {
-					progress = evt.data.params.value.percentage,
-				}
-				S.redraw()
-			end
-		elseif kind == "end" then
-			S.lsp[lspClient] = {
-				is_done = true,
-				progress = 100,
-			}
-
-			S.redraw()
-		end
-	end,
-})
-
-S.redraw = function()
-	vim.api.nvim__redraw({ statusline = true })
-end
 
 --- Creates a mode block to show whether or not we are in insert mode
 S.get_mode = function()
@@ -107,13 +77,11 @@ S.get_diagnostics = function()
 	local warning_count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN }))
 
 	if error_count ~= 0 and warning_count ~= 0 then
-		return " "
-			.. S.with_hl(S.icons.border_left, S.groups.diag_errors .. "Inverse")
+		return S.with_hl(S.icons.border_left, S.groups.diag_errors .. "Inverse")
 			.. S.with_hl(S.icons.err .. " " .. error_count, S.groups.diag_errors)
 			.. S.with_hl(S.icons.triangle, S.groups.diag_seperator)
 			.. S.with_hl(S.icons.warn .. " " .. warning_count, S.groups.diag_warnings)
 			.. S.with_hl(S.icons.border_right, S.groups.diag_warnings .. "Inverse")
-			.. " "
 	elseif error_count ~= 0 then
 		return S.with_border(S.icons.err .. " " .. error_count, S.groups.diag_errors)
 	elseif warning_count ~= 0 then
@@ -121,32 +89,6 @@ S.get_diagnostics = function()
 	else
 		return ""
 	end
-end
-
-S.get_lsp_info = function()
-	local clients = vim.lsp.get_clients({ bufnr = 0 })
-	if next(clients) == nil then
-		return ""
-	end
-
-	local all_clients = {}
-
-	local buf_ft = vim.api.nvim_get_option_value("filetype", {})
-	for _, client in ipairs(clients) do
-		---@diagnostic disable-next-line: undefined-field
-		local ft = client.config.filetypes
-		local lsp = S.lsp[client.id]
-
-		if lsp and ft and vim.fn.index(ft, buf_ft) ~= -1 then
-			if lsp.is_done then
-				table.insert(all_clients, client.name)
-			else
-				table.insert(all_clients, client.name .. " " .. lsp.progress .. "%%")
-			end
-		end
-	end
-
-	return S.with_hl(table.concat(all_clients, " "), S.groups.info)
 end
 
 S.get_cursor_info = function()
@@ -160,11 +102,9 @@ end
 
 -- Renders the string and add borders to the left and right of it.
 S.with_border = function(s, hl)
-	return " "
-		.. S.with_hl(S.icons.border_left, hl .. "Inverse")
+	return S.with_hl(S.icons.border_left, hl .. "Inverse")
 		.. S.with_hl(s, hl)
 		.. S.with_hl(S.icons.border_right, hl .. "Inverse")
-		.. " "
 end
 
 S.icons = {

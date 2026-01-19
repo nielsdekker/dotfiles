@@ -9,7 +9,6 @@ vim.o.textwidth = 80
 vim.o.colorcolumn = "+1"
 vim.o.signcolumn = "yes"
 vim.o.winborder = "solid"
--- vim.o.winblend = 7
 vim.o.fillchars = "eob: "
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
@@ -26,10 +25,14 @@ vim.o.smarttab = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "+" }
 
-vim.g.shell = "/bin/zsh"
 vim.o.shell = "/bin/zsh"
 vim.o.exrc = true
 vim.o.cursorline = true
+
+-- Autocompletion
+vim.o.complete = "."
+vim.o.completeopt = "fuzzy,menuone,noselect,popup"
+vim.o.pumheight = 8
 
 -- Enable spell checking
 vim.o.spell = true
@@ -43,26 +46,4 @@ vim.filetype.add({
 	extension = {
 		tf = "terraform",
 	},
-})
-
--- Diagnostics
-vim.diagnostic.config({
-	virtual_text = true,
-	virtual_lines = false,
-
-	signs = {
-		linehl = {
-			[vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
-			[vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
-			[vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
-			[vim.diagnostic.severity.INFO] = "DiagnosticHintLine",
-		},
-	},
-})
-
-vim.api.nvim_create_autocmd("CursorHold", {
-	pattern = "*",
-	callback = function()
-		vim.diagnostic.open_float()
-	end,
 })
