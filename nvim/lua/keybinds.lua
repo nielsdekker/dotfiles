@@ -70,6 +70,12 @@ map("i", "<cr>", function()
 	return vim.fn.pumvisible() > 0 and "<C-y>" or "<cr>"
 end, { expr = true })
 
+-- Fixes snippets staying active after escape
+map("i", "<Esc>", function()
+	vim.snippet.stop()
+	return "<Esc>"
+end, { expr = true })
+
 ---------------------
 -- W is for [W]indows
 --
