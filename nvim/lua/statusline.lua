@@ -43,6 +43,7 @@ S.get_mode = function()
 		-- Matches ^S
 		["\19"] = { text = "Select", hl = S.groups.mode_select },
 		["i"] = { text = "Insert", hl = S.groups.mode_insert },
+		["ic"] = { text = "Insert", hl = S.groups.mode_insert },
 		["R"] = { text = "Replace", hl = S.groups.mode },
 		["c"] = { text = "Command", hl = S.groups.mode },
 		["r"] = { text = "Prompt", hl = S.groups.mode },

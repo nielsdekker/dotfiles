@@ -1,5 +1,5 @@
 # Theming
-theme = light:Nvim Light,dark:Nvim Dark
+theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
 font-family = "Cascadia Code"
 adjust-cell-height = 18%
 window-padding-x = 8

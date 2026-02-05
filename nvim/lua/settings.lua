@@ -6,7 +6,6 @@ vim.o.relativenumber = true
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 vim.o.textwidth = 80
-vim.o.colorcolumn = "+1"
 vim.o.signcolumn = "yes"
 vim.o.winborder = "solid"
 vim.o.fillchars = "eob: "
@@ -38,8 +37,6 @@ vim.o.pumheight = 8
 vim.o.spell = true
 vim.o.spelllang = "en,nl"
 vim.o.spelloptions = "camel,noplainbuffer"
-
-vim.cmd.colorscheme("nelis")
 
 -- Make sure terraform files work as intended
 vim.filetype.add({
