@@ -12,6 +12,7 @@ return {
 				light = "latte",
 				dark = "macchiato",
 			},
+			transparent_background = true,
 			integrations = {
 				snacks = {
 					enabled = true,
@@ -27,6 +28,7 @@ return {
 
 					-- Status line modes
 					StatusLineMode = { fg = colors.base, bg = colors.teal },
+					StatusLineModeInverse = { fg = colors.teal, bg = colors.base },
 					StatusLineModeNormal = { fg = colors.base, bg = colors.sky },
 					StatusLineModeNormalInverse = { fg = colors.sky, bg = colors.base },
 					StatusLineModeVisual = { fg = colors.base, bg = colors.green },

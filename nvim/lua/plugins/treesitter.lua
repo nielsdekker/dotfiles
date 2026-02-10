@@ -8,19 +8,19 @@ return {
 		end,
 	},
 	later = function()
-		require("nvim-treesitter").setup({
-			ensure_installed = {},
-			ignore_install = {},
-			modules = {},
-			sync_install = false,
-			auto_install = true,
+		require("nvim-treesitter").setup()
 
-			highlight = {
-				enable = true,
-			},
-			injections = {
-				enable = true,
-			},
+		-- Autocmd to start treesitter for languages for which a treesitter
+		-- parser is installed.
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "*",
+			callback = function(args)
+				local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+
+				if lang ~= nil and vim.treesitter.language.add(lang) then
+					vim.treesitter.start()
+				end
+			end,
 		})
 	end,
 }
