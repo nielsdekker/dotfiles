@@ -65,18 +65,6 @@ alias k='kubectl'
 alias n='nvim'
 alias tf='terraform'
 
-# Run opencode in a sandboxed container environment
-# The sandbox provides isolation for running untrusted code safely
-alias opencode='podman run -it \
-    -e TERM=$TERM \
-    -e MISTRAL_API_KEY=$MISTRAL_API_KEY \
-    -v $HOME/.config/opencode/:/root/.config/opencode/:rw,z \
-    -v $HOME/.local/share/opencode/:/root/.local/share/opencode/:rw,z \
-    -v $HOME/.local/state/opencode/:/root/.local/state/opencode/:rw,z \
-    -v $(pwd)/:$(pwd)/:rw,z \
-    -w $(pwd) \
-    opencode-image'
-
 #####
 # Overwrites
 #####
