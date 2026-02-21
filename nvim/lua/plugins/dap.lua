@@ -2,7 +2,7 @@
 return {
 	source = "igorlfs/nvim-dap-view",
 	depends = { "mfussenegger/nvim-dap" },
-	now = function()
+	setup = function()
 		local dap = require("dap")
 
 		-- Setup UI

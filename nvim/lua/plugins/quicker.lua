@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
 	source = "stevearc/quicker.nvim",
-	now = function()
+	setup = function()
 		require("quicker").setup()
 	end,
 }

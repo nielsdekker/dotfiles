@@ -3,7 +3,7 @@ local formatters_for_frontend = { "prettier" }
 --- @type MiniDep
 return {
 	source = "stevearc/conform.nvim",
-	now = function()
+	setup = function()
 		require("conform").setup({
 			format_on_save = {
 				timeout_ms = 3000,

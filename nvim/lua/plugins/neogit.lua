@@ -2,7 +2,7 @@
 return {
 	source = "NeogitOrg/neogit",
 	depends = { "nvim-lua/plenary.nvim" },
-	now = function()
+	setup = function()
 		require("neogit").setup({
 			prompt_force_push = false,
 			integrations = {

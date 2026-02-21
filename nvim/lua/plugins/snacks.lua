@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
 	source = "folke/snacks.nvim",
-	now = function()
+	setup = function()
 		local snacks = require("snacks")
 		snacks.setup({
 			statuscolumn = { enabled = true },

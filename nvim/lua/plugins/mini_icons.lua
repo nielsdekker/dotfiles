@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
 	source = "nvim-mini/mini.nvim",
-	now = function()
+	setup = function()
 		local icons = require("mini.icons")
 
 		icons.setup({

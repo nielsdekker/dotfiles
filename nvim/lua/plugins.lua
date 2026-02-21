@@ -8,10 +8,9 @@
 --- @field hooks? { post_checkout?: function }
 ---
 --- Own settings
---- @field now? function
---- @field later? function
+--- @field setup? function
 
-local add, later, now = require("mini.deps").add, require("mini.deps").later, require("mini.deps").now
+local md = require("mini.deps")
 
 --- Small helper function to load all plugins in the given path
 local function loadForPath(p)
@@ -26,7 +25,7 @@ local function loadForPath(p)
 		local plugin = require("plugins." .. v)
 
 		if plugin.source ~= "mini.nvim" then
-			add({
+			md.add({
 				source = plugin.source,
 				name = plugin.name,
 				depends = plugin.depends,
@@ -35,11 +34,8 @@ local function loadForPath(p)
 			})
 		end
 
-		if plugin.now ~= nil then
-			now(plugin.now)
-		end
-		if plugin.later ~= nil then
-			later(plugin.later)
+		if plugin.setup ~= nil then
+			md.now(plugin.setup)
 		end
 	end
 end

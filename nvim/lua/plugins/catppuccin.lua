@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
 	source = "catppuccin/nvim",
-	now = function()
+	setup = function()
 		-- Yanked from the lsp configuration in Catppuccin plugin
 		local darkening_percentage = 0.095
 		local U = require("catppuccin.utils.colors")
