@@ -23,12 +23,8 @@ end
 
 vim.o.statusline = "%{%v:lua.StatusLine()%}"
 
--- Autocommands
-local statuslineGroup = vim.api.nvim_create_augroup("nelis-statusline", { clear = true })
-
 -- Make sure the status line is updated when the diagnostics change
 vim.api.nvim_create_autocmd("DiagnosticChanged", {
-	group = statuslineGroup,
 	callback = function()
 		S._diagnostics_cache = S.get_diagnostics()
 		vim.cmd("redrawstatus")
@@ -37,8 +33,15 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
 
 -- When we regain focus an actions outside neovim, like a branch switch, could
 -- have occurred.
-vim.api.nvim_create_autocmd({ "FocusGained", "NeogitBranchCheckout" }, {
-	group = statuslineGroup,
+vim.api.nvim_create_autocmd({ "FocusGained" }, {
+	callback = function()
+		S._git_cache = S.get_git_branch_name()
+		vim.cmd("redrawstatus")
+	end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "NeogitBranchCheckout",
 	callback = function()
 		S._git_cache = S.get_git_branch_name()
 		vim.cmd("redrawstatus")

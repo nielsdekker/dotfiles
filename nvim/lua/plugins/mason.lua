@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
 	source = "mason-org/mason.nvim",
-	later = function()
+	now = function()
 		require("mason").setup()
 	end,
 }

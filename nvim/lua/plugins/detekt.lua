@@ -2,7 +2,7 @@
 return {
 	source = "nielsdekker/detekt.nvim",
 	name = "detekt",
-	later = function()
+	now = function()
 		require("detekt").setup({
 			baseline_names = { "detekt-baseline.xml" },
 		})

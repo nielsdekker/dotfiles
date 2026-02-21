@@ -1,7 +1,7 @@
 --- @type MiniDep
 return {
 	source = "nvim-mini/mini.nvim",
-	later = function()
+	now = function()
 		require("mini.surround").setup()
 	end,
 }

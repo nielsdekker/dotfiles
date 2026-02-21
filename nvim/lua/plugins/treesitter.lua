@@ -7,7 +7,7 @@ return {
 			vim.cmd("TSUpdate")
 		end,
 	},
-	later = function()
+	now = function()
 		require("nvim-treesitter").setup()
 
 		-- Autocmd to start treesitter for languages for which a treesitter
