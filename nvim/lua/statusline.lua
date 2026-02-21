@@ -1,10 +1,13 @@
-local S = {}
+local S = {
+	_git_cache = "",
+	_diagnostics_cache = "",
+}
 
 StatusLine = function()
 	local items = {
 		S.get_mode(),
-		S.get_diagnostics(),
-		S.get_git_branch_name(),
+		S._diagnostics_cache,
+		S._git_cache,
 		S.with_hl("%f%m%r", S.groups.default),
 	}
 
@@ -18,14 +21,26 @@ StatusLine = function()
 	return s_line
 end
 
-vim.o.statusline = "%!v:lua.StatusLine()"
+vim.o.statusline = "%{%v:lua.StatusLine()%}"
 
 -- Autocommands
 local statuslineGroup = vim.api.nvim_create_augroup("nelis-statusline", { clear = true })
+
 -- Make sure the status line is updated when the diagnostics change
 vim.api.nvim_create_autocmd("DiagnosticChanged", {
 	group = statuslineGroup,
 	callback = function()
+		S._diagnostics_cache = S.get_diagnostics()
+		vim.cmd("redrawstatus")
+	end,
+})
+
+-- When we regain focus an actions outside neovim, like a branch switch, could
+-- have occurred.
+vim.api.nvim_create_autocmd({ "FocusGained", "NeogitBranchCheckout" }, {
+	group = statuslineGroup,
+	callback = function()
+		S._git_cache = S.get_git_branch_name()
 		vim.cmd("redrawstatus")
 	end,
 })
@@ -63,10 +78,9 @@ end
 
 --- Returns the git branch
 S.get_git_branch_name = function()
-	local branch_name = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
-
-	if branch_name ~= "" then
-		return S.with_hl(S.icons.git .. " " .. branch_name, S.groups.git)
+	local out = vim.system({ "git", "rev-parse", "--abbrev-ref", "HEAD" }, { text = true }):wait()
+	if out.stdout ~= "" then
+		return S.with_hl(S.icons.git .. " " .. vim.trim(out.stdout), S.groups.git)
 	else
 		return ""
 	end
@@ -90,10 +104,6 @@ S.get_diagnostics = function()
 	else
 		return ""
 	end
-end
-
-S.get_cursor_info = function()
-	return S.with_border("[l:%l c:%c]", S.groups.info)
 end
 
 -- Renders the given string with the highlight
