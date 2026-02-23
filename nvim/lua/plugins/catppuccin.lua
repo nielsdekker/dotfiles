@@ -23,7 +23,8 @@ return {
 				return {
 					-- Status line
 					StatusLine = { fg = colors.lavender, bg = colors.base },
-					StatusLineInfo = { fg = colors.lavender },
+					StatusLineInfo = { fg = colors.base, bg = colors.lavender, italic = true },
+					StatusLineInfoInverse = { fg = colors.lavender, bg = colors.base, italic = true },
 					StatusLineGit = { fg = colors.maroon },
 
 					-- Status line modes
