@@ -1,6 +1,6 @@
 --- @type MiniDep
 return {
-	source = "git@github.com:nielsdekker/everhour.nvim.git",
+	source = "git@github.com:hubper/devday-everhour.nvim.git",
 	name = "everhour",
 	setup = function()
 		local token = os.getenv("EVERHOUR_TOKEN")
