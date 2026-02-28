@@ -3,8 +3,37 @@ node = "latest"
 cargo = "latest"
 go = "latest"
 pnpm = "latest"
+uv = "latest"
 
-# Globally installed tools from git
+# Generic tools
 "github:neovim/neovim" = "nightly"
 "github:tree-sitter/tree-sitter" = "latest"
 "github:casey/just" = "latest"
+"pipx:mistral-vibe" = "latest"
+"http:pass-cli" = {
+    version = "1.5.2",
+    url = "https://proton.me/download/pass-cli/{{version}}/pass-cli-{{os()}}-x86_64"
+}
+
+# LSP's
+"aqua:lua-language-server" = "latest"
+"aqua:terraform-ls" = "latest"
+"cargo:just-lsp" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"npm:@typescript/native-preview" = "latest"
+"npm:vscode-json-languageservice" = "latest"
+
+# Kotlin LSP special cause why add a `/bin` folder with executable. That would
+# make things boring.
+"http:kotlin-lsp" = {
+    version = "261.13587.0",
+    url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-lsp-{{version}}-{{os()}}-{{arch()}}.zip",
+    bin = "/bin",
+    postinstall = ''' 
+        cd $MISE_TOOL_INSTALL_PATH;
+        mkdir bin;
+        ln -s "kotlin-lsp.sh" "bin/kotlin-lsp";
+        chmod +x "kotlin-lsp.sh";
+        cd -;
+    '''
+}

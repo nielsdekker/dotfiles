@@ -12,12 +12,8 @@
       "rev": "7f0da8a10f1f5ad49e50073839ddff23ecedc880",
       "src": "git@github.com:hubper/devday-everhour.nvim.git"
     },
-    "mason.nvim": {
-      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
-      "src": "https://github.com/mason-org/mason.nvim"
-    },
     "mini.nvim": {
-      "rev": "a95dc67ecff78de138543a20c20f29f47111b122",
+      "rev": "0098de999048af0539183d625c52d733318a441b",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
@@ -33,7 +29,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "4b2bd1773bbb0e2fa740ed6101dfeb50bd98ac38",
+      "rev": "6be6d3c3583c2f2e3d04baf1ccb5cfe4d077f30a",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-treesitter": {
