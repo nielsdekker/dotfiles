@@ -1,9 +1,17 @@
--- Make sure the mini package for dependencies exists
-require("bootstrap_mini")
-
 require("settings")
 require("keybinds")
-require("plugins")
 require("statusline")
 require("diagnostics")
 require("lsp")
+
+-- Install all the needed plugins
+require("plugins.catppuccin")
+require("plugins.conform")
+require("plugins.dap")
+require("plugins.detekt")
+require("plugins.mason")
+require("plugins.neogit")
+require("plugins.oil")
+require("plugins.quicker")
+require("plugins.snacks")
+require("plugins.treesitter")

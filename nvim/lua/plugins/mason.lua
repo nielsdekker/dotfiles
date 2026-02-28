@@ -1,7 +1,5 @@
---- @type MiniDep
-return {
-	source = "mason-org/mason.nvim",
-	setup = function()
-		require("mason").setup()
-	end,
-}
+vim.pack.add({
+	{ src = "https://github.com/mason-org/mason.nvim" },
+})
+
+require("mason").setup()

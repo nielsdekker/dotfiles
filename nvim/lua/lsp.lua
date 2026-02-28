@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 	end,
 })
 
+-- Enable completion on attach
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(evt)
 		vim.lsp.completion.enable(true, evt.data.client_id, evt.buf, { autotrigger = true })

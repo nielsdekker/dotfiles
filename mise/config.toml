@@ -1,0 +1,9 @@
+[tools]
+node = "latest"
+cargo = "latest"
+go = "latest"
+pnpm = "latest"
+
+# Globally installed tools from git
+"github:neovim/neovim" = "nightly"
+"github:tree-sitter/tree-sitter" = "latest"

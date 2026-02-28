@@ -1,7 +1,5 @@
---- @type MiniDep
-return {
-	source = "stevearc/quicker.nvim",
-	setup = function()
-		require("quicker").setup()
-	end,
-}
+vim.pack.add({
+	{ src = "https://github.com/stevearc/quicker.nvim" },
+})
+
+require("quicker").setup()

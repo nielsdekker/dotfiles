@@ -1,10 +1,7 @@
---- @type MiniDep
-return {
-	source = "nielsdekker/detekt.nvim",
-	name = "detekt",
-	setup = function()
-		require("detekt").setup({
-			baseline_names = { "detekt-baseline.xml" },
-		})
-	end,
-}
+vim.pack.add({
+	{ src = "https://github.com/nielsdekker/detekt.nvim", name = "detekt" },
+})
+
+require("detekt").setup({
+	baseline_names = { "detekt-baseline.xml" },
+})
