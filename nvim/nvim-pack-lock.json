@@ -8,6 +8,10 @@
       "rev": "fdb832b4ef8a9811cf480d46bf84293825aa11bd",
       "src": "https://github.com/nielsdekker/detekt.nvim"
     },
+    "everhour": {
+      "rev": "7f0da8a10f1f5ad49e50073839ddff23ecedc880",
+      "src": "git@github.com:hubper/devday-everhour.nvim.git"
+    },
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
