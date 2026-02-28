@@ -12,6 +12,10 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.nvim": {
+      "rev": "a95dc67ecff78de138543a20c20f29f47111b122",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "neogit": {
       "rev": "515e8cb9c3430a064ec3d9affd499b94f71b3120",
       "src": "https://github.com/NeogitOrg/neogit"

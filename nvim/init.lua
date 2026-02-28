@@ -1,17 +1,10 @@
-require("settings")
-require("keybinds")
-require("statusline")
-require("diagnostics")
-require("lsp")
+require("config.settings")
+require("config.keybinds")
+require("config.statusline")
+require("config.diagnostics")
+require("config.lsp")
 
--- Install all the needed plugins
-require("plugins.catppuccin")
-require("plugins.conform")
-require("plugins.dap")
-require("plugins.detekt")
-require("plugins.mason")
-require("plugins.neogit")
-require("plugins.oil")
-require("plugins.quicker")
-require("plugins.snacks")
-require("plugins.treesitter")
+-- Load all the plugins
+for _, plugin in ipairs(vim.api.nvim_get_runtime_file("lua/plugins/*.lua", true)) do
+	require("plugins." .. vim.fn.fnamemodify(plugin, ":t:r"))
+end

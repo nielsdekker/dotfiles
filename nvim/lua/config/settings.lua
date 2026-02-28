@@ -18,14 +18,13 @@ vim.o.swapfile = false
 -- Tabs and spaces
 vim.o.wrap = false
 vim.o.tabstop = 4
-vim.o.shiftwidth = 0
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "+" }
 
 vim.o.shell = "/bin/zsh"
-vim.o.exrc = true
 vim.o.cursorline = true
 
 -- Autocompletion
@@ -34,8 +33,6 @@ vim.o.completeopt = "fuzzy,menuone,noselect,popup"
 vim.o.pumheight = 8
 
 -- Enable spell checking
-vim.o.spell = true
-vim.o.spelllang = "en,nl"
 vim.o.spelloptions = "camel,noplainbuffer"
 
 -- Make sure terraform files work as intended

@@ -4,13 +4,9 @@
 vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 	once = true,
 	callback = function()
-		local configs = vim.iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
-			:map(function(f)
-				return vim.fn.fnamemodify(f, ":t:r")
-			end)
-			:totable()
-
-		vim.lsp.enable(configs)
+		for _, lsp in ipairs(vim.api.nvim_get_runtime_file("lsp/*.lua", true)) do
+			vim.lsp.enable(vim.fn.fnamemodify(lsp, ":t:r"))
+		end
 	end,
 })
 
