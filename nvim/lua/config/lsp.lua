@@ -16,3 +16,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.lsp.completion.enable(true, evt.data.client_id, evt.buf, { autotrigger = true })
 	end,
 })
+
+-- Integrate with ghostty, yanked from reddit
+vim.api.nvim_create_autocmd("LspProgress", {
+	callback = function(evt)
+		local value = evt.data.params.value or {}
+		local msg = value.message or "done"
+
+		vim.api.nvim_echo({ { msg } }, false, {
+			id = "lsp",
+			kind = "progress",
+			title = value.title,
+			status = value.kind ~= "end" and "running" or "success",
+			percent = value.percentage,
+		})
+	end,
+})

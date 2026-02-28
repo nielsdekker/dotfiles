@@ -41,3 +41,8 @@ vim.filetype.add({
 		tf = "terraform",
 	},
 })
+
+-- Enable the new UI
+require("vim._core.ui2").enable({
+	enable = true,
+})
