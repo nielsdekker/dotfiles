@@ -1,15 +1,14 @@
 [tools]
 node = "latest"
+rust = "latest"
 cargo = "latest"
 go = "latest"
 pnpm = "latest"
-uv = "latest"
 
 # Generic tools
 "github:neovim/neovim" = "nightly"
 "github:tree-sitter/tree-sitter" = "latest"
 "github:casey/just" = "latest"
-"pipx:mistral-vibe" = "latest"
 "http:pass-cli" = {
     version = "1.5.2",
     url = "https://proton.me/download/pass-cli/{{version}}/pass-cli-{{os()}}-x86_64"
@@ -28,12 +27,24 @@ uv = "latest"
 "http:kotlin-lsp" = {
     version = "261.13587.0",
     url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-lsp-{{version}}-{{os()}}-{{arch()}}.zip",
-    bin = "/bin",
     postinstall = ''' 
-        cd $MISE_TOOL_INSTALL_PATH;
-        mkdir bin;
-        ln -s "kotlin-lsp.sh" "bin/kotlin-lsp";
-        chmod +x "kotlin-lsp.sh";
-        cd -;
+        mkdir $MISE_TOOL_INSTALL_PATH/bin;
+        ln -s "$MISE_TOOL_INSTALL_PATH/kotlin-lsp.sh" "$MISE_TOOL_INSTALL_PATH/bin/kotlin-lsp";
+        chmod +x "$MISE_TOOL_INSTALL_PATH/kotlin-lsp.sh";
     '''
 }
+
+# Formatters
+"npm:prettier" = "latest"
+"cargo:stylua" = "latest"
+"github:facebook/ktfmt" = {
+    version = "latest",
+    asset_pattern = "ktfmt-*-with-dependencies.jar",
+    postinstall = ''' 
+        mkdir $MISE_TOOL_INSTALL_PATH/bin;
+        echo "#!/bin/bash" > $MISE_TOOL_INSTALL_PATH/bin/ktfmt
+        echo "java -jar $MISE_TOOL_INSTALL_PATH/ktfmt-${MISE_TOOL_VERSION}-with-dependencies.jar \$@" >> $MISE_TOOL_INSTALL_PATH/bin/ktfmt
+        chmod +x "$MISE_TOOL_INSTALL_PATH/bin/ktfmt";
+    '''
+}
+

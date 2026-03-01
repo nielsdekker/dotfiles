@@ -3,7 +3,7 @@ vim.o.termguicolors = true
 vim.o.ignorecase = true
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 vim.o.laststatus = 3
 vim.o.textwidth = 80
 vim.o.signcolumn = "yes"
@@ -37,12 +37,12 @@ vim.o.spelloptions = "camel,noplainbuffer"
 
 -- Make sure terraform files work as intended
 vim.filetype.add({
-	extension = {
-		tf = "terraform",
-	},
+    extension = {
+        tf = "terraform",
+    },
 })
 
 -- Enable the new UI
 require("vim._core.ui2").enable({
-	enable = true,
+    enable = true,
 })
