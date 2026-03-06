@@ -4,6 +4,7 @@ rust = "latest"
 cargo = "latest"
 go = "latest"
 pnpm = "latest"
+uv = "latest"
 
 # Generic tools
 "github:neovim/neovim" = "nightly"
@@ -13,6 +14,7 @@ pnpm = "latest"
     version = "1.5.2",
     url = "https://proton.me/download/pass-cli/{{version}}/pass-cli-{{os()}}-x86_64"
 }
+"pipx:mistral-vibe" = "latest"
 
 # LSP's
 "aqua:lua-language-server" = "latest"
@@ -27,7 +29,7 @@ pnpm = "latest"
 "http:kotlin-lsp" = {
     version = "261.13587.0",
     url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-lsp-{{version}}-{{os()}}-{{arch()}}.zip",
-    postinstall = ''' 
+    postinstall = '''  
         mkdir $MISE_TOOL_INSTALL_PATH/bin;
         ln -s "$MISE_TOOL_INSTALL_PATH/kotlin-lsp.sh" "$MISE_TOOL_INSTALL_PATH/bin/kotlin-lsp";
         chmod +x "$MISE_TOOL_INSTALL_PATH/kotlin-lsp.sh";
@@ -40,8 +42,8 @@ pnpm = "latest"
 "github:facebook/ktfmt" = {
     version = "latest",
     asset_pattern = "ktfmt-*-with-dependencies.jar",
-    postinstall = ''' 
-        mkdir $MISE_TOOL_INSTALL_PATH/bin
+    postinstall = '''  
+        mkdir $MISE_TOOL_INSTALL_PATH/bin;
         echo "#!/bin/bash" > $MISE_TOOL_INSTALL_PATH/bin/ktfmt
         echo "java -jar $MISE_TOOL_INSTALL_PATH/ktfmt-${MISE_TOOL_VERSION}-with-dependencies.jar \$@" >> $MISE_TOOL_INSTALL_PATH/bin/ktfmt
         chmod +x "$MISE_TOOL_INSTALL_PATH/bin/ktfmt"
@@ -58,3 +60,29 @@ pnpm = "latest"
     '''
 }
 
+[tasks.vibe]
+description = "Runs the mistral vibe CLI tool in a bubblewrap sandbox"
+run = '''
+bwrap \
+    --unshare-all \
+    --share-net \
+    --die-with-parent \
+    --new-session \
+    --dev /dev \
+    --proc /proc \
+    --ro-bind /usr /usr \
+    --ro-bind /etc /etc \
+    --ro-bind /lib /lib \
+    --ro-bind /lib64 /lib64 \
+    --ro-bind /run /run \
+    --bind /tmp /tmp \
+    --ro-bind $HOME/.local/share/uv $HOME/.local/share/uv \
+    --ro-bind $HOME/.local/share/mise/installs $HOME/.local/share/mise/installs \
+    --bind $HOME/.vibe $HOME/.vibe \
+    --bind $(pwd) $(pwd) \
+    --clearenv \
+    --setenv HOME $HOME \
+    --setenv PATH $PATH \
+    --setenv TERM $TERM \
+    vibe
+'''
