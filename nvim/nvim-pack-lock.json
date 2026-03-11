@@ -1,7 +1,7 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "e969e302bced7ffb9a0a0323629f31feb0ca35a6",
+      "rev": "40dcec5555f960b0a04340d76eabdf4efe78599d",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "detekt": {
@@ -13,7 +13,7 @@
       "src": "git@github.com:hubper/devday-everhour.nvim.git"
     },
     "mini.nvim": {
-      "rev": "0098de999048af0539183d625c52d733318a441b",
+      "rev": "cad365c212fb1e332cb93fa8f72697125799d00a",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
@@ -29,11 +29,11 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "6be6d3c3583c2f2e3d04baf1ccb5cfe4d077f30a",
+      "rev": "2e034869cee524df5c61d54429c797f4f2f016d7",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-treesitter": {
-      "rev": "6bc51d020a5e06b7e20ea82dbc47196d3d3027c7",
+      "rev": "972f378653c794b0ff82282a844732695064b70f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },

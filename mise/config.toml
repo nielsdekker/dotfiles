@@ -24,6 +24,17 @@ uv = "latest"
 "npm:@typescript/native-preview" = "latest"
 "npm:vscode-json-languageservice" = "latest"
 
+"http:yaml-language-server" = {
+    version = "1.21.0",
+    url = "https://github.com/redhat-developer/yaml-language-server/archive/refs/tags/{{version}}.zip",
+    postinstall = '''
+        cd $MISE_TOOL_INSTALL_PATH;
+        npm install;
+        npm run build;
+        cd -;
+    '''
+}
+
 # Kotlin LSP special cause why add a `/bin` folder with executable. That would
 # make things boring.
 "http:kotlin-lsp" = {
