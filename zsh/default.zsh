@@ -5,6 +5,8 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 setopt PROMPT_SUBST
 zstyle ':vcs_info:git:*' formats '[%b]'
 

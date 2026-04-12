@@ -28,21 +28,24 @@ vim.o.shell = "/bin/zsh"
 vim.o.cursorline = true
 
 -- Autocompletion
-vim.o.complete = "."
+vim.o.autocomplete = true
+vim.o.complete = "o"
 vim.o.completeopt = "fuzzy,menuone,noselect,popup"
 vim.o.pumheight = 8
 
 -- Enable spell checking
+vim.o.spell = true
+vim.o.spelllang = "en,nl"
 vim.o.spelloptions = "camel,noplainbuffer"
 
 -- Make sure terraform files work as intended
 vim.filetype.add({
-    extension = {
-        tf = "terraform",
-    },
+	extension = {
+		tf = "terraform",
+	},
 })
 
 -- Enable the new UI
 require("vim._core.ui2").enable({
-    enable = true,
+	enable = true,
 })

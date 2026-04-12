@@ -23,6 +23,11 @@ map("n", "-", function()
 	require("oil").open()
 end)
 
+-- Open undotree
+map("n", "<leader>u", function()
+	require("undotree").open()
+end)
+
 -- Use // to reset the highlight and search
 map("n", "//", function()
 	vim.cmd('let @/ = ""')
