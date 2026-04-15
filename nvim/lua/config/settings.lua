@@ -14,6 +14,7 @@ vim.o.sidescrolloff = 8
 vim.o.mousescroll = "ver:1,hor:1"
 vim.o.updatetime = 1000
 vim.o.swapfile = false
+vim.o.switchbuf = ""
 
 -- Tabs and spaces
 vim.o.wrap = false
@@ -29,7 +30,7 @@ vim.o.cursorline = true
 
 -- Autocompletion
 vim.o.autocomplete = true
-vim.o.complete = "o"
+vim.o.complete = "o,.^5"
 vim.o.completeopt = "fuzzy,menuone,noselect,popup"
 vim.o.pumheight = 8
 
@@ -40,12 +41,12 @@ vim.o.spelloptions = "camel,noplainbuffer"
 
 -- Make sure terraform files work as intended
 vim.filetype.add({
-	extension = {
-		tf = "terraform",
-	},
+    extension = {
+        tf = "terraform",
+    },
 })
 
 -- Enable the new UI
 require("vim._core.ui2").enable({
-	enable = true,
+    enable = true,
 })

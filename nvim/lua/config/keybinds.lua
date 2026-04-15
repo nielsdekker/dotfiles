@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 local feedkeys = function(keys)
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
 end
 
 vim.g.mapleader = " "
@@ -20,66 +20,72 @@ map("v", "<leader>y", '"+y')
 
 -- Open oil
 map("n", "-", function()
-	require("oil").open()
+    require("oil").open(nil, {
+        preview = {
+            horizontal = true,
+            split = "belowright"
+        }
+    })
 end)
 
 -- Open undotree
 map("n", "<leader>u", function()
-	require("undotree").open()
+    require("undotree").open()
 end)
 
 -- Use // to reset the highlight and search
 map("n", "//", function()
-	vim.cmd('let @/ = ""')
+    vim.cmd('let @/ = ""')
 end)
 
 -- Remap the spell suggest to snacks
 map("n", "z=", function()
-	require("snacks").picker.spelling()
+    require("snacks").picker.spelling()
 end)
-
--- Goto
-map("n", "gd", function()
-	require("snacks").picker.lsp_definitions()
-end, { silent = true })
-map("n", "gr", function()
-	require("snacks").picker.lsp_references()
-end, { silent = true })
 
 -- LSP completion
 map("i", "<C-Space>", function()
-	return vim.fn.pumvisible() > 0 and "<C-n>" or "<C-x><C-o>"
+    return vim.fn.pumvisible() > 0 and "<C-n>" or "<C-x><C-o>"
 end, { expr = true })
 
 map("i", "<Tab>", function()
-	if vim.fn.pumvisible() > 0 then
-		feedkeys("<C-n>")
-	elseif vim.snippet.active({ direction = 1 }) then
-		vim.snippet.jump(1)
-	else
-		feedkeys("<Tab>")
-	end
+    if vim.fn.pumvisible() > 0 then
+        feedkeys("<C-n>")
+    elseif vim.snippet.active({ direction = 1 }) then
+        vim.snippet.jump(1)
+    else
+        feedkeys("<Tab>")
+    end
 end, { silent = true })
 
 map("i", "<S-Tab>", function()
-	if vim.fn.pumvisible() > 0 then
-		feedkeys("<C-p>")
-	elseif vim.snippet.active({ direction = -1 }) then
-		vim.snippet.jump(-1)
-	else
-		feedkeys("<S-Tab>")
-	end
+    if vim.fn.pumvisible() > 0 then
+        feedkeys("<C-p>")
+    elseif vim.snippet.active({ direction = -1 }) then
+        vim.snippet.jump(-1)
+    else
+        feedkeys("<S-Tab>")
+    end
 end, { silent = true })
 
 map("i", "<cr>", function()
-	return vim.fn.pumvisible() > 0 and "<C-y>" or "<cr>"
+    return vim.fn.pumvisible() > 0 and "<C-y>" or "<cr>"
 end, { expr = true })
 
 -- Fixes snippets staying active after escape
 map("i", "<Esc>", function()
-	vim.snippet.stop()
-	return "<Esc>"
+    vim.snippet.stop()
+    return "<Esc>"
 end, { expr = true })
+
+-- Helpers for quickfix
+map("n", "<C-n>", function()
+    vim.cmd("cnext")
+end)
+
+map("n", "<C-p>", function()
+    vim.cmd("cprev")
+end)
 
 ---------------------
 -- W is for [W]indows
@@ -99,7 +105,7 @@ map("n", "<leader>w=", "<C-w>=")
 
 -- Tool windows
 map("n", "<leader>wd", function()
-	require("dap-view").toggle()
+    require("dap-view").toggle()
 end)
 
 -----------------
@@ -107,7 +113,7 @@ end)
 -----------------
 
 map("n", "<leader>gs", function()
-	require("neogit").open()
+    require("neogit").open()
 end)
 
 ---------------------------
@@ -115,47 +121,40 @@ end)
 ---------------------------
 
 map("n", "<leader>ff", function()
-	require("snacks").picker.files()
+    require("snacks").picker.files()
 end)
 map("n", "<leader>fs", function()
-	require("snacks").picker.grep()
+    require("snacks").picker.grep()
 end)
 map("n", "<leader>fh", function()
-	require("snacks").picker.help()
+    require("snacks").picker.help()
 end)
 map("n", "<leader>fb", function()
-	require("snacks").picker.buffers()
+    require("snacks").picker.buffers()
 end)
 map("n", "<leader>fk", function()
-	require("snacks").picker.commands()
+    require("snacks").picker.commands()
 end)
 map("n", "<leader>fd", function()
-	require("snacks").picker.diagnostics()
+    require("snacks").picker.diagnostics()
 end)
-
---------------------------
--- C Is for [C]ode actions
---------------------------
-
-map("n", "<leader>cr", vim.lsp.buf.rename)
-map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 -----------------------
 -- D is for [D]ebugging
 -----------------------
 
 map("n", "<leader>dc", function()
-	require("dap").continue()
+    require("dap").continue()
 end, { silent = true }) -- debug continue
 map("n", "<leader>dj", function()
-	require("dap").step_over()
+    require("dap").step_over()
 end, { silent = true }) -- debug over
 map("n", "<leader>dl", function()
-	require("dap").step_into()
+    require("dap").step_into()
 end, { silent = true }) -- debug into
 map("n", "<leader>dh", function()
-	require("dap").step_out()
+    require("dap").step_out()
 end, { silent = true }) -- debug exit
 map("n", "<leader>dt", function()
-	require("dap").toggle_breakpoint()
+    require("dap").toggle_breakpoint()
 end, { silent = true }) -- debug toggle
