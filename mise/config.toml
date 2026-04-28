@@ -18,6 +18,8 @@ uv = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@typescript/native-preview" = "latest"
 "npm:vscode-json-languageservice" = "latest"
+"npm:prettier" = "latest"
+"cargo:stylua" = "latest"
 
 [tools."http:yaml-language-server"]
 version = "1.21.0"
@@ -29,19 +31,10 @@ postinstall = '''
     cd -;
 '''
 
-# Formatters and linters
-"npm:prettier" = "latest"
-"cargo:stylua" = "latest"
-
 # Java and kotlin stuff that need special attention
 [tools."http:kotlin-lsp"]
-version = "262.2310.0"
-url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-lsp-{{version}}-{{os()}}-{{arch()}}.zip"
-postinstall = '''
-    mkdir $MISE_TOOL_INSTALL_PATH/bin;
-    ln -s "$MISE_TOOL_INSTALL_PATH/kotlin-lsp.sh" "$MISE_TOOL_INSTALL_PATH/bin/kotlin-lsp";
-    chmod +x "$MISE_TOOL_INSTALL_PATH/kotlin-lsp.sh";
-'''
+version = "262.4739.0"
+url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-server-{{version}}.tar.gz"
 
 [tools."github:facebook/ktfmt"]
 version = "latest"
