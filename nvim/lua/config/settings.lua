@@ -1,43 +1,43 @@
 -- window
-vim.o.termguicolors = true
-vim.o.ignorecase = true
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.cmdheight = 1
-vim.o.laststatus = 3
-vim.o.textwidth = 80
-vim.o.signcolumn = "yes"
-vim.o.winborder = "solid"
-vim.o.fillchars = "eob: "
-vim.o.scrolloff = 8
-vim.o.sidescrolloff = 8
-vim.o.mousescroll = "ver:1,hor:1"
-vim.o.updatetime = 1000
-vim.o.swapfile = false
-vim.o.switchbuf = ""
+vim.opt.termguicolors = true
+vim.opt.ignorecase = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 3
+vim.opt.textwidth = 80
+vim.opt.signcolumn = "yes"
+vim.opt.winborder = "solid"
+vim.opt.fillchars = "eob: "
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+vim.opt.mousescroll = "ver:1,hor:1"
+vim.opt.updatetime = 1000
+vim.opt.swapfile = false
+vim.opt.switchbuf = ""
 
 -- Tabs and spaces
-vim.o.wrap = false
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.smarttab = true
-vim.o.list = true
+vim.opt.wrap = false
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "+" }
 
-vim.o.shell = "/bin/zsh"
-vim.o.cursorline = true
+vim.opt.shell = "/bin/zsh"
+vim.opt.cursorline = true
 
 -- Autocompletion
-vim.o.autocomplete = true
-vim.o.complete = "o,.^5"
-vim.o.completeopt = "fuzzy,menuone,noselect,popup"
-vim.o.pumheight = 8
+vim.opt.autocomplete = true
+vim.opt.complete = "o,.^5"
+vim.opt.completeopt = "fuzzy,menuone,noselect,popup"
+vim.opt.pumheight = 8
 
 -- Enable spell checking
-vim.o.spell = true
-vim.o.spelllang = "en,nl"
-vim.o.spelloptions = "camel,noplainbuffer"
+vim.opt.spell = true
+vim.opt.spelllang = "en,nl"
+vim.opt.spelloptions = "camel,noplainbuffer"
 
 -- Make sure terraform files work as intended
 vim.filetype.add({

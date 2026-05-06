@@ -4,7 +4,6 @@ rust = "latest"
 cargo = "latest"
 go = "latest"
 pnpm = "latest"
-uv = "latest"
 
 # Generic tools
 "github:neovim/neovim" = "0.12"
@@ -20,6 +19,7 @@ uv = "latest"
 "npm:vscode-json-languageservice" = "latest"
 "npm:prettier" = "latest"
 "cargo:stylua" = "latest"
+"pipx:python-lsp-server" = "latest"
 
 [tools."http:yaml-language-server"]
 version = "1.21.0"

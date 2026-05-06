@@ -1,9 +1,9 @@
 vim.pack.add({
-	{ src = "https://github.com/stevearc/oil.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
 })
 
 require("oil").setup({
-	view_options = {
-		show_hidden = true,
-	},
+    view_options = {
+        show_hidden = true,
+    },
 })
