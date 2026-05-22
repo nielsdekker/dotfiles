@@ -1,7 +1,10 @@
+[settings]
+minimum_release_age = "14d"
+
 [tools]
 node = "latest"
 rust = "latest"
-cargo = "latest"
+cargo-dist = "latest"
 go = "latest"
 pnpm = "latest"
 
@@ -37,7 +40,7 @@ version = "262.4739.0"
 url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-server-{{version}}.tar.gz"
 
 [tools."github:facebook/ktfmt"]
-version = "latest"
+version = "0.59"
 asset_pattern = "ktfmt-*-with-dependencies.jar"
 postinstall = '''
     mkdir $MISE_TOOL_INSTALL_PATH/bin;
