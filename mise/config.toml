@@ -1,5 +1,5 @@
 [settings]
-minimum_release_age = "14d"
+minimum_release_age = "7d"
 
 [tools]
 node = "latest"
@@ -11,13 +11,11 @@ pnpm = "latest"
 # Generic tools
 "github:neovim/neovim" = "0.12"
 "github:tree-sitter/tree-sitter" = "latest"
-"github:casey/just" = "latest"
 
 # LSP's
 "aqua:lua-language-server" = "latest"
-"aqua:terraform-ls" = "latest"
-"cargo:just-lsp" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
+"go:github.com/go-delve/delve/cmd/dlv" = "latest"
 "npm:@typescript/native-preview" = "latest"
 "npm:vscode-json-languageservice" = "latest"
 "npm:prettier" = "latest"
@@ -32,29 +30,4 @@ postinstall = '''
     npm install;
     npm run build;
     cd -;
-'''
-
-# Java and kotlin stuff that need special attention
-[tools."http:kotlin-lsp"]
-version = "262.4739.0"
-url = "https://download-cdn.jetbrains.com/kotlin-lsp/{{version}}/kotlin-server-{{version}}.tar.gz"
-
-[tools."github:facebook/ktfmt"]
-version = "0.59"
-asset_pattern = "ktfmt-*-with-dependencies.jar"
-postinstall = '''
-    mkdir $MISE_TOOL_INSTALL_PATH/bin;
-    echo "#!/bin/bash" > $MISE_TOOL_INSTALL_PATH/bin/ktfmt
-    echo "java -jar $MISE_TOOL_INSTALL_PATH/ktfmt-${MISE_TOOL_VERSION}-with-dependencies.jar \$@" >> $MISE_TOOL_INSTALL_PATH/bin/ktfmt
-    chmod +x "$MISE_TOOL_INSTALL_PATH/bin/ktfmt"
-'''
-
-[tools."github:detekt/detekt"]
-version = "latest"
-asset_pattern = "detekt-cli-*-all.jar"
-postinstall = '''
-    mkdir $MISE_TOOL_INSTALL_PATH/bin
-    echo "#!/bin/bash" > $MISE_TOOL_INSTALL_PATH/bin/detekt
-    echo "java -jar $MISE_TOOL_INSTALL_PATH/detekt-cli-${MISE_TOOL_VERSION}-all.jar \$@" >> $MISE_TOOL_INSTALL_PATH/bin/detekt
-    chmod +x "$MISE_TOOL_INSTALL_PATH/bin/detekt"
 '''
