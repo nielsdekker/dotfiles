@@ -2,11 +2,9 @@
 minimum_release_age = "7d"
 
 [tools]
-node = "latest"
 rust = "latest"
 cargo-dist = "latest"
 go = "latest"
-pnpm = "latest"
 
 # Generic tools
 "github:neovim/neovim" = "0.12"
@@ -16,18 +14,4 @@ pnpm = "latest"
 "aqua:lua-language-server" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "go:github.com/go-delve/delve/cmd/dlv" = "latest"
-"npm:@typescript/native-preview" = "latest"
-"npm:vscode-json-languageservice" = "latest"
-"npm:prettier" = "latest"
-"cargo:stylua" = "latest"
 "pipx:python-lsp-server" = "latest"
-
-[tools."http:yaml-language-server"]
-version = "1.21.0"
-url = "https://github.com/redhat-developer/yaml-language-server/archive/refs/tags/{{version}}.zip"
-postinstall = '''
-    cd $MISE_TOOL_INSTALL_PATH;
-    npm install;
-    npm run build;
-    cd -;
-'''
