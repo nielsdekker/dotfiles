@@ -1,4 +1,6 @@
+#########
 # Theming
+#########
 theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
 font-family = "Iosevka Medium"
 font-size = 13
@@ -8,7 +10,9 @@ window-theme = ghostty
 
 gtk-titlebar-style = tabs
 
+##################
 # General settings
+##################
 copy-on-select = clipboard
 window-new-tab-position = end
 mouse-hide-while-typing = true

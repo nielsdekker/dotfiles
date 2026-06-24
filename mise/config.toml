@@ -5,6 +5,7 @@ minimum_release_age = "7d"
 rust = "latest"
 cargo-dist = "latest"
 go = "latest"
+node = "latest"
 
 # Generic tools
 "github:neovim/neovim" = "0.12"
