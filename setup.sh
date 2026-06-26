@@ -28,9 +28,12 @@ function main {
         if [[ ! -d ~/dotfiles ]]; then
             cd ~
             git clone https://github.com/nielsdekker/dotfiles.git
+            
+            cd ~/dotfiles
+            git remote set-url origin git@github.com:nielsdekker/dotfiles.git
+        else
+            cd ~/dotfiles
         fi
-
-        cd ~/dotfiles
     fi
 
     log ""
