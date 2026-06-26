@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -u
 
 # Setup script voor nieuwe installaties. Script zou hufter-proof genoeg moeten
 # zijn om meerdere keren uit te voeren. De volgende stappen worden gedaan:
@@ -78,12 +78,14 @@ function setup_flatpak {
 	sudo flatpak remote-modify --no-filter --disable fedora fedora-testing
 
 	log "Installeer minimale software"
-	flatpak install -y \
+	flatpak install --user -y \
 		be.alexandervanhee.gradia \
 		com.github.marhkb.Pods \
 		com.github.tchx84.Flatseal \
 		com.mattjakeman.ExtensionManager \
-		org.mozilla.firefox
+		org.mozilla.firefox \
+        ca.desrt.dconf-editor \
+        page.tesk.Refine
 }
 
 function setup_packages {
@@ -118,34 +120,27 @@ function setup_gnome {
 }
 
 function setup_config {
-	ln_conf "nvim" "$HOME/.config/nvim"
-	ln_conf "ghostty" "$HOME/.var/app/com.mitchellh.ghostty/config"
+    # nvim
+    if [[ ! -d "$HOME/.config/nvim/" ]]; then
+        ln -s "$(pwd)/nvim/" "$HOME/.config/nvim"
+    fi
+
+    if [[ ! -d "$HOME/.var/app/com.mitchellh.ghostty/config/ghostty/" ]]; then
+        mkdir -p "$HOME/.var/app/com.mitchellh.ghostty/config/"
+        ln -s "$(pwd)/ghostty/" "$HOME/.var/app/com.mitchellh.ghostty/config/ghostty"
+    fi
 
     # .Bashrc is een directe link
     rm ~/.bashrc
-    ln -s bash/bashrc ~/.bashrc
+    ln -s $(pwd)/bash/bashrc ~/.bashrc
 }
 
 function install_fonts {
     if [[ ! -f ~/.local/share/fonts/Iosevka-Regular.ttc ]]; then
         curl -L "https://github.com/be5invis/Iosevka/releases/download/v34.6.3/PkgTTC-Iosevka-34.6.3.zip" -o iosevka.zip
         unzip iosevka.zip -d ~/.local/share/fonts/
+        rm iosevka.zip
     fi
-}
-
-function ln_conf {
-	NAME=$1
-	TARGET=$2
-
-	if [[ ! -d $TARGET ]]; then
-		log "Config voor $NAME wordt gelinkt aan $TARGET"
-
-		# Zorg dat de folder bestaat
-		mkdir -p $(dirname $TARGET)
-
-		# En link alles
-		ln -s "$(pwd)/$NAME" $TARGET
-	fi
 }
 
 function install_gnome_extension {
