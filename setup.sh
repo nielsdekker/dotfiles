@@ -87,8 +87,7 @@ function setup_flatpak {
 		com.github.tchx84.Flatseal \
 		com.mattjakeman.ExtensionManager \
 		org.mozilla.firefox \
-        ca.desrt.dconf-editor \
-        page.tesk.Refine
+        ca.desrt.dconf-editor
 }
 
 function setup_packages {
@@ -101,7 +100,9 @@ function setup_packages {
 	sudo $DNF install \
 		neovim \
 		fzf \
-		rg
+	    ripgrep \
+        cava \
+        gnome-tweaks
 }
 
 function setup_gnome {
@@ -123,12 +124,15 @@ function setup_gnome {
 }
 
 function setup_config {
-    # nvim
+    # Nvim
     if [[ ! -d "$HOME/.config/nvim/" ]]; then
+        log "Link nvim config folder (~/.config/nvim -> dotfiles/nvim)"
         ln -s "$(pwd)/nvim/" "$HOME/.config/nvim"
     fi
 
+    # Ghostty
     if [[ ! -d "$HOME/.var/app/com.mitchellh.ghostty/config/ghostty/" ]]; then
+        log "Link ghostty config folder (~/.var/app/com.ghostty/config/ghostty -> dotfiles/ghostty)"
         mkdir -p "$HOME/.var/app/com.mitchellh.ghostty/config/"
         ln -s "$(pwd)/ghostty/" "$HOME/.var/app/com.mitchellh.ghostty/config/ghostty"
     fi
