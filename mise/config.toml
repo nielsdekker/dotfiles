@@ -8,7 +8,6 @@ go = "latest"
 node = "latest"
 
 # Generic tools
-"github:neovim/neovim" = "0.12"
 "github:tree-sitter/tree-sitter" = "latest"
 
 # LSP's

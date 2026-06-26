@@ -1,0 +1,38 @@
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Keybinds
+bind TAB:menu-complete
+bind '"\e[Z":menu-complete-backward'
+
+# Settings
+set completion-ignore-case on
+set menu-complete-display-prefix on
+set show-all-if-unmodified on
+
+# Shared history
+shopt -s histappend
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# PS1
+PS1="\n"
+PS1+='`if [ -n "$(jobs -p)" ]; then echo "\e[0;33m[\j]\e[0m "; fi`'
+PS1+="\e[0;36m\w\e[0m"
+PS1+='`if [ -n "$(git branch --show-current 2>/dev/null)" ]; then echo " \e[0;31m[$(git branch --show-current)]\e[0m"; fi`'
+PS1+="\n"
+PS1+='`if [[ -f "/run/.toolboxenv" ]]; then echo "\e[0;35mtlbx "; fi`'
+PS1+="•\e[0m "
+
+# Aliases
+alias gs='git switch'
+alias gp='git fetch; git pull;'
+alias gm='git merge'
+alias n='nvim'
