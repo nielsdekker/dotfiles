@@ -11,11 +11,6 @@ set -u
 # - Installeer dependencies die we niet met flatpak willen
 # - Symlink de dotfile config  folders naar de juiste plek
 function main {
-    DNF=$(which dnf)
-    if [[ -z $DNF ]]; then
-    	DNF=$(which rpm-ostree)	
-    fi
-
     # Zorg dat we in de juiste folder zitten
     cd $(dirname $0)
 
@@ -40,7 +35,7 @@ function main {
     log "Huidige directory: $(pwd)"
 	log "- Commando's worden allemaal vanuit \"$(dirname $0)\" folder uitgevoerd"
 	log "- Aantal commands zullen \"sudo\" gebruiken dus verwacht een password prompt"
-	log "- $DNF wordt gebruikt voor het installeren van packages"
+	log "- rpm-ostree wordt gebruikt voor het installeren van packages"
 
 	setup_packages
 	setup_flatpak
@@ -76,7 +71,7 @@ function setup_flatpak {
 	sudo flatpak remote-modify --no-filter --enable flathub
 	TO_REINSTALL=$(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1)
 	if [[ -n $TO_REINSTALL ]]; then
-		sudo flatpak install -y --reinstall flathub $TO_REINSTALL
+		flatpak install -y --user --reinstall flathub $TO_REINSTALL
 	fi
 	sudo flatpak remote-modify --no-filter --disable fedora fedora-testing
 
@@ -94,10 +89,10 @@ function setup_packages {
 	log "Verwijder standaard packages die we niet gebruiken"
 
 	# Firefox komt mee met de flatpak
-	sudo $DNF remove -y firefox
+	rpm-ostree override remove -y firefox firefox-langpacks
 
 	# Installeer alle packages
-	sudo $DNF install \
+	rpm-ostree install \
 		neovim \
 		fzf \
 	    ripgrep \
@@ -114,13 +109,14 @@ function setup_gnome {
 	install_gnome_extension "AlphabeticalAppGrid@stuarthayhurst"
 
     log "Zet wallpapers in ~/.local/share/backgrounds/"
-    for WP in $(ls wallpapers); do
-        cp wallpapers/$WP ~/.local/share/backgrounds
+    mkdir -p ~/.local/share/backgrounds
+    for WP in $(/bin/ls wallpapers); do
+        cp wallpapers/$WP ~/.local/share/backgrounds/$WP
     done
 
-	log "Setup alle gnome dconf data"
-	dconf load / < gnome/gnome.ini
-	dconf load / < gnome/extensions.ini
+    log "Setup alle gnome dconf data"
+    dconf load / < gnome/gnome.ini
+    dconf load / < gnome/extensions.ini
 }
 
 function setup_config {

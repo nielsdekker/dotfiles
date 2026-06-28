@@ -30,7 +30,7 @@ PS1+="\e[0;36m\w\e[0m"
 PS1+='`if [ -n "$(git branch --show-current 2>/dev/null)" ]; then echo " \e[0;31m[$(git branch --show-current)]\e[0m"; fi`'
 PS1+="\n"
 PS1+='`if [[ -f "/run/.toolboxenv" ]]; then echo "\e[0;35mtlbx "; fi`'
-PS1+="•\e[0m "
+PS1+="• "
 
 # Aliases
 alias gs='git switch'
