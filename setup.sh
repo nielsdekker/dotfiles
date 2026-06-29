@@ -47,24 +47,6 @@ function main {
     log "En klaar :)"
 }
 
-function setup_tlbx {
-	log "Maak alle toolbox containers opnieuw aan"
-
-	for IMG in $(ls toolbx); do
-		NAME="${IMG%.dockerfile}"
-
-		podman stop $NAME
-		podman rm $NAME
-		toolbox rm $NAME
-		podman build -f toolbx/$IMG -t localhost/$NAME toolbx/.
-
-		if [[ $$NAME != *"base"* ]]; then \
-			echo "Also creating toolbox container for $NAME"
-			toolbox create --image localhost/$NAME $NAME
-		fi
-	done
-	log "Containers aangemaakt"
-}
 
 function setup_flatpak {
 	log "Schakel fedora uit en zet alles op de flathub remote"

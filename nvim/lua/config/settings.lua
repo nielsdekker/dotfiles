@@ -25,7 +25,7 @@ vim.opt.smarttab = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "+" }
 
-vim.opt.shell = "/bin/zsh"
+vim.opt.shell = "/bin/bash"
 vim.opt.cursorline = true
 
 -- Autocompletion

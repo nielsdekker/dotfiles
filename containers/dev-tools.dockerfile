@@ -6,7 +6,8 @@ FROM localhost/alpine-base:latest
 RUN apk add \
     nodejs \
     go \
-    npm
+    npm \
+    neovim
 
 # Voeg LSP's/formatters toe die een package hebben
 RUN apk add \

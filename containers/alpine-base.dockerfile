@@ -11,5 +11,7 @@ RUN apk add \
 	fzf \
     zsh \
 	libcap \
+    shadow \
     bash \
-    shadow
+    bash-completion \
+    gcompat
