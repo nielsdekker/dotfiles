@@ -40,7 +40,6 @@ function main {
 	setup_packages
 	setup_flatpak
 	setup_gnome
-	setup_tlbx
 	setup_config
     install_fonts
 
