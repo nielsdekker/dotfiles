@@ -1,6 +1,6 @@
 --- @type vim.lsp.Config
 return {
-    cmd = { "pod-dev-tools", "lua-language-server" },
+    cmd = { "lua-language-server" },
     filetypes = { "lua" },
     root_markers = { "init.lua", ".nvim.lua", ".git" },
     settings = {

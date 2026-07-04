@@ -8,24 +8,14 @@ require("conform").setup({
         lsp_format = "fallback",
     },
     formatters_by_ft = {
-        json = { "podPrettier" },
-        javascript = { "podPrettier" },
-        typescript = { "podPrettier" },
-        javascriptreact = { "podPrettier" },
-        typescriptreact = { "podPrettier" },
-        html = { "podPrettier" },
-        yaml = { "podPrettier" },
-        markdown = { "podPrettier" },
-        go = { "podGofmt" },
-    },
-    formatters = {
-        podPrettier = {
-            command = "pod-dev-tools",
-            args = { "prettier", "--stdin-filepath", "$FILENAME" }
-        },
-        podGofmt = {
-            command = "pod-dev-tools",
-            args = { "gofmt" }
-        }
+        json = { "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        html = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        go = { "gofmt" },
     }
 })

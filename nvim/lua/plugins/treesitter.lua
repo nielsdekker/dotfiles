@@ -17,23 +17,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install({
-	"bash",
-	"dtd",
-	"go",
-	"java",
-	"javascript",
-	"json",
-	"jsx",
-	"kotlin",
-	"lua",
-	"markdown",
-	"markdown_inline",
-	"python",
-	"sql",
-	"typescript",
-	"xml",
-})
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
