@@ -28,11 +28,6 @@ for IMG in $(/usr/bin/ls containers | grep '.dockerfile'); do
         --build-arg HOME=$HOME \
         --build-arg UID=$(id -u) \
         .
-
-    EXE="$HOME/.local/bin/$NAME"
-    echo "Maak een executable aan"
-    echo "$POD_EXE localhost/$NAME $NAME \$@" > $EXE
-    chmod +x $EXE
 done
 
 echo "Containers aangemaakt"

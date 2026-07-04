@@ -18,6 +18,7 @@ RUN apk add \
     neovim \
     nodejs \
     npm \
+    openssh \
     prettier \
     python3 \
     ripgrep \
@@ -42,7 +43,7 @@ COPY nvim/ ${HOME}/.config/nvim
 
 # Installeer de plugins en treesitter parsers
 RUN nvim --headless --cmd 'lua vim.pack.update()' +qa
-RUN nvim --headless --cmd 'lua require("nvim-treesitter").install({ "bash", "dtd", "go", "javascript", "json", "jsx", "python", "sql", "typescript", "xml" })' +qa
+RUN nvim --headless +'lua require("nvim-treesitter").install({ "bash", "dtd", "go", "javascript", "json", "jsx", "python", "sql", "typescript", "xml" })' +qa
 
 # Fix home permissies
 RUN chown -R ${UID}:${UID} ${HOME}
