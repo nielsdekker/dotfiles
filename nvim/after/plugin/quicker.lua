@@ -1,7 +1,3 @@
-vim.pack.add({
-    { src = "https://github.com/stevearc/quicker.nvim" },
-})
-
 local q = require("quicker")
 local default_opts = { before = 3, after = 3 }
 

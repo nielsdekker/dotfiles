@@ -23,7 +23,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "+" }
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "+" }
 
 vim.opt.shell = "/bin/bash"
 vim.opt.cursorline = true
@@ -38,13 +38,6 @@ vim.opt.pumheight = 8
 vim.opt.spell = true
 vim.opt.spelllang = "en,nl"
 vim.opt.spelloptions = "camel,noplainbuffer"
-
--- Make sure terraform files work as intended
-vim.filetype.add({
-    extension = {
-        tf = "terraform",
-    },
-})
 
 -- Enable the new UI
 require("vim._core.ui2").enable({
