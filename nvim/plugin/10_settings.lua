@@ -27,6 +27,7 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "+" }
 
 vim.opt.shell = "/bin/bash"
 vim.opt.cursorline = true
+vim.opt.exrc = true
 
 -- Autocompletion
 vim.opt.autocomplete = true

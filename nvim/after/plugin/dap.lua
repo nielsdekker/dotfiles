@@ -24,20 +24,3 @@ dap.adapters.go = function(callback, client_config)
         },
     })
 end
-
-dap.configurations.go = {
-    {
-        type = "go",
-        name = "Run cmd/main",
-        request = "launch",
-        program = "./cmd/main.go",
-        outputMode = "remote",
-    },
-    {
-        type = "go",
-        name = "Run file",
-        request = "launch",
-        program = "${file}",
-        outputMode = "remote",
-    },
-}
