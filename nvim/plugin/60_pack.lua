@@ -9,6 +9,7 @@ vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/stevearc/quicker.nvim" },
     { src = "https://github.com/folke/snacks.nvim" },
+    { src = "https://github.com/stevearc/conform.nvim" },
     {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         version = "main",

@@ -5,11 +5,11 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "mini.nvim": {
-      "rev": "6664ea9af6c43dc31934e27476bbe61c556c8dc1",
+      "rev": "66b9e643b6dabe15079be7197ee4b4d59ff98c61",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
-      "rev": "5adc81b26232954cd7a90f158aa7844c18fc3165",
+      "rev": "a6549816e62cec7037f1549d8f1659d45635370c",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim": {
@@ -21,16 +21,16 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "e766b3d8acef97e7e8b29f7f421aa4977b9978e1",
+      "rev": "b4486a6e83c45db4712849c09a76ef95b41a2133",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-treesitter": {
-      "rev": "9a168f6357ed21c3a636e1727bc7d382abc451b8",
+      "rev": "29212d826054bb2948fa9d3a99eca9bf6a050eb2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "oil.nvim": {
-      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
+      "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {

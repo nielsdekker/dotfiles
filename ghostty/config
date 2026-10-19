@@ -11,8 +11,8 @@ window-theme = ghostty
 
 gtk-titlebar-style = tabs
 
-background-opacity = 0.95
-background-opacity-cells = true
+background-opacity = 0.85
+background-opacity-cells = false
 background-blur = true
 
 ##################

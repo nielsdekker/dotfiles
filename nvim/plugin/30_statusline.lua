@@ -1,7 +1,6 @@
 local M = {
     _git_cache = "",
     _diagnostics_cache = "",
-    _everhour_cache = "",
 }
 
 StatusLine = function()
@@ -10,8 +9,6 @@ StatusLine = function()
         M._diagnostics_cache,
         M._git_cache,
         M.with_hl("%f%m%r", M.groups.default),
-        "%=",
-        M._everhour_cache,
     }
 
     local s_line = ""
@@ -76,20 +73,6 @@ M.update_branch_name = function()
     end)
 end
 
---- Updates the everhour cache
----
---- @param timer any|nil
---- @return string
-M.update_everhour = function(task)
-    if task == nil or task.data == nil or task.data.task == nil then
-        M._everhour_cache = ""
-    else
-        M._everhour_cache = M.with_border(M.icons.timer .. " " .. task.data.task.name, M.groups.info)
-    end
-
-    M._redraw()
-end
-
 --- Diagnostics from the LSP and other thingies that set diagnostics
 M.get_diagnostics = function()
     local error_count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }))
@@ -99,7 +82,7 @@ M.get_diagnostics = function()
         return M.with_hl(M.icons.border_left, M.groups.diag_errors .. "Inverse")
             .. M.with_hl(M.icons.err .. " " .. error_count, M.groups.diag_errors)
             .. M.with_hl(M.icons.triangle, M.groups.diag_seperator)
-            .. M.with_hl(M.icons.warn .. " " .. warning_count, M.groups.diag_warnings)
+            .. M.with_hl(warning_count, M.groups.diag_warnings)
             .. M.with_hl(M.icons.border_right, M.groups.diag_warnings .. "Inverse")
     elseif error_count ~= 0 then
         return M.with_border(M.icons.err .. " " .. error_count, M.groups.diag_errors)
@@ -168,14 +151,4 @@ vim.api.nvim_create_autocmd({ "FocusGained" }, {
 vim.api.nvim_create_autocmd("User", {
     pattern = "NeogitBranchCheckout",
     callback = M.update_branch_name,
-})
-
-vim.api.nvim_create_autocmd("User", {
-    pattern = "EverhourTimerStarted",
-    callback = M.update_everhour,
-})
-
-vim.api.nvim_create_autocmd("User", {
-    pattern = "EverhourTimerStopped",
-    callback = M.update_everhour,
 })
